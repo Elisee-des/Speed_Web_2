@@ -1,0 +1,57 @@
+.entete{
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+.logo{
+    display: flex;
+}
+.recherche{ 
+    display: flex;
+   padding: 0px 400px 0px 0px;  
+}
+.recherche1 {
+    margin: 15px;
+}
+.recherche1 input[type="submit"]{
+    background-color: rgb(42, 101, 189);
+    border-radius: 0px 10px 10px 0px;
+    padding: 3px;
+}
+.recherche1 input[type="text"]{
+   padding: 3px;
+   
+}
+.recherche2 ul {
+    display: flex;
+    justify-content: space-between;
+   
+}.recherche2 ul {
+    list-style: none;
+}
+.recherche2 ul li{
+    padding: 0px 10px;
+    justify-content: space-between;
+}
+
+/* la navigation */
+.navbar ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background: rgba(10, 161, 231, 0.986);
+     padding: 15px;     
+}
+.navbar ul li a{
+    text-decoration: none;
+    padding:   50px;
+    color: azure;
+    font-size: 1.5em;
+}
+#carouselExampleCaptions{
+    width: 55%;
+    /* right: 30%; */
+    left: 35%;
+   
+}
