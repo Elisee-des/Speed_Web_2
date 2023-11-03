@@ -10,7 +10,7 @@
             Veuillez entrez vos cordonnées pour vous connecter
         </p>
 
-        <form action="private/index.html" class="form-login">
+        <form action="{{route('auth.connexion.action')}}" class="form-login">
             <div class="container">
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Entrez Votre Email" name="email" id="email" />
@@ -20,7 +20,7 @@
 
                 <hr />
 
-                <a href="private/index.html"><button type="submit" class="registerbtn">
+                <a href=""><button type="submit" class="registerbtn">
                         Se Connecter
                     </button></a>
             </div>

@@ -1,13 +1,13 @@
 <div class="header">
-    <a href="index.html" class="logo">SPEED-RESULTAT</a>
+    <a href="{{route('accueil')}}" class="logo">SPEED-RESULTAT</a>
     <div class="header-right">
         <div>
             <a href="{{route('accueil')}}">Accueil</a>
             <a href="{{route('apropos')}}">A propos</a>
             <a href="{{route('contact')}}">Contact</a>
-            <a href="{{route('inscription')}}">Inscription</a>
-            <a class="active" href="{{route('connexion')}}">Connexion</a>
-            <a href="private/profil.html"><i class="fa-solid fa-user" style="color: #feffff"></i></a>
+            <a href="{{route('auth.inscription')}}">Inscription</a>
+            <a class="active" href="{{route('auth.connexion')}}">Connexion</a>
+            {{-- <a href="private/profil.html"><i class="fa-solid fa-user" style="color: #feffff"></i></a> --}}
         </div>
     </div>
     <a href="javascript:void(0);" class="img-hamg" onclick="myFunction()">

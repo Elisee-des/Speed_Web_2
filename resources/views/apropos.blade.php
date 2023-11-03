@@ -2,7 +2,6 @@
 
 @section('titre', "A propos")
 
-
 @section('content')
 <div class="container-regsiter">
   <h1 class="title-register">A propos</h1>

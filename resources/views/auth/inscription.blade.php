@@ -10,7 +10,7 @@
             Veuillez entrez vos cordonnées pour vous creér un compte
         </p>
 
-        <form action="private/index.html" class="form-regsiter">
+        <form action="{{route('auth.inscription.save')}}" class="form-regsiter">
             <div class="container">
                 <label for="nom_prenom"><b>Nom Prénom</b></label>
                 <input type="text" placeholder="Entrez Votre Nom Et Votre Prenom" name="nom_prenom" id="nom_prenom" />
