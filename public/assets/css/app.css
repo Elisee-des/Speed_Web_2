@@ -878,3 +878,40 @@ textarea {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
 }
 /*Fin Page a propos*/
+
+/*Tableau contenu */
+
+.table-container-elements {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.btn-cool {
+    background-color: var(--aa-primary) !important;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s !important;
+    border: none !important;
+}
+
+.btn-cool:hover {
+    letter-spacing: 1px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+
+.text-images-plus {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background: var(--aa-primary);
+    border-radius: 12px;
+    padding: 7px;
+}
+.text-images-plus-text {
+    color: var(--aa-white);
+    transition: 0.5s !important;
+}
+
+.text-images-plus-text:hover {
+    color: var(--aa-white);
+    letter-spacing: 2px;
+}
+/*Fin Tableau*/

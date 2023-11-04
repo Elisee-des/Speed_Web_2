@@ -11,7 +11,7 @@
         <i class="fa fa-caret-down"></i>
     </a>
     <div class="dropdown-container">
-        <a href="#"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
+        <a href="{{route('resultats.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
             Résultats</a>
         <a href="#"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
             Proclamation</a>

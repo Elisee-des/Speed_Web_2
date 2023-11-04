@@ -21,13 +21,4 @@ class PublicController extends Controller
         return view('contact');
     }
 
-    public function inscription()
-    {
-        return view('inscription');
-    }
-
-    public function connexion()
-    {
-        return view('connexion');
-    }
 }

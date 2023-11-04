@@ -10,6 +10,8 @@
     <link href="{{asset('/assets/fontawesome-free-6.4.2-web/css/solid.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href='{{asset('assets/css/app.css')}}' />
     <link rel="stylesheet" href='{{asset('assets/css/bootstrap/css/bootstrap.min.css')}}' />
+    <link rel="stylesheet" href='{{asset('assets/css/dataTables.bootstrap5.min.css')}}' />
+    <link rel="stylesheet" href='{{asset('assets/css/jquery.dataTables.min.css')}}' />
 
     <title>@yield('titre')</title>
 </head>
@@ -24,6 +26,9 @@
     </div>
 
     <script src="{{asset('assets/js/app.js')}}"></script>
+    <script src="{{asset('assets/js/dataTables.bootstrap5.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery-3.7.0.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap/js/bootstrap.min.js')}}"></script>
 </body>
 
