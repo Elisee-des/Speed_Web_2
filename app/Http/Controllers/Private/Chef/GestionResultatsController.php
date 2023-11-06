@@ -12,7 +12,7 @@ class GestionResultatsController extends Controller
      */
     public function index()
     {
-        return view('private.chef.gestion-resultats');
+        return view('private.chef.gestion-resultats.index');
     }
 
     /**
@@ -36,8 +36,7 @@ class GestionResultatsController extends Controller
      */
     public function show(string $idResultat)
     {
-        $id = 1;
-        return view('private.chef.gestion-resultats-detail', ['idResultat' => $idResultat]);
+        return view('private.chef.gestion-resultats.detail', ['idResultat' => $idResultat]);
     }
 
     /**

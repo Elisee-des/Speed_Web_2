@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Private\AideController;
+use App\Http\Controllers\Private\Chef\GestionDeliberationController;
+use App\Http\Controllers\Private\Chef\GestionProclamationsController;
 use App\Http\Controllers\Private\Chef\GestionResultatsController;
 use App\Http\Controllers\Private\DeliberationController;
 use App\Http\Controllers\Private\ProclamationController;
@@ -51,7 +53,9 @@ Route::prefix('compte')->group(function () {
     //Les routes dedidier specialements au utilisateur ayant le role de "CHEF"
 
     Route::resource('resultats', GestionResultatsController::class);
-    
+    Route::resource('proclamations', GestionProclamationsController::class);
+    Route::resource('deliberations', GestionDeliberationController::class);
+
     //FIN
 
 });

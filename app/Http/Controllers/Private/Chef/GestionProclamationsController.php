@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Private\Chef;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class GestionDeliberationController extends Controller
+class GestionProclamationsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('private.chef.gestion-deliberations.index');
+        return view('private.chef.gestion-proclamations.index');
     }
 
     /**
@@ -36,7 +36,7 @@ class GestionDeliberationController extends Controller
      */
     public function show(string $idResultat)
     {
-        return view('private.chef.gestion-deliberations.detail', ['idResultat' => $idResultat]);
+        return view('private.chef.gestion-proclamations.detail', ['idResultat' => $idResultat]);
     }
 
     /**

@@ -13,10 +13,10 @@
     <div class="dropdown-container">
         <a href="{{route('resultats.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
             Résultats</a>
-        <a href="#"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
-            Proclamation</a>
-        <a href="#"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
-            Délibération</a>
+        <a href="{{route('proclamations.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
+            Proclamations</a>
+        <a href="{{route('deliberations.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
+            Délibérations</a>
     </div>
     <a href="{{route('compte.aide')}}"><i class="fa-solid fa-message" style="color: #feffff"></i> Aide</a>
     <a href="{{route('profil.accueil')}}"><i class="fa-sharp fa-solid fa-address-card" style="color: #feffff"></i>

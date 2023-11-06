@@ -459,7 +459,7 @@ a {
 .sidebar {
     margin-top: 69px;
     padding: 0;
-    width: 220px;
+    width: 230px;
     background-color: var(--aa-primary);
     position: fixed;
     height: 100%;
@@ -500,18 +500,17 @@ a {
 .sidebar a.active {
     border: 1px solid var(--aa-white);
     color: white;
+    box-sizing: border-box;
+    transition: 0.5s;
 }
 
 .sidebar a:hover:not(.active) {
-    transition: 0.5s;
-    border: 1px solid var(--aa-white);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 15px;
+    font-weight: 6x00;
 }
 
 div.content {
-    margin-left: 220px;
+    margin-left: 230px;
     padding: 79px 16px;
     height: 100%;
     margin-bottom: 0px;
@@ -905,6 +904,15 @@ textarea {
     border-radius: 12px;
     padding: 7px;
 }
+
+.text-images-plus-delete {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background: #e3423d !important;
+    border-radius: 12px;
+    padding: 7px;
+}
 .text-images-plus-text {
     color: var(--aa-white);
     transition: 0.5s !important;
@@ -913,5 +921,10 @@ textarea {
 .text-images-plus-text:hover {
     color: var(--aa-white);
     letter-spacing: 2px;
+}
+
+.contenair-images-detail{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
 }
 /*Fin Tableau*/
