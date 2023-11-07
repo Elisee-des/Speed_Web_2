@@ -22,6 +22,7 @@ html {
     --aa-primary: #008069;
     --aa-white: #fff;
     --aa-black: #000;
+    --aa-red: #ff2600;
     --aa-orange: #ff6333;
     --aa-light-gray: #f2f3f5;
 }
@@ -727,7 +728,7 @@ textarea {
 
 .container-formulaire-profil {
     background-color: var(--aa-light-gray);
-    width: 80%;
+    width: 100%;
     margin: auto;
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -788,6 +789,24 @@ textarea {
     border-radius: 15px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 618px) {
+    .container-formulaire-file {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container-formulaire-file {
+        margin: auto;
+        width: 100%;
+        border: 1px solid var(--aa-primary);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    }
 }
 
 .content-edit-file {
@@ -891,6 +910,13 @@ textarea {
     border: none !important;
 }
 
+.btn-cool-delete {
+    background-color: var(--aa-red) !important;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s !important;
+    border: none !important;
+}
+
 .btn-cool:hover {
     letter-spacing: 1px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
@@ -923,8 +949,14 @@ textarea {
     letter-spacing: 2px;
 }
 
-.contenair-images-detail{
+.contenair-images-detail {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
     border-radius: 12px;
+}
+
+.a-content-option{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 /*Fin Tableau*/

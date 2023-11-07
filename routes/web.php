@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Private\Admin\TableaudebordController;
 use App\Http\Controllers\Private\AideController;
 use App\Http\Controllers\Private\Chef\GestionDeliberationController;
 use App\Http\Controllers\Private\Chef\GestionProclamationsController;
 use App\Http\Controllers\Private\Chef\GestionResultatsController;
 use App\Http\Controllers\Private\DeliberationController;
+use App\Http\Controllers\Private\Etudiant\TableaudebordController as EtudiantTableaudebordController;
 use App\Http\Controllers\Private\ProclamationController;
 use App\Http\Controllers\Private\ProfilController;
 use App\Http\Controllers\Private\ResultatsController;
@@ -36,6 +38,7 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('compte')->group(function () {
+    Route::get('/tableau-de-bord', [EtudiantTableaudebordController::class, 'index'])->name('etudiant.tableaudebord');
     Route::get('/resultats/liste', [ResultatsController::class, 'resultats'])->name('compte.resultats');
     Route::get('/proclamations/liste', [ProclamationController::class, 'proclamations'])->name('compte.proclamations');
     Route::get('/deliberations/liste', [DeliberationController::class, 'deliberations'])->name('compte.deliberations');
@@ -59,4 +62,7 @@ Route::prefix('compte')->group(function () {
     //FIN
 
 });
+
+//Les routes pour l'adminnistrateur
+Route::get('admin-tableau-de-bord', [TableaudebordController::class, 'index'])->name('admin.tableaudebord');
 //FIN

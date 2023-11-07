@@ -51,3 +51,92 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
+
+var exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = button.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
+
+
+var exampleModalEdition = document.getElementById('exampleModalEdition')
+exampleModalEdition.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var buttonEdition = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = buttonEdition.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
+
+
+var exampleModalEditionImage = document.getElementById('exampleModalEditionImage')
+exampleModalEditionImage.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var buttonEditionImage = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = buttonEditionImage.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
+
+
+var exampleModalEditionDelete = document.getElementById('exampleModalEditionDelete')
+exampleModalEditionDelete.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var buttonEditionDelete = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = buttonEditionDelete.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
+
+var exampleModalEditionAllImages = document.getElementById('exampleModalEditionAllImages')
+exampleModalEditionAllImages.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var buttonEditionAllImages = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var recipient = buttonEditionAllImages.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = 'New message to ' + recipient
+  modalBodyInput.value = recipient
+})
