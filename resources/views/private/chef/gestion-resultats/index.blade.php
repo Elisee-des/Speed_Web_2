@@ -24,7 +24,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="mb-0"></h1>
                 <div>
-                    <a href="" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter un nouveau resultats" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-sharp fa-plus"></i> Ajouter</a>
+                    <a href="" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter une nouvelle délibération" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-sharp fa-plus"></i> Ajouter</a>
                 </div>
             </div>
         

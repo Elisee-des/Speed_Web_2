@@ -16,6 +16,16 @@ class AuthController extends Controller
         return view('auth.inscription');
     }
 
+    public function inscription_etudiant()
+    {
+        return view('auth.inscription-etudiant');
+    }
+
+    public function inscription_delegue()
+    {
+        return view('auth.inscription-delegue');
+    }
+
     public function inscription_save(Request $request)
     {
         // Validator::make(

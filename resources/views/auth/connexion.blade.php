@@ -28,7 +28,7 @@
             <div class="container signin">
                 <p>
                     Avez-vous dèja un compte ?
-                    <a href="inscription.html">S'Inscrire</a>.
+                    <a href="{{route('auth.inscription')}}">S'Inscrire</a>.
                 </p>
             </div>
         </form>

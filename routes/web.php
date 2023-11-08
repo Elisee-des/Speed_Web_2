@@ -32,6 +32,8 @@ Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
 
 Route::prefix('auth')->group(function () {
     Route::get('/inscription', [AuthController::class, 'inscription'])->name('auth.inscription');
+    Route::get('/inscription/etudiant', [AuthController::class, 'inscription_etudiant'])->name('auth.inscription.etudiant');
+    Route::get('/inscription/delegue', [AuthController::class, 'inscription_delegue'])->name('auth.inscription.delegue');
     Route::get('/inscription/save', [AuthController::class, 'inscription_save'])->name('auth.inscription.save');
     Route::get('/connexion', [AuthController::class, 'connexion'])->name('auth.connexion');
     Route::get('/connexion/action', [AuthController::class, 'connexion_action'])->name('auth.connexion.action');
