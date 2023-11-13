@@ -3,7 +3,11 @@
   <div class="header-right">
     <div>
       <a class="" href="{{route('accueil')}}">Accueil</a>
-      <a class="active" onclick="return confirm('Etes vous sûr?')" href="../index.html">Déconnexion</a>
+      <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Déconnexion</a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        @csrf
+      </form>
     </div>
   </div>
 </div>

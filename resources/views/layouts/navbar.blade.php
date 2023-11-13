@@ -5,8 +5,17 @@
             <a href="{{route('accueil')}}">Accueil</a>
             <a href="{{route('apropos')}}">A propos</a>
             <a href="{{route('contact')}}">Contact</a>
-            <a href="{{route('auth.inscription')}}">Inscription</a>
-            <a class="active" href="{{route('auth.connexion')}}">Connexion</a>
+            @auth
+            <a href="#">{{ Auth::user()->nom_prenom }}</a>
+            <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Déconnexion</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+            </form>
+            @else
+            <a href="{{route('register')}}" class="">Inscription</a>
+            <a class=" active" href="{{route('login')}}" class="">Connexion</a>
+            @endauth
             {{-- <a href="private/profil.html"><i class="fa-solid fa-user" style="color: #feffff"></i></a> --}}
         </div>
     </div>

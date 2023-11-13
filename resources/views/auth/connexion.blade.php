@@ -10,13 +10,14 @@
             Veuillez entrez vos cordonnées pour vous connecter
         </p>
 
-        <form action="{{route('auth.connexion.action')}}" class="form-login">
+        <form action="{{route('login.action')}}" class="form-login" method="POST">
+            @csrf
             <div class="container">
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Entrez Votre Email" name="email" id="email" />
 
                 <label for="psw"><b>Mot De Passe</b></label>
-                <input type="password" placeholder="Entrez Un Mot de Passe" name="psw" id="psw" />
+                <input type="password" placeholder="Entrez Un Mot de Passe" name="password" id="psw" />
 
                 <hr />
 
@@ -28,7 +29,7 @@
             <div class="container signin">
                 <p>
                     Avez-vous dèja un compte ?
-                    <a href="{{route('auth.inscription')}}">S'Inscrire</a>.
+                    <a href="{{route('register')}}">S'Inscrire</a>.
                 </p>
             </div>
         </form>

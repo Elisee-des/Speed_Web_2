@@ -9,7 +9,7 @@
     <link href="{{asset('/assets/fontawesome-free-6.4.2-web/css/brands.css')}}" rel="stylesheet" />
     <link href="{{asset('/assets/fontawesome-free-6.4.2-web/css/solid.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap/css/bootstrap.min.css')}}" />
 
     <title>@yield('titre')</title>
 </head>
@@ -25,7 +25,7 @@
         Top
     </button>
 
-    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/app.js')}}"></script>
 </body>
 

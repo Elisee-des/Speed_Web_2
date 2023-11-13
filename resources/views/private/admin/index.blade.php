@@ -4,7 +4,7 @@
 
 @section('content_private')
 
-<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+<nav style="--bs-breadcrumb-divider" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <a href="deliberation.html">Admin</a>
@@ -15,7 +15,10 @@
 </nav>
 
 <div class="container-content">
-  <h2 class="title-header">Bienvenu Admin Sabidani Elisee</h2>
+  @if (auth()->user()->role == 'admin')
+  <h2 class="title-header">Bienvenu Administrateur {{ auth()->user()->nom_prenom }}</h2>
+  @endif
+  <h2 class="title-header">Bienvenu Gestionnaire {{ auth()->user()->nom_prenom }}</h2>
   
 </div>
 

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nom_prenom',
         'email',
         'password',
     ];
@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function delegues()
+    {
+        return $this->belongsToMany(Delegue::class);
+    }
 }
