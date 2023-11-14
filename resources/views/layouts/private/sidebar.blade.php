@@ -1,7 +1,15 @@
 <div class="sidebar">
-    <a href="{{route('etudiant.tableaudebord')}}"><i class="fa-solid fa-gauge" style="color: #feffff"></i> Tableau de
+    <a href="{{route('etudiant.tableaudebord')}}"><i class="fa-solid fa-gauge" style="color: #feffff"></i> E-Tableau de
         bord</a>
-    <a href="{{route('compte.resultats')}}"><i class="fa-solid fa-rectangle-list" style="color: #feffff;"></i> Résultats</a>
+        <a href="{{route('admin.tableaudebord')}}" class="mt-3"><i class="fa-solid fa-gauge" style="color: #feffff"></i>
+            A-Tableau de
+            bord</a>
+            <a href="{{route('gestionnaire.tableaudebord')}}" class="mt-3"><i class="fa-solid fa-gauge" style="color: #feffff"></i>
+                G-tableau de bord</a>
+                <a href="{{route('delegue.tableaudebord')}}" class="mt-3"><i class="fa-solid fa-gauge" style="color: #feffff"></i>
+                    D-tableau de bord</a>
+    <a href="{{route('compte.resultats')}}"><i class="fa-solid fa-rectangle-list" style="color: #feffff;"></i>
+        Résultats</a>
     <a href="{{route('compte.proclamations')}}"><i class="fa-solid fa-list" style="color: #feffff"></i>
         Proclamations</a>
     <a href="{{route('compte.deliberations')}}">
@@ -23,9 +31,6 @@
     <a href="{{route('profil.accueil')}}"><i class="fa-sharp fa-solid fa-address-card" style="color: #feffff"></i>
         Profil</a>
 
-    <a href="{{route('admin.tableaudebord')}}" class="mt-3"><i class="fa-solid fa-gauge" style="color: #feffff"></i>
-        Admin-Tableau de
-        bord</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-users" style="color: #feffff;"></i>
         Gestionnaires</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
@@ -38,4 +43,5 @@
         Deliberations</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-bell" style="color: #feffff;"></i>
         Notifications</a>
+
 </div>

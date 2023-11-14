@@ -67,9 +67,12 @@ class AuthController extends Controller
         $user = Auth::user();
         $redirectRoute = '';
         
-        if (in_array($user->role, ['Gestionnaire', 'Admin'])) {
+        if (in_array($user->role, ['Admin'])) {
             $redirectRoute = 'admin.tableaudebord';
-        } elseif (in_array($user->role, ['Etudiant'])) {
+        } elseif (in_array($user->role, ['Gestionnaire'])) {
+            $redirectRoute = 'gestionnaire.tableaudebord';
+        }
+        elseif (in_array($user->role, ['Etudiant'])) {
             $redirectRoute = 'etudiant.tableaudebord';
         } elseif (in_array($user->role, ['Delegue'])) {
             $redirectRoute = 'delegue.tableaudebord';

@@ -1,13 +1,13 @@
 @extends('layouts.private.app')
 
-@section('titre', "Délégué-Tableau de bord ")
+@section('titre', "Gestionnaire-Tableau de bord ")
 
 @section('content_private')
 
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="deliberation.html">Délégué</a>
+            <a href="deliberation.html">Gestionnaire</a>
         </li>
 
         <li class="breadcrumb-item active" aria-current="page">Tableau de bord</li>
@@ -15,11 +15,11 @@
 </nav>
 
 <div class="container-content">
-    <h2 class="title-header">Bienvenu Délégue {{ auth()->user()->nom_prenom }}</h2>
+    <h2 class="title-header">Bienvenu Gestionnaire {{auth()->user()->nom_prenom}}</h2>
 
     <div class="row mt-4 g-2">
         <div class="col-xl-3 col-md-6">
-            <div class="card card-animate card-details-elements" style="background-color: #ff6333">
+            <div class="card card-animate bg-dark card-details-elements">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -28,7 +28,7 @@
                                     data-target="28.05">102</span>
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-success mb-0"><i
-                                        class="ri-arrow-up-line align-middle"></i>Le total </span> résultats que vous avez enregistré</p>
+                                        class="ri-arrow-up-line align-middle"></i>Le totale </span> résultats</p>
                         </div>
                         <div>
                             <div class="avatar-sm flex-shrink-0">
@@ -43,7 +43,7 @@
         </div> <!-- end col-->
 
         <div class="col-xl-3 col-md-6">
-            <div class="card card-animate bg-secondary card-details-elements">
+            <div class="card card-animate bg-secondary card-details-elements" >
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -53,7 +53,7 @@
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-danger mb-0"><i
                                         class="ri-arrow-down-line align-middle" style="color: white"></i> Le total
-                                </span> proclamations que vous avez enregistré
+                                </span> proclamations
                             </p>
                         </div>
                         <div>
@@ -69,7 +69,7 @@
         </div> <!-- end col-->
 
         <div class="col-xl-3 col-md-6">
-            <div class="card card-animate bg-danger card-details-elements">
+            <div class="card card-animate card-details-elements" style="background-color: #008069">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -78,7 +78,7 @@
                                     data-target="3">309</span>
                             </h2>
                             <p class="mb-0 text-white-50"><span class="badge badge-soft-light mb-0"><i
-                                        class="ri-arrow-down-line align-middle"></i> le total </span> Déliberation que vous avez enregistré</p>
+                                        class="ri-arrow-down-line align-middle"></i> le total </span> Déliberation</p>
                         </div>
                         <div>
                             <div class="avatar-sm flex-shrink-0">
@@ -93,16 +93,16 @@
         </div> <!-- end col-->
 
         <div class="col-xl-3 col-md-6">
-            <div class="card card-animate card-details-elements" style="background-color: #008069">
+            <div class="card card-animate bg-danger card-details-elements" style="background-color: #ff6333">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <p class="fw-medium text-white mb-0">Etudiants</p>
+                            <p class="fw-medium text-white mb-0">L'ensemble</p>
                             <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" style="color: white"
                                     data-target="33.48">502</span>
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-success mb-0"><i
-                                        class="ri-arrow-up-line align-middle"></i> Total </span> des etudiant qui vous suivent.</p>
+                                        class="ri-arrow-up-line align-middle"></i> Total </span> des fichiers</p>
                         </div>
                         <div>
                             <div class="avatar-sm flex-shrink-0">
@@ -117,28 +117,18 @@
         </div> <!-- end col-->
     </div> <!-- end row-->
 
-    <div class="row mt-4 g-2">
-        <div class="col-xl-12 col-md-6">
-            <div class="p-1">
-                <p style="font-size: 20px">Vous avez comme gestionnaire : <a href="" title="Cliquz pour voir plus d'information">Sawadogo Francis</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-4 g-2">
-        <p>Les délégues qui forment ce compte sont : </p>
+    <div class="row mt-4 g-1">
         <div class="col-xl-6 col-md-6 card-dashbord">
             <div class="p-1">
-                <p style="font-size: 20px">Délégué : <a href="" title="Cliquz pour voir plus d'information">Ouedraogo Junoir</a></p>
+                <p style="font-size: 20px;">Total des délégués que vous manager : <a href="" title="Cliquez pour voir la liste des délégués"><span style="font-size: 20px;, font-weight: 900;">30 </span>délégués</a></p>
             </div>
         </div>
         <div class="col-xl-6 col-md-6 card-dashbord">
             <div class="p-1">
-                <p style="font-size: 20px">Délégué adjoint : <a href="" title="Cliquz pour voir plus d'information">Ramdé Soulemane</a></p>
+                <p style="font-size: 20px;">Total des etudiants qui suivent vos délégués : <span style="font-size: 20px;, font-weight: 900;">5000</span></p>
             </div>
         </div>
     </div>
-
 </div>
 
 @endsection

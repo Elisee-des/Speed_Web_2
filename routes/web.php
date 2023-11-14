@@ -9,6 +9,7 @@ use App\Http\Controllers\Private\Chef\GestionProclamationsController;
 use App\Http\Controllers\Private\Chef\GestionResultatsController;
 use App\Http\Controllers\Private\DeliberationController;
 use App\Http\Controllers\Private\Etudiant\EtudiantTableaudebordController;
+use App\Http\Controllers\private\gestionnaire\GestionnnaireTableaudebordController;
 use App\Http\Controllers\Private\ProclamationController;
 use App\Http\Controllers\Private\ProfilController;
 use App\Http\Controllers\Private\ResultatsController;
@@ -70,6 +71,10 @@ Route::middleware('auth')->group(function () {
 
     //Les routes pour le delegue
     Route::get('delegue-tableau-de-bord', [DelegueTableaudebordController::class, 'index'])->name('delegue.tableaudebord');
+    //FIN
+
+    //Les routes pour le gestionnaire
+    Route::get('gestionnaire-tableau-de-bord', [GestionnnaireTableaudebordController::class, 'index'])->name('gestionnaire.tableaudebord');
     //FIN
 
     //Les routes pour l'adminnistrateur

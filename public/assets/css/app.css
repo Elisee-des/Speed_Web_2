@@ -1049,3 +1049,68 @@ textarea {
     gap: 20px;
 }
 /*Fin Tableau*/
+
+/*Dashbord debut de gestion*/
+
+.card-dashbord{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+}
+
+.card-dashbord:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+}
+
+.card-container-graphe-all{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+}
+
+.card-container-graphe-all:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 01);
+}
+
+.card-details-elements{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+}
+
+.card-details-elements:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+}
+
+.container-graphe-dashbord{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-graphe-admindashbord{
+    background-color: var(--aa-primary);
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 12px;
+    color: var(--aa-white);
+    text-decoration: none;
+    transition: 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.btn-graphe-admindashbord:hover{
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 488px) {
+    .container-graphe-dashbord{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-graphe-admindashbord{
+        text-align: center;
+    }
+}
+/*Fin dashbord gestion*/

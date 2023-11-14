@@ -42,7 +42,7 @@
                 <label for="delegue_id"><b>Choisir vos délégués</b><span style="color: red">*</span></label>
                 <select class="form-select-auth" class="@error('delegue_id') is-invalid @enderror" id="delegue_id"
                     name="delegue_id" aria-label="Default select example">
-                    <option selected>Veillez selectionner</option>
+                    <option selected>Aucun</option>
                     @foreach ($delegues as $delegue)
                     <option value="{{$delegue->id}}">{{$delegue->delegues}}</option>
                     @endforeach
