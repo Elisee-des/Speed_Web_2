@@ -54,14 +54,15 @@ class AuthController extends Controller
         Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required'
-        ])->validate();
-
-        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed')
-            ]);
-        }
-
+            ])->validate();
+            
+            if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+                throw ValidationException::withMessages([
+                    'email' => trans('auth.failed')
+                ]);
+            }
+            // dd($request->all());
+            
         $request->session()->regenerate();
 
         $user = Auth::user();

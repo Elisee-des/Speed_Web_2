@@ -59,19 +59,18 @@ Route::middleware('auth')->group(function () {
             });
         });
 
-        //Les routes dedidier specialements au utilisateur ayant le role de "CHEF"
-
-        Route::resource('resultats', GestionResultatsController::class);
-        Route::resource('proclamations', GestionProclamationsController::class);
-        Route::resource('deliberations', GestionDeliberationController::class);
-
+        
+        //Les routes pour le delegue
+        Route::middleware('role:delegue')->group(function () {
+            Route::get('delegue-tableau-de-bord', [DelegueTableaudebordController::class, 'index'])->name('delegue.tableaudebord');
+            Route::resource('resultats', GestionResultatsController::class);
+            Route::resource('proclamations', GestionProclamationsController::class);
+            Route::resource('deliberations', GestionDeliberationController::class);
+        });
         //FIN
 
     });
 
-    //Les routes pour le delegue
-    Route::get('delegue-tableau-de-bord', [DelegueTableaudebordController::class, 'index'])->name('delegue.tableaudebord');
-    //FIN
 
     //Les routes pour le gestionnaire
     Route::get('gestionnaire-tableau-de-bord', [GestionnnaireTableaudebordController::class, 'index'])->name('gestionnaire.tableaudebord');
