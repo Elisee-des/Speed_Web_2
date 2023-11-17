@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AutresController;
 use App\Http\Controllers\Private\Admin\AdminTableaudebordController;
 use App\Http\Controllers\Private\AideController;
 use App\Http\Controllers\Private\Chef\DelegueTableaudebordController;
@@ -59,7 +60,7 @@ Route::middleware('auth')->group(function () {
             });
         });
 
-        
+
         //Les routes pour le delegue
         Route::middleware('can-manage-files')->group(function () {
             Route::get('delegue-tableau-de-bord', [DelegueTableaudebordController::class, 'index'])->name('delegue.tableaudebord');
@@ -79,4 +80,10 @@ Route::middleware('auth')->group(function () {
     //Les routes pour l'adminnistrateur
     Route::get('admin-tableau-de-bord', [AdminTableaudebordController::class, 'index'])->name('admin.tableaudebord');
     //FIN
+
+
+    //Les routes d'accessibilité
 });
+
+Route::get('/accès refusé', [AutresController::class, 'page_access_refuser'])->name('page.access.refuser');
+Route::get('/page introuvable', [AutresController::class, 'page_introuvable'])->name('page.introuvable');
