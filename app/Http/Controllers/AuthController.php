@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\RoleHelper;
 use App\Models\Delegue;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -39,12 +41,14 @@ class AuthController extends Controller
             ]
         );
 
-        User::create([
+        $user = User::create([
             'nom_prenom' => $request->nom_prenom,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
 
         ]);
+
+        $user->assignRole('Admin');
 
         return redirect()->route('login');
     }
@@ -54,28 +58,30 @@ class AuthController extends Controller
         Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required'
-            ])->validate();
-            
-            if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
-                throw ValidationException::withMessages([
-                    'email' => trans('auth.failed')
-                ]);
-            }
-            // dd($request->all());
-            
+        ])->validate();
+
+        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed')
+            ]);
+        }
+        // dd($request->all());
+
         $request->session()->regenerate();
 
+        // $roles = RoleHelper::getUserRoles();
+
         $user = Auth::user();
+        // $roles = $user->getRoleNames();
         $redirectRoute = '';
-        
-        if (in_array($user->role, ['Admin'])) {
+
+        if ($user->hasRole('Admin')) {
             $redirectRoute = 'admin.tableaudebord';
-        } elseif (in_array($user->role, ['Gestionnaire'])) {
+        } elseif ($user->hasRole('Gestionnaire')) {
             $redirectRoute = 'gestionnaire.tableaudebord';
-        }
-        elseif (in_array($user->role, ['Etudiant'])) {
+        } elseif ($user->hasRole('Etudiant')) {
             $redirectRoute = 'etudiant.tableaudebord';
-        } elseif (in_array($user->role, ['Delegue'])) {
+        } elseif ($user->hasRole('Delegue')) {
             $redirectRoute = 'delegue.tableaudebord';
         }
 

@@ -14,19 +14,14 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::create(['name' => 'read-admin-dashbaord']);
-        Permission::create(['name' => 'read-delegue-dashbaord']);
+        Permission::create(['name' => 'can-manage-files']);
 
         $adminRole = Role::create(['name' => 'Admin']);
+        $gestionnaireRole = Role::create(['name' => 'Gestionnaire']);
         $delegueRole = Role::create(['name' => 'Delegue']);
+        $etudiantRole = Role::create(['name' => 'Etudiant']);
 
-        $adminRole->givePermissionTo([
-            'read-admin-dashbaord',
-            'read-delegue-dashbaord',
-        ]);
-
-        $delegueRole->givePermissionTo([
-            'read-delegue-dashbaord',
-        ]);
+        // $adminRole->givePermissionTo('all');
+        $delegueRole->givePermissionTo('can-manage-files');
     }
 }

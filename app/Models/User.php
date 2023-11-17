@@ -44,6 +44,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * Always encrypt password when it is updated.
+     *
+     * @param $value
+     * @return string
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
     public function delegues()
     {
         return $this->belongsToMany(Delegue::class);
