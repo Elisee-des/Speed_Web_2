@@ -9,15 +9,21 @@
         <p class="title-register">
             Veuillez entrez vos cordonnées pour vous connecter
         </p>
-
         <form action="{{route('login.action')}}" class="form-login" method="POST">
             @csrf
             <div class="container">
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Entrez Votre Email" name="email" id="email" />
+                <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Entrez Votre Email"
+                    name="email"  value="{{ old('email') }}" id="email" />
+                @error('email')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
 
-                <label for="psw"><b>Mot De Passe</b></label>
-                <input type="password" placeholder="Entrez Un Mot de Passe" name="password" id="psw" />
+                <label for="password"><b>Mot De Passe</b></label>
+                <input type="password" class="form-control @error('password') is-invalid @enderror"  placeholder="Entrez Un Mot de Passe" name="password" id="password" />
+                @error('password')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
 
                 <hr />
 

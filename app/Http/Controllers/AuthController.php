@@ -55,9 +55,14 @@ class AuthController extends Controller
 
     public function loginAction(Request $request)
     {
+        // $this->validate($request, [
+        //     'name' => "bail|required|string|min:2",
+        //     'email' => "bail|required|email"
+        // ]);
+
         Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|string|min:3'
         ])->validate();
 
         if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {

@@ -62,12 +62,12 @@ Route::middleware('auth')->group(function () {
 
 
         //Les routes pour le delegue
-        Route::middleware('can-manage-files')->group(function () {
+        // Route::middleware('can-manage-files')->group(function () {
             Route::get('delegue-tableau-de-bord', [DelegueTableaudebordController::class, 'index'])->name('delegue.tableaudebord');
             Route::resource('resultats', GestionResultatsController::class);
             Route::resource('proclamations', GestionProclamationsController::class);
             Route::resource('deliberations', GestionDeliberationController::class);
-        });
+        // });
         //FIN
 
     });

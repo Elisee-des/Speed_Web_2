@@ -140,3 +140,27 @@ exampleModalEditionAllImages.addEventListener('show.bs.modal', function (event) 
   // modalTitle.textContent = 'New message to ' + recipient
   modalBodyInput.value = recipient
 })
+
+
+/*Gestion de l'ouverture et la fermeture du header*/
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+} 
+
+
+/*Gestion de l'ouverture et la fermeture du header*/
+function openNav2() {
+  document.getElementById("mySidenavprivate").style.width = "100%";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav2() {
+  document.getElementById("mySidenavprivate").style.width = "0";
+} 
