@@ -41,10 +41,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row"><a href="{{route('resultats.show', 1)}}" title="Cliquez pour voir les details">1</a></th>
-                        <td><a href="{{route('resultats.show', 1)}}" title="Cliquez pour voir les details">Electronique</a></td>
-                        <td><a href="{{route('resultats.show', 1)}}" title="Cliquez pour voir les details">9</a></td>
-                        <td><a href="{{route('resultats.show', 1)}}" title="Cliquez pour voir les details">12/02/2023</a></td>
+                        <th scope="row"><a href="{{route('delegue.resultats.show', 1)}}" title="Cliquez pour voir les details">1</a></th>
+                        <td><a href="{{route('delegue.resultats.show', 1)}}" title="Cliquez pour voir les details">Electronique</a></td>
+                        <td><a href="{{route('delegue.resultats.show', 1)}}" title="Cliquez pour voir les details">9</a></td>
+                        <td><a href="{{route('delegue.resultats.show', 1)}}" title="Cliquez pour voir les details">12/02/2023</a></td>
                     </tr>
                 </tbody>
             </table>
