@@ -88,6 +88,14 @@ html {
     }
 }
 
+@media screen and (max-width: 500px) {
+    .auth-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
 .navbar-submenu {
     /* overflow: hidden; */
     background-color: #333;
@@ -122,6 +130,7 @@ html {
     background-color: var(--aa-white);
     color: var(--aa-black);
     letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .header .active-login {
@@ -150,6 +159,16 @@ html {
     background-size: cover;
     position: relative;
     /* margin-bottom: 10px; */
+}
+
+.hero-image a {
+    font-weight: 600;
+}
+
+.hero-image a:hover {
+    letter-spacing: normal !important;
+    text-decoration: solid !important;
+    background-color: var(--aa-orange);
 }
 
 .hero-text {
@@ -381,16 +400,18 @@ a {
     }
 }
 
-/* .section-about {
-  background-color: var(--aa-light-gray);
-} */
+.section-about {
+    /* background-color: var(--aa-light-gray); */
+    margin-bottom: 12px;
+}
 
 .description-about {
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
     background-color: var(--aa-white);
-    padding: 20px;
+    padding: 12px;
     font-size: 20px;
-    margin: 50px;
+    margin: 0 5px;
+    margin-bottom: 5px;
     border-radius: 15px;
     text-justify: newspaper;
 }
@@ -401,12 +422,13 @@ a {
 }
 
 .section-fonctionnement {
-    padding-top: 5px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     background-color: var(--aa-light-gray);
 }
 
 .container-infos {
-    margin: 30px;
+    margin: 0 5px;
     display: flex;
     flex-direction: row;
 }
@@ -417,7 +439,7 @@ a {
 
 .detail-fonctionement {
     background-color: var(--aa-white);
-    margin: 30px;
+    margin: 5px;
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -441,16 +463,23 @@ a {
 }
 
 .section-avantage {
-    padding-top: 5px;
+    padding-top: 12px;
     background-color: var(--aa-white);
 }
 
 .container-avantage {
-    margin: 30px;
+    margin: 0 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 69px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 473px) {
+    .container-avantage {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .title-avantage {
@@ -1142,15 +1171,14 @@ textarea {
     color: var(--aa-primary);
 }
 
-.retour-page-accueil{
+.retour-page-accueil {
     text-align: center;
 }
 /*Fin page d'erreur*/
 
-
 /*Debut header responsive*/
- /* The side navigation menu */
- .sidenav {
+/* The side navigation menu */
+.sidenav {
     margin-top: 69px;
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -1163,35 +1191,39 @@ textarea {
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
     overflow: hidden;
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
+}
+
+/* The navigation menu links */
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
     color: #ffffff;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  } 
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
 /*Fin header responsive*/

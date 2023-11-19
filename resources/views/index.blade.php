@@ -9,7 +9,32 @@
   <div class="hero-text">
     <h1>Rester Informer sur la disponibilité de vos copies,</h1>
     <p>des proclamations et des délibérations</p>
-    <a href="connexion.html" style="text-decoration: none" class="submit-contact">Connexion</a>
+    @auth
+    <div class="auth-container">
+      @role('Admin')
+      <a href="{{route('admin.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      @endrole
+      @role('Gestionnaire')
+      <a href="{{route('gestionnaire.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      @endrole
+      @role('Delegue')
+      <a href="{{route('delegue.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      @endrole
+      @role('Etudiant')
+      <a href="{{route('etudiant.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      @endrole
+      <a class="submit-contact" href="{{ route('logout') }}" onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();">Se déconnecter</a><br>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        @csrf
+      </form>
+    </div>
+    @else
+    <div class="auth-container">
+      <a href="{{route('register')}}" style="text-decoration: none;" class="submit-contact">Inscription</a>
+      <a href="{{route('login')}}" style="text-decoration: none;" class="submit-contact">Connexion</a>
+    </div>
+    @endauth
   </div>
 </div>
 

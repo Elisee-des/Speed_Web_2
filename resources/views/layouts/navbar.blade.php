@@ -37,16 +37,31 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     <a href="{{route('accueil')}}">Accueil</a>
     <a href="{{route('apropos')}}">A propos</a>
-    <a href="{{route('contact')}}">Contact</a>
-    <a href="{{route('register')}}">Inscription</a>
-    <a href="{{route('login')}}">Connexion</a>
-    <a href="{{route('login')}}">Aller dans mon compte</a>
-    <a href="{{route('login')}}">Sabidani Elisee</a>
-    <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+    {{-- <a href="{{route('contact')}}">Contact</a> --}}
+    @auth
+    @role('Admin')
+    <a href="{{route('admin.tableaudebord')}}">Aller dans mon compte</a>
+    @endrole
+    @role('Gestionnaire')
+    <a href="{{route('gestionnaire.tableaudebord')}}">Aller dans mon compte</a>
+    @endrole
+    @role('Delegue')
+    <a href="{{route('delegue.tableaudebord')}}">Aller dans mon compte</a>
+    @endrole
+    @role('Etudiant')
+    <a href="{{route('etudiant.tableaudebord')}}">Aller dans mon compte</a>
+    @endrole
+    <hr class="hr">
+    <a href="#">{{Auth()->user()->nom_prenom}}</a>
+    <a class="active" href="{{ route('logout') }}" onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">Se déconnecter</a><br>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
         @csrf
     </form>
+    @else
+    <a href="{{route('register')}}">Inscription</a>
+    <a href="{{route('login')}}">Connexion</a>
+    @endauth
 </div>
 
 <!-- Use any element to open the sidenav -->
