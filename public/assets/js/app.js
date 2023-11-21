@@ -145,7 +145,7 @@ exampleModalEditionAllImages.addEventListener('show.bs.modal', function (event) 
 /*Gestion de l'ouverture et la fermeture du header*/
 function openNav() {
   document.getElementById("mySidenav").style.width = "100%";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
@@ -157,7 +157,7 @@ function closeNav() {
 /*Gestion de l'ouverture et la fermeture du header*/
 function openNav2() {
   document.getElementById("mySidenavprivate").style.width = "100%";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */

@@ -52,9 +52,9 @@
                 <select class="form-select-auth" class="@error('delegue_id') is-invalid @enderror" id="delegue_id"
                     name="delegue_id" aria-label="Default select example">
                     <option selected>Aucun</option>
-                    @foreach ($delegues as $delegue)
-                    <option value="{{$delegue->id}}">{{$delegue->delegues}}</option>
-                    @endforeach
+                        @foreach ($delegues as $delegue)
+                        <option value="{{$delegue->id}}">{{$delegue->delegues}}</option>
+                        @endforeach
                 </select>
                 {{-- @if ($errors->has('delegue_id'))
                 <span class="text-danger">{{ $errors->first('delegue_id') }}</span>
