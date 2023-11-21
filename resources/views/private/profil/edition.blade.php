@@ -15,97 +15,107 @@
 </nav>
 
 <div class="container-content">
-  <h2
-    class="title-header"
-    style="text-align: center;, margin-bottom:10px;"
-  >
+  <h2 class="title-header" style="text-align: center;, margin-bottom:10px;">
     Mettez à jour votre compte
   </h2>
   <div class="container-formulaire-profil">
-    <form action="../profil.html">
+    <form action="{{route('profil.edition.action')}}" method="POST">
+      @csrf
       <div class="content-edit-profil">
         <div class="container-edit-profil">
-          <label for="fname">Nom</label>
-          <input
-            type="text"
-            id="fname"
-            name="nom"
-            value="Ouedraogo"
-            class="input-profil-edit"
-            placeholder="Veuillez entrer votre nom"
-          />
+          <label for="nom_prenom">Nom Prénom</label>
+          <input type="text" id="nom_prenom" name="nom_prenom" value="{{Auth()->user()->nom_prenom}}"
+            class="input-profil-edit form-control @error('nom_prenom') is-invalid @enderror" placeholder="Veuillez entrer votre nom et prenom" />
+          @error('nom_prenom')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
         </div>
 
         <div class="container-edit-profil">
-          <label for="fname">Prenom</label>
-          <input
-            type="text"
-            id="fname"
-            name="prenom"
-            class="input-profil-edit"
-            value="Albert"
-            placeholder="Veuillez entrer votre prénom"
-          />
+          <label for="telephone">Telephone</label>
+          <input type="text" id="telephone" name="telephone" class="input-profil-edit form-control @error('telephone') is-invalid @enderror"
+            value="{{Auth()->user()->telephone}}" placeholder="Veuillez entrer votre telephone" />
+          @error('telephone')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
+        </div>
+
+        <div class="container-edit-profil">
+          <label for="ufr">UFR</label>
+          <input type="text" id="ufr" name="ufr" class="input-profil-edit form-control @error('ufr') is-invalid @enderror" value="{{Auth()->user()->ufr}}"
+            placeholder="Veuillez entrer votre UFR" />
+          @error('ufr')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
         </div>
       </div>
 
       <div class="content-edit-profil">
-        <div class="container-edit-profil">
+        {{-- <div class="container-edit-profil">
           <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value="adgalbert@gmail.com"
-            class="input-profil-edit"
-            placeholder="Veuillez entrer votre email"
-          />
+          <input type="email" id="email" name="email" value="{{Auth()->user()->email}}" class="input-profil-edit form-control @error('email') is-invalid @enderror"
+            placeholder="Veuillez entrer votre email" />
+          @error('email')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
+        </div> --}}
+
+        <div class="container-edit-profil">
+          <label for="promotion">Promotion</label>
+          <input type="text" id="supromotionjet" name="promotion" value="{{Auth()->user()->promotion}}"
+          class="input-profil-edit form-control @error('email') is-invalid @enderror" placeholder="Veuillez entrer votre promotion" />
+          @error('promotion')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
         </div>
 
         <div class="container-edit-profil">
-          <label for="sujet">INE</label>
-          <input
-            type="text"
-            id="sujet"
-            name="ine"
-            value="N00290320211"
-            class="input-profil-edit"
-            placeholder="Veuillez entrer votre ine"
-          />
+          <label for="ine">INE</label>
+          <input type="text" id="ine" name="ine" value="{{Auth()->user()->ine}}" class="input-profil-edit form-control @error('ine') is-invalid @enderror"
+            placeholder="Veuillez entrer votre ine" />
+          @error('ine')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
+        </div>
+
+        <div class="container-edit-profil">
+          <label for="filiere">Filière</label>
+          <input type="text" id="filiere" name="filiere" value="{{Auth()->user()->filiere}}" class="input-profil-edit form-control @error('filiere') is-invalid @enderror"
+            value="{{Auth()->user()->ine}}" placeholder="Veuillez entrer votre filiere" />
+          @error('filiere')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
         </div>
       </div>
 
       <div class="content-edit-profil">
         <div class="container-edit-profil">
-          <label for="sujet">Niveau etude</label>
-          <input
-            type="text"
-            id="sujet"
-            name="niveau_etude"
-            class="input-profil-edit"
-            value="Licence 2"
-            placeholder="Veuillez entrer votre niveau d'etude"
-          />
+          <label for="niveau_licence">Niveau Licence</label>
+          <input type="text" id="niveau_licence" name="niveau_licence" class="input-profil-edit form-control @error('niveau_licence') is-invalid @enderror"
+            value="{{Auth()->user()->niveau_licence}}" placeholder="Veuillez entrer votre niveau d'etude" />
+          @error('niveau_licence')
+          <span class="invalid-feedback">{{ $message }}</span>
+          @enderror
         </div>
 
-        <div class="container-edit-profil">
+        {{-- <div class="container-edit-profil">
           <label for="sujet">Promotion</label>
-          <input
-            type="text"
-            id="sujet"
-            name="promotion"
-            value="2020"
-            class="input-profil-edit"
-            placeholder="Veuillez entrer votre promotion"
-          />
-        </div>
+          <input type="text" id="sujet" name="promotion" value="{{Auth()->user()->promotion}}" class="input-profil-edit"
+            placeholder="Veuillez entrer votre promotion" />
+        </div> --}}
+
+        
       </div>
 
-      <div class="cnt-profil">
+      <div class="gap:3 cnt-profil">
         <button type="submit" style="gap: 3" class="submit-profil">
           <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i>
           Enregistrer
         </button>
+        <a href="{{route('profil.accueil')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
+          {{-- <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i> --}}
+          Annuler
+        </a>
       </div>
     </form>
   </div>

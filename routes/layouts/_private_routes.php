@@ -26,12 +26,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/deliberations/liste', [DeliberationController::class, 'deliberations'])->name('compte.deliberations');
         Route::get('/aide', [AideController::class, 'aide'])->name('compte.aide');
 
-        Route::prefix('profil')->group(function () {
+        Route::prefix('profil')->name('profil.')->group(function () {
             Route::controller(ProfilController::class)->group(function () {
-                Route::get('/accueil', 'profil_accueil')->name("profil.accueil");
-                Route::get('/edition', 'profil_edition')->name("profil.edition.profil");
-                Route::get('/edition/mot-de-passe', 'profil_mot_de_passe')->name("profil.edition.motdepasse");
-                Route::get('/edition/image', 'profil_edition_image')->name("profil.edition.image");
+                Route::get('/accueil', 'profil_accueil')->name("accueil");
+                Route::get('/edition', 'profil_edition')->name("edition.profil");
+                Route::post('/edition/action', 'edit_profil_action')->name("edition.action");
+                Route::get('/edition/mot-de-passe', 'profil_mot_de_passe')->name("edition.motdepasse");
+                Route::post('/edition/mot-de-passe/action', 'profil_mot_de_passe_action')->name("edition.motdepasse.action");
+                Route::get('/edition/image', 'profil_edition_image')->name("edition.image");
             });
         });
     });

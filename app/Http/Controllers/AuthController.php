@@ -31,15 +31,32 @@ class AuthController extends Controller
 
     public function registerSave(Request $request)
     {
-        Validator::make(
+        $validator = Validator::make(
             $request->all(),
             [
                 'nom_prenom' => 'required',
                 'email' => 'required|email|max:250|unique:users',
-                'password' => 'required|min:8|confirmed',
+                'password' => 'required|min:4|confirmed',
                 'delegue_id' => 'required',
+            ],
+            [
+                'nom_prenom.required' => 'Le champ nom et prénom est requis.',
+                'email.required' => 'Le champ email est requis.',
+                'email.email' => 'Veuillez entrer une adresse email valide.',
+                'email.max' => 'L\'adresse email ne doit pas dépasser :max caractères.',
+                'email.unique' => 'Cette adresse email est déjà utilisée.',
+                'password.required' => 'Le champ mot de passe est requis.',
+                'password.min' => 'Le mot de passe doit contenir au moins :min caractères.',
+                'password.confirmed' => 'La confirmation du mot de passe ne correspond pas.',
+                // 'delegue_id.required' => 'Le champ délégué est requis.',
             ]
         );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $user = User::create([
             'nom_prenom' => $request->nom_prenom,
@@ -47,37 +64,52 @@ class AuthController extends Controller
             'password' => $request->password,
 
         ]);
+        $user->assignRole('Etudiant');
 
-        $user->assignRole('Admin');
-
-        return redirect()->route('login');
+        return redirect()->route('login')->withMessage('Inscription réussie ! Connectez-vous maintenant.');
     }
 
     public function loginAction(Request $request)
     {
-        // $this->validate($request, [
-        //     'name' => "bail|required|string|min:2",
-        //     'email' => "bail|required|email"
-        // ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'email' => 'required|email',
+                'password' => 'required',
+            ],
+            [
+                'email.required' => 'Le champ email est requis.',
+                'email.email' => 'Veuillez entrer une adresse email valide.',
+                'password.required' => 'Le champ mot de passe est requis.',
+            ]
+        );
 
-        Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|string|min:3'
-        ])->validate();
-
-        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed')
-            ]);
+        //On retourn tout les erreurs
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
         }
-        // dd($request->all());
+
+        // Vérifier si un utilisateur avec cet email existe
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return redirect()->back()
+                ->withErrors(['login' => "Cet email n'a pas de compte"])
+                ->withInput();
+        }
+
+        //On le connecte ici
+        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            return redirect()->back()
+                ->withErrors(['login' => 'Mot de passe est incorrect'])
+                ->withInput();
+        }
 
         $request->session()->regenerate();
 
-        // $roles = RoleHelper::getUserRoles();
-
         $user = Auth::user();
-        // $roles = $user->getRoleNames();
         $redirectRoute = '';
 
         if ($user->hasRole('Admin')) {
@@ -91,7 +123,7 @@ class AuthController extends Controller
         }
 
         if (!empty($redirectRoute)) {
-            return redirect()->route($redirectRoute);
+            return redirect()->route($redirectRoute)->withMessage("Connexion réussie ! Bienvenue, {$user->nom_prenom}");
         }
     }
 

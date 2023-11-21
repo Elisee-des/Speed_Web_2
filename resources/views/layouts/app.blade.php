@@ -19,10 +19,10 @@
     @yield('content')
     @include('layouts.footer')
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top">
+    <button onclick="topFunction()" id="myBtn" title="Aller en haut">
         <img src="{{asset('assets/icons/navigation.png')}}" alt="Icon indiquant la remonter du scroll vers le haut"
             class="icon-navigation" />
-        Top
+        Monter
     </button>
 
     <script src="{{asset('assets/js/bootstrap/js/bootstrap.min.js')}}"></script>

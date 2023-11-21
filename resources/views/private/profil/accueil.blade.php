@@ -7,7 +7,18 @@
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="profil.html">Mon Profil</a>
+        @role('Admin')
+        <a href="{{route('admin.tableaudebord')}}">Accueil</a>
+        @endrole
+        @role('Gestionnaire')
+        <a href="{{route('gestionnaire.tableaudebord')}}">Accueil</a>
+        @endrole
+        @role('Delegue')
+        <a href="{{route('delegue.tableaudebord')}}">Accueil</a>
+        @endrole
+        @role('Etudiant')
+        <a href="{{route('etudiant.tableaudebord')}}">Accueil</a>
+        @endrole
       </li>
     </ol>
   </nav>
@@ -43,6 +54,13 @@
             Mettre mon image à jour
           </a>
           <a
+            href="{{route('profil.edition.image')}}"
+            class="edit-email-buttom"
+            title="Cliquez ici pour editer votre email"
+            ><i class="fa-solid fa-square-pen" style="color: #feffff;"></i>
+            Changer d'email
+          </a>
+          <a
             href=""
             class="delete-account-buttom"
             title="Cliquez ici pour editer supprimer votre compte"
@@ -59,28 +77,60 @@
       <div class="profil-content">
         <div class="content-element">
           <h3 class="first-profil">Nom:</h3>
-          <h3 class="seccond-profil">Ouedraogo</h3>
+          <h3 class="seccond-profil">{{Auth()->user()->nom_prenom}}</h3>
         </div>
         <div class="content-element">
-          <h4 class="first-profil">Prénom:</h4>
-          <h4 class="seccond-profil">Albert</h4>
+          <h4 class="first-profil">UFR(Departement):</h4>
+          @if (Auth()->user()->ufr != '')
+          <h4 class="seccond-profil">{{Auth()->user()->ufr}}</h4>
+          @else
+          <h4 class="seccond-profil"><a href="{{route('profil.edition.profil')}}">Mettre à jour</a></h4>
+          @endif
+        </div>
+        <div class="content-element">
+          <h4 class="first-profil">Telephone:</h4>
+          @if (Auth()->user()->ufr != '')
+          <h4 class="seccond-profil">{{Auth()->user()->telephone}}</h4>
+          @else
+          <h4 class="seccond-profil"><a href="{{route('profil.edition.profil')}}">Mettre à jour</a></h4>
+          @endif
         </div>
         <div class="content-element">
           <h4 class="first-profil">INE:</h4>
-          <h4 class="seccond-profil">N00290320211</h4>
+          @if (Auth()->user()->ine != '')
+          <h4 class="seccond-profil">{{Auth()->user()->ine}}</h4>
+          @else
+          <h4 class="seccond-profil"><a href="{{route('profil.edition.profil')}}">Mettre à jour</a></h4>
+          @endif
         </div>
         <div class="content-element">
           <h4 class="first-profil">Email:</h4>
-          <h4 class="seccond-profil">odgalbert@gmail.com</h4>
+          @if (Auth()->user()->email != '')
+          <h4 class="seccond-profil">{{Auth()->user()->email}}</h4>
+          @else
+          <h4 class="seccond-profil"><a href="{{route('profil.edition.profil')}}">Mettre à jour</a></h4>
+          @endif
         </div>
         <div class="content-element">
           <h4 class="first-profil">Niveau d'etude:</h4>
-          <h4 class="seccond-profil">Licence 2</h4>
+          @if (Auth()->user()->niveau_licence != '')
+          <h4 class="seccond-profil">{{Auth()->user()->niveau_licence}}</h4>
+          @else
+          <h4 class="seccond-profil"><a href="{{route('profil.edition.profil')}}">Mettre à jour</a></h4>
+          @endif
         </div>
         <div class="content-element">
           <h4 class="first-profil">Promotion:</h4>
-          <h4 class="seccond-profil">2020</h4>
+          @if (Auth()->user()->promotion != '')
+          <h4 class="seccond-profil">{{Auth()->user()->promotion}}</h4>
+          @else
+          <h4 class="seccond-profil"><a href="{{route('profil.edition.profil')}}">Mettre à jour</a></h4>
+          @endif
         </div>
+        {{-- <div class="content-element">
+          <h4 class="first-profil">Vos Délégues:</h4>
+          <h4 class="seccond-profil"></h4>
+        </div> --}}
       </div>
     </div>
   </div>

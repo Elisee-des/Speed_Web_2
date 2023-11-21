@@ -7,7 +7,7 @@
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="profil.edition.compte.html">Profil</a>
+      <a href="{{route('profil.accueil')}}">Profil</a>
     </li>
 
     <li class="breadcrumb-item active" aria-current="page">

@@ -169,6 +169,7 @@ html {
     letter-spacing: normal !important;
     text-decoration: solid !important;
     background-color: var(--aa-orange);
+    border: 1px solid var(--aa-white);
 }
 
 .hero-text {
@@ -198,9 +199,7 @@ html {
 }
 
 #myBtn:hover {
-    background-color: var(--aa-white);
-    color: var(--aa-black);
-    border: 1px solid var(--aa-black);
+    cursor: pointer;
 }
 
 .icon-navigation {
@@ -258,6 +257,17 @@ html {
     text-align: center;
     margin-top: 20px;
     padding-top: 10px;
+}
+
+.title-register-btn {
+    /* text-align: center; */
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.mot-de-passe-oublier{
+    display: flex;
+    justify-content: end;
 }
 
 .form-regsiter {
@@ -336,7 +346,8 @@ hr {
 }
 
 .registerbtn:hover {
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .registerbtn-delegue {
@@ -417,7 +428,7 @@ a {
 }
 
 .description-about:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     transition: 1s;
 }
 
@@ -447,7 +458,7 @@ a {
 }
 
 .detail-fonctionement:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     transition: 0.3s;
 }
 
@@ -522,7 +533,7 @@ a {
     position: fixed;
     height: 100%;
     overflow: auto;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     z-index: 2;
 }
 
@@ -563,7 +574,7 @@ a {
 }
 
 .sidebar a:hover:not(.active) {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     font-weight: 6x00;
 }
 
@@ -630,6 +641,17 @@ div.content {
     transition: 0.5s;
 }
 
+.submit-contact-accueil {
+    background-color: var(--aa-primary);
+    color: var(--aa-white);
+    width: 250px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
 .submit-contact:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
@@ -657,7 +679,7 @@ textarea {
     padding: 20px;
     border-radius: 12px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
 
 /*Profil*/
@@ -667,6 +689,7 @@ textarea {
 .profil-container {
     display: flex;
     flex-direction: row;
+    margin-bottom: 30px !important;
 }
 
 @media screen and (max-width: 1160px) {
@@ -679,7 +702,7 @@ textarea {
     }
 
     .content-profil-image {
-        width: 80%;
+        width: 100%;
         margin: auto;
     }
 
@@ -691,22 +714,25 @@ textarea {
         height: auto !important;
         border-radius: 12px;
         width: 100%;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
-    }
-}
-
-@media screen and (max-width: 505px) {
-    .content-element {
-        display: flex;
-        flex-direction: column !important;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     }
 }
 
 .profil-content {
     padding: 20px;
     width: 50%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     border-radius: 12px;
+}
+@media screen and (max-width: 1160px) {
+    .content-element {
+        /* display: flex;
+        flex-direction: column !important; */
+    }
+
+    .profil-content {
+        width: 100% !important;
+    }
 }
 
 .content-element {
@@ -720,7 +746,7 @@ textarea {
     height: 300px;
     border-radius: 12px;
     width: 100%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 .content-profil-image {
@@ -741,51 +767,68 @@ textarea {
 
 .options-content a:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .edit-account-buttom {
     background-color: var(--aa-primary);
     padding: 10px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .edit-password-buttom {
     background-color: #ff712a;
     padding: 10px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .edit-image-buttom {
     background-color: #777;
     padding: 10px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.edit-email-buttom {
+    background-color: #000000ca;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .delete-account-buttom {
     background-color: #e3423d;
     padding: 10px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.edit-account-buttom:hover,
+.edit-password-buttom:hover,
+.edit-image-buttom:hover,
+.delete-account-buttom :hover,
+.edit-email-buttom:hover {
+    background-color: var(--aa-orange) !important;
 }
 
 .first-profil {
-    font-weight: 200;
+    font-weight: 300;
+    font-size: 17px;
 }
 
 .seccond-profil {
     font-style: italic;
+    font-size: 17px;
 }
 
 .container-formulaire-profil {
-    background-color: var(--aa-light-gray);
+    /* background-color: var(--aa-light-gray); */
     width: 100%;
     margin: auto;
     padding: 20px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     flex-direction: row;
     border-radius: 12px;
 }
@@ -814,14 +857,15 @@ textarea {
     color: var(--aa-white);
     border-radius: 12px;
     border: none;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 15px 25px;
     transition: 0.6s;
 }
 
 .submit-profil:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
-    letter-spacing: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 1205px) {
@@ -842,7 +886,7 @@ textarea {
     padding: 20px;
     border-radius: 15px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 618px) {
@@ -859,7 +903,6 @@ textarea {
         padding: 20px;
         border-radius: 15px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
     }
 }
 
@@ -879,7 +922,7 @@ textarea {
     padding: 10px;
     border-radius: 12px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     width: 100%;
     margin-bottom: 10px;
 }
@@ -894,13 +937,13 @@ textarea {
     color: var(--aa-white);
     border-radius: 12px;
     border: none;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 15px 25px;
     transition: 0.6s;
 }
 
 .submit-file:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     letter-spacing: 2px;
 }
 
@@ -908,7 +951,7 @@ textarea {
     height: auto;
     border-radius: 12px;
     width: 100%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     margin-bottom: 10px;
 }
 /*Fin Page Edition image*/
@@ -925,7 +968,7 @@ textarea {
 .text-apropos {
     height: auto;
     margin: auto;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     border-radius: 12px;
 }
 
@@ -937,7 +980,7 @@ textarea {
 }
 
 .container-contenu-propos {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     padding: 12px;
     transition: 0.5s;
@@ -947,26 +990,26 @@ textarea {
 .container-contenu-propos:hover {
     padding: 14px;
     cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
 }
 /*Fin Page a propos*/
 
 /*Tableau contenu */
 
 .table-container-elements {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 .btn-cool {
     background-color: var(--aa-primary) !important;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s !important;
     border: none !important;
 }
 
 .btn-cool-delete {
     background-color: var(--aa-red) !important;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s !important;
     border: none !important;
 }
@@ -1084,7 +1127,7 @@ textarea {
 /*Dashbord debut de gestion*/
 
 .card-dashbord {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
 }
 
@@ -1102,7 +1145,7 @@ textarea {
 }
 
 .card-details-elements {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
 }
 

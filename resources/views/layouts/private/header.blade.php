@@ -4,7 +4,7 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
 
 
 <div class="header">
-  <a href="{{route('accueil')}}" class="logo">SPEED-RESULTAT</a>
+  <a href="{{route('accueil')}}" class="logo">CAMPUS-RESULTATS</a>
   <div class="header-right">
     <div>
       <a class="" href="{{route('accueil')}}">Accueil</a>
@@ -42,11 +42,11 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
       Profil</a>
     <a href="{{route('profil.accueil')}}"><i class="fa-solid fa-gear" style="color: #feffff;"></i>
       Paramètre du site</a>
-      {{-- <hr class="hr">
-      <a href="" class=""><i class="fa-solid fa-user" style="color: #feffff"></i>
-        Sabidani Elisee</a> --}}
+    <a href="" class=""><i class="fa-solid fa-user" style="color: #feffff"></i>
+      {{Auth()->user()->nom_prenom}}</a>
     <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
-      document.getElementById('logout-form').submit();">Déconnexion</a>
+      document.getElementById('logout-form').submit();"><i class="fa-solid fa-right-from-bracket"
+        style="color: #feffff;"></i> Déconnexion</a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
       @csrf
     </form>
@@ -67,9 +67,10 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
       Profil</a>
     <hr class="hr">
     <a href="" class=""><i class="fa-solid fa-user" style="color: #feffff"></i>
-      Sabidani Elisee</a>
+      {{Auth()->user()->nom_prenom}}</a>
     <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
-      document.getElementById('logout-form').submit();">Déconnexion</a>
+      document.getElementById('logout-form').submit();"><i class="fa-solid fa-right-from-bracket"
+        style="color: #feffff;"></i> Déconnexion</a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
       @csrf
     </form>
@@ -87,11 +88,14 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
       <i class="fa fa-caret-down"></i>
     </a>
     <div class="dropdown-container">
-      <a href="{{route('delegue.resultats.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
+      <a href="{{route('delegue.resultats.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i>
+        Gestion
         Résultats</a>
-      <a href="{{route('delegue.proclamations.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
+      <a href="{{route('delegue.proclamations.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i>
+        Gestion
         Proclamations</a>
-      <a href="{{route('delegue.deliberations.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
+      <a href="{{route('delegue.deliberations.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i>
+        Gestion
         Délibérations</a>
     </div>
     <a href="" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
@@ -101,9 +105,10 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
       Profil</a>
     <hr class="hr">
     <a href="" class=""><i class="fa-solid fa-user" style="color: #feffff"></i>
-      Sabidani Elisee</a>
+      {{Auth()->user()->nom_prenom}}</a>
     <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
-      document.getElementById('logout-form').submit();">Déconnexion</a>
+      document.getElementById('logout-form').submit();"><i class="fa-solid fa-right-from-bracket"
+        style="color: #feffff;"></i> Déconnexion</a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
       @csrf
     </form>
@@ -127,10 +132,11 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
       Profil</a>
     <a href="{{route('compte.aide')}}"><i class="fa-solid fa-message" style="color: #feffff"></i> Aide</a>
     <hr class="hr">
-    <a href="" class="mt-2"><i class="fa-solid fa-user" style="color: #feffff"></i>
-      Sabidani Elisee</a>
+    <a href="" class=""><i class="fa-solid fa-user" style="color: #feffff"></i>
+      {{Auth()->user()->nom_prenom}}</a>
     <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">Déconnexion</a>
+    document.getElementById('logout-form').submit();"><i class="fa-solid fa-right-from-bracket"
+        style="color: #feffff;"></i> Déconnexion</a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
       @csrf
     </form>

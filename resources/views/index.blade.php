@@ -8,31 +8,38 @@
 <div class="hero-image">
   <div class="hero-text">
     <h1>Rester Informer sur la disponibilité de vos copies,</h1>
-    <p>des proclamations et des délibérations</p>
+    <p>des proclamations et des délibérations.</p>
     @auth
     <div class="auth-container">
       @role('Admin')
-      <a href="{{route('admin.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      <a href="{{route('admin.tableaudebord')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-up-right-from-square" style="color: #feffff;"></i> Aller dans mon compte</a>
       @endrole
       @role('Gestionnaire')
-      <a href="{{route('gestionnaire.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      <a href="{{route('gestionnaire.tableaudebord')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-up-right-from-square" style="color: #feffff;"></i> Aller dans mon compte</a>
       @endrole
       @role('Delegue')
-      <a href="{{route('delegue.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      <a href="{{route('delegue.tableaudebord')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-up-right-from-square" style="color: #feffff;"></i> Aller dans mon compte</a>
       @endrole
       @role('Etudiant')
-      <a href="{{route('etudiant.tableaudebord')}}" style="text-decoration: none;" class="submit-contact">Aller dans mon compte</a>
+      <a href="{{route('etudiant.tableaudebord')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-up-right-from-square" style="color: #feffff;"></i> Aller dans mon compte</a>
       @endrole
-      <a class="submit-contact" href="{{ route('logout') }}" onclick="event.preventDefault();
-      document.getElementById('logout-form').submit();">Se déconnecter</a><br>
+      <a class="submit-contact-accueil" href="{{ route('logout') }}" onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();"><i class="fa-solid fa-arrow-right-from-bracket"
+          style="text-decoration: none;, color: #feffff;"></i> Se déconnecter</a><br>
       <form id="logout-form" action="{{ route('logout') }}" method="POST">
         @csrf
       </form>
     </div>
     @else
     <div class="auth-container">
-      <a href="{{route('register')}}" style="text-decoration: none;" class="submit-contact">Inscription</a>
-      <a href="{{route('login')}}" style="text-decoration: none;" class="submit-contact">Connexion</a>
+      <a href="{{route('register')}}" style="text-decoration: none;" class="submit-contact"><i
+          class="fa-solid fa-user-plus" style="color: #feffff;"></i> Inscription</a>
+      <a href="{{route('login')}}" style="text-decoration: none;" class="submit-contact"><i
+          class="fa-solid fa-arrow-right-to-bracket" style="color: #feffff;"></i> Connexion</a>
     </div>
     @endauth
   </div>
