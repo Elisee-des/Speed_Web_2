@@ -29,11 +29,18 @@ Route::middleware('auth')->group(function () {
         Route::prefix('profil')->name('profil.')->group(function () {
             Route::controller(ProfilController::class)->group(function () {
                 Route::get('/accueil', 'profil_accueil')->name("accueil");
+
                 Route::get('/edition', 'profil_edition')->name("edition.profil");
                 Route::post('/edition/action', 'edit_profil_action')->name("edition.action");
+
+                Route::get('/edition/email', 'profil_edition_email')->name("edition.email");
+                Route::post('/edition/email/action', 'profil_edition_email_action')->name("edition.email.action");
+
                 Route::get('/edition/mot-de-passe', 'profil_mot_de_passe')->name("edition.motdepasse");
                 Route::post('/edition/mot-de-passe/action', 'profil_mot_de_passe_action')->name("edition.motdepasse.action");
+
                 Route::get('/edition/image', 'profil_edition_image')->name("edition.image");
+                Route::post('/edition/image/action', 'profil_edition_image_action')->name("edition.image.action");
             });
         });
     });

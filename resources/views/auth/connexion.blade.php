@@ -10,7 +10,7 @@
             Veuillez entrez vos coordonnées pour vous connecter
         </p>
         @if($errors->has('login'))
-        <div class="alert alert-danger title-register-btn">
+        <div class="alert alert-danger form-login">
             {{ $errors->first('login') }}
         </div>
         @endif

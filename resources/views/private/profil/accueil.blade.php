@@ -54,7 +54,7 @@
             Mettre mon image à jour
           </a>
           <a
-            href="{{route('profil.edition.image')}}"
+            href="{{route('profil.edition.email')}}"
             class="edit-email-buttom"
             title="Cliquez ici pour editer votre email"
             ><i class="fa-solid fa-square-pen" style="color: #feffff;"></i>

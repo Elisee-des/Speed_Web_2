@@ -122,7 +122,7 @@ html {
 }
 
 .header a.logo {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -260,7 +260,7 @@ html {
 }
 
 .title-register-btn {
-    /* text-align: center; */
+    text-align: center;
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -1270,3 +1270,13 @@ textarea {
     }
 }
 /*Fin header responsive*/
+
+/*Email modification*/
+.bon-a-savoir-email{
+    /* padding: 12px; */
+    margin: 20px 0px;
+    font-weight: 200;
+    font-size: 12px;
+    color: var(--aa-red);
+}
+/*FinEmail modification*/

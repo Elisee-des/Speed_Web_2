@@ -5,3 +5,5 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 php artisan serve --host=0.0.0.0 --port=8000
 
 ipconfig getifaddr en0
+
+192.168.43.72:8000

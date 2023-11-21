@@ -31,23 +31,22 @@ class ProfilController extends Controller
             'filiere' => 'required',
             'niveau_licence' => 'required',
             'promotion' => 'required',
-            ])->validate();
+        ])->validate();
 
-            $user = Auth()->user();
+        $user = Auth()->user();
 
-            $user->nom_prenom = $request->nom_prenom;
-            $user->telephone = $request->telephone;
-            $user->ufr = $request->ufr;
-            $user->ine = $request->ine;
-            $user->filiere = $request->filiere;
-            $user->niveau_licence = $request->niveau_licence;
-            $user->promotion = $request->promotion;
+        $user->nom_prenom = $request->nom_prenom;
+        $user->telephone = $request->telephone;
+        $user->ufr = $request->ufr;
+        $user->ine = $request->ine;
+        $user->filiere = $request->filiere;
+        $user->niveau_licence = $request->niveau_licence;
+        $user->promotion = $request->promotion;
 
-            $user->save();
+        $user->save();
 
-            // return back()->with('message', 'Profil mise à jour avec succès.');
-            return redirect()->route('profil.accueil')->with('message', 'Profil mise à jour avec succès.');
-
+        // return back()->with('message', 'Profil mise à jour avec succès.');
+        return redirect()->route('profil.accueil')->with('message', 'Profil mise à jour avec succès.');
     }
 
     public function profil_mot_de_passe()
@@ -77,10 +76,8 @@ class ProfilController extends Controller
         }
 
         $user = Auth()->user();
-
-        $user->password = $request->password;
-
-        $user->save;
+        $user->password = $request->new_password;
+        $user->save();
 
         return redirect()->route('profil.accueil')->with('message', 'Mot de passe changer avec succès.');
     }
@@ -88,5 +85,37 @@ class ProfilController extends Controller
     public function profil_edition_image()
     {
         return view('private.profil.edition-image');
+    }
+
+    public function profil_edition_email()
+    {
+        return view('private.profil.edition-email');
+    }
+
+    public function profil_edition_email_action(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'new_email' => 'required|email',
+            ],
+            [
+                'new_email.required' => 'Le champ email est requis.',
+                'new_email.email' => 'Veuillez entrer une adresse email valide.',
+            ]
+        );
+
+        //On retourn tout les erreurs
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = Auth()->user();
+        $user->email = $request->new_email;
+        $user->save();
+
+        return redirect()->route('profil.accueil')->with('message', 'Email changer avec succès.');
     }
 }

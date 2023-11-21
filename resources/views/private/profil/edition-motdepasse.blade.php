@@ -1,6 +1,6 @@
 @extends('layouts.private.app')
 
-@section('titre', "Profil")
+@section('titre', "Editionn du mot de passe")
 
 @section('content_private')
 
@@ -32,7 +32,7 @@
         <div class="container-edit-password">
           <label for="new_password">Nouveau mot de passe <span style="color: red">*</span></label>
           <input type="text" id="new_password" name="new_password"
-            class="input-profil-edit @error('password') is-invalid @enderror"
+            class="input-profil-edit @error('new_password') is-invalid @enderror"
             placeholder="Votre nouveau mot de passe" />
 
         </div>
