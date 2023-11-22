@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
 
 
         $userEtudiant = User::create(
-            array('nom_prenom' => 'ZONGO zenabou', 'email' => 'etudiant@gmail.com', 'email_verified_at' => now(), 'password' =>'password', 'telephone' => '75987689', 'filiere' => 'Geographie', 'ine' => 'N00250420191', 'remember_token' => Str::random(10)),
+            array('nom_prenom' => 'ZONGO Zenabou', 'email' => 'etudiant@gmail.com', 'email_verified_at' => now(), 'password' =>'password', 'telephone' => '75987689', 'filiere' => 'Geographie', 'ine' => 'N00250420191', 'remember_token' => Str::random(10)),
         );
         $userEtudiant->assignRole('Etudiant');
     }

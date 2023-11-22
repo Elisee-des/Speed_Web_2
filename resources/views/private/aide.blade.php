@@ -7,7 +7,7 @@
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="contact.html">Aide</a>
+      <a href="{{route('profil.accueil')}}">Profil</a>
     </li>
 
     <li class="breadcrumb-item active" aria-current="page">Message</li>
@@ -23,24 +23,6 @@
   </h2>
   <div class="container-formulaire-contact">
     <form action="#">
-      <label for="fname">Nom et Prénom</label>
-      <input
-        type="text"
-        id="fname"
-        name="nom_prenom"
-        class="input-contact"
-        placeholder="Veuillez entrer votre nom et prénom"
-      />
-
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        class="input-contact"
-        placeholder="Veuillez entrer votre email"
-      />
-
       <label for="sujet">Sujet</label>
       <input
         type="text"

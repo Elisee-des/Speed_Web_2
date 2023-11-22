@@ -7,6 +7,7 @@ use App\Http\Controllers\Private\Chef\GestionDeliberationController;
 use App\Http\Controllers\Private\Chef\GestionProclamationsController;
 use App\Http\Controllers\Private\Chef\GestionResultatsController;
 use App\Http\Controllers\Private\DeliberationController;
+use App\Http\Controllers\Private\Etudiant\DelegueController;
 use App\Http\Controllers\Private\Etudiant\EtudiantTableaudebordController;
 use App\Http\Controllers\private\gestionnaire\GestionnnaireTableaudebordController;
 use App\Http\Controllers\Private\ProclamationController;
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
             });
         });
     });
+
+    Route::get('/delegues/liste', [DelegueController::class, 'index'])->name('etudiant.delegues');
 
     /******** Fin  Etudiant  ********/
 
