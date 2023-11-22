@@ -107,14 +107,14 @@
         
       </div>
 
-      <div class="gap:3 cnt-profil">
+      <div class="cnt-profil" style="gap: 3px">
         <button type="submit" style="gap: 3" class="submit-profil">
           <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i>
           Enregistrer
         </button>
         <a href="{{route('profil.accueil')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
           {{-- <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i> --}}
-          Annuler
+          Retour
         </a>
       </div>
     </form>

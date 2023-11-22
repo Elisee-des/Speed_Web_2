@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('resultat_id')->references('id')->on('resultats');
-            $table->foreignId('proclamations_id')->references('id')->on('proclamations');
-            $table->foreignId('deliberation_id')->references('id')->on('deleiberations');
+            $table->string('url');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users');
+            $table->foreignId('resultat_id')->nullable()->references('id')->on('resultats');
+            $table->foreignId('proclamations_id')->nullable()->references('id')->on('proclamations');
+            $table->foreignId('deliberation_id')->nullable()->references('id')->on('deleiberations');
             $table->timestamps();
         });
     }

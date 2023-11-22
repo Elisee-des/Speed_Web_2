@@ -1239,7 +1239,7 @@ textarea {
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -1247,7 +1247,7 @@ textarea {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #ffffff;
+    color: var(--aa-orange);
 }
 
 /* Position and style the close button (top right corner) */

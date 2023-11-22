@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Private;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ProfilController extends Controller
@@ -46,7 +48,7 @@ class ProfilController extends Controller
         $user->save();
 
         // return back()->with('message', 'Profil mise à jour avec succès.');
-        return redirect()->route('profil.accueil')->with('message', 'Profil mise à jour avec succès.');
+        return redirect()->route('profil.accueil')->with('success', 'Profil mise à jour avec succès.');
     }
 
     public function profil_mot_de_passe()
@@ -79,12 +81,54 @@ class ProfilController extends Controller
         $user->password = $request->new_password;
         $user->save();
 
-        return redirect()->route('profil.accueil')->with('message', 'Mot de passe changer avec succès.');
+        return redirect()->route('profil.accueil')->with('success', 'Mot de passe changer avec succès.');
     }
 
     public function profil_edition_image()
     {
-        return view('private.profil.edition-image');
+        $user = auth()->user();
+        return view('private.profil.edition-image', ['user'=>$user]);
+    }
+
+    public function profil_edition_image_action(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'new_image' => 'required|file|mimes:jpeg,png,jpg|max:5120', // Adapté pour les images (modifiable selon tes besoins)
+            ],
+            [
+                'new_image.required' => 'Le champ image est requis.',
+                'new_image.file' => 'Le champ doit être un fichier.',
+                'new_image.mimes' => 'Le fichier doit être de type :values.',
+                'new_image.max' => 'La taille du fichier ne doit pas dépasser :max kilo-octets.',
+                ]
+            );
+            
+            if ($validator->fails()) {
+                return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+            }
+            
+            $user = auth()->user(); // ou récupère l'utilisateur d'une autre manière
+
+            // Supprime l'image précédente s'il y en a une
+            if ($user->image) {
+                Storage::delete($user->image->url); // Supprime le fichier physique
+                $user->image->delete(); // Supprime l'entrée de la base de données
+            }
+        
+            $imageProfilPath = $request->file('new_image')->store('images');
+        
+            $nouvelleImage = new Image([
+                'nom' => $request->file('new_image')->getClientOriginalName(),
+                'url' => $imageProfilPath,
+            ]);
+        
+            $user->image()->save($nouvelleImage);
+
+            return redirect()->back()->with('success', 'Image ajoutée avec succès.');
     }
 
     public function profil_edition_email()
@@ -116,6 +160,6 @@ class ProfilController extends Controller
         $user->email = $request->new_email;
         $user->save();
 
-        return redirect()->route('profil.accueil')->with('message', 'Email changer avec succès.');
+        return redirect()->route('profil.accueil')->with('success', 'Email changer avec succès.');
     }
 }

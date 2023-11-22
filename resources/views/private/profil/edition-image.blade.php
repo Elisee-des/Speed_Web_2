@@ -16,40 +16,47 @@
   </ol>
 
   <div class="container-content">
-    <h2
-      class="title-header"
-      style="text-align: center;, margin-bottom:10px;"
-    >
+    <h2 class="title-header" style="text-align: center;, margin-bottom:10px;">
       Mise à jour de l'image du profil
     </h2>
+
+    @if ($errors->has('new_image'))
+    <div class="alert alert-danger form-login">
+      {{ $errors->first('new_image') }}
+    </div>
+    @endif
+
     <div class="container-formulaire-file">
-      <form action="../profil.html">
+      <form action="{{route('profil.edition.image.action')}}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="content-edit-file">
-          <h5>Image acctuel</h5>
-          <img
-            src="{{asset('assets/images/img-2.jpg')}}"
-            alt="mon image de profil"
-            class="image-profil-file"
-          />
+          <h5>Votre image actuel</h5>
+          {{-- @if ($user->image)
+          @else
+          <p>Aucune image disponible</p>
+          @endif --}}
+          <img src="{{ url($user->image->url) }}" alt="{{ $user->image->nom }}" class="image-profil-file">
+          {{-- <img src="{{asset('assets/images/img-2.jpg')}}" alt="mon image de profil" class="image-profil-file" />
+          --}}
           <div class="container-edit-file">
-            <label for="fname">Choisir une nouvelle image</label>
-            <input
-              type="file"
-              id="fname"
-              name="image"
-              class="input-file-edit"
-            />
+            <label for="new_image">Choisir une nouvelle image</label>
+            <input type="file" id="new_image" name="new_image" class="input-file-edit" />
           </div>
         </div>
 
-        <div class="cnt-file">
+        <div class="cnt-file" style="gap: 3px">
           <button type="submit" style="gap: 3" class="submit-file">
             <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i>
             Sauvegarder
           </button>
+          <a href="{{route('profil.accueil')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
+            class="submit-profil">
+            {{-- <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i> --}}
+            Retour
+          </a>
         </div>
       </form>
     </div>
   </div>
 
-@endsection
+  @endsection

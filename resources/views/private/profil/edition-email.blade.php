@@ -37,13 +37,17 @@
                 @endif
             </div>
 
-            <div class="cnt-profil">
-                <button type="submit" style="margin-top:10px; gap: 3;" class="submit-profil"
+            <div class="cnt-profil" style="gap: 3px">
+                <button type="submit" class="submit-profil"
                     onclick="return confirm('Etes vous sûr de vouloir changer votre email?')">
                     <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i>
                     Changer l'email
                 </button>
-
+                <a href="{{route('profil.accueil')}}" type="submit"
+                    style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
+                    {{-- <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i> --}}
+                    Retour
+                </a>
             </div>
         </form>
 

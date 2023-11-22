@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Permission::class);
     }
+
+    public function image()
+    {
+        return $this->hasOne(Image::class);
+    }
 }
