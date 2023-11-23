@@ -48,7 +48,7 @@ class ProfilController extends Controller
         $user->save();
 
         // return back()->with('message', 'Profil mise à jour avec succès.');
-        return redirect()->route('profil.accueil')->with('success', 'Profil mise à jour avec succès.');
+        return redirect()->route('profil.accueil')->with('message', 'Profil mise à jour avec succès.');
     }
 
     public function profil_mot_de_passe()
@@ -81,7 +81,7 @@ class ProfilController extends Controller
         $user->password = $request->new_password;
         $user->save();
 
-        return redirect()->route('profil.accueil')->with('success', 'Mot de passe changer avec succès.');
+        return redirect()->route('profil.accueil')->with('message', 'Mot de passe changer avec succès.');
     }
 
     public function profil_edition_image()
@@ -128,7 +128,7 @@ class ProfilController extends Controller
         
             $user->image()->save($nouvelleImage);
 
-            return redirect()->back()->with('success', 'Image ajoutée avec succès.');
+            return redirect()->back()->with('message', 'Image edité avec succès.');
     }
 
     public function profil_edition_email()
@@ -160,6 +160,6 @@ class ProfilController extends Controller
         $user->email = $request->new_email;
         $user->save();
 
-        return redirect()->route('profil.accueil')->with('success', 'Email changer avec succès.');
+        return redirect()->route('profil.accueil')->with('message', 'Email changer avec succès.');
     }
 }

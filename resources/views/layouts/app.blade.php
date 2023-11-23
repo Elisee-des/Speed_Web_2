@@ -10,7 +10,9 @@
     <link href="{{asset('/assets/fontawesome-free-6.4.2-web/css/solid.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap/css/bootstrap.min.css')}}" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>@yield('titre')</title>
 </head>
 
@@ -27,6 +29,9 @@
 
     <script src="{{asset('assets/js/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/app.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

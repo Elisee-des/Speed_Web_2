@@ -14,7 +14,7 @@
             </form>
             @else
             <a href="{{route('register')}}" class="">Inscription</a>
-            <a class=" active" href="{{route('login')}}" class="">Connexion</a>
+            <a class='active' href="{{route('login')}}">Connexion</a>
             @endauth
             {{-- <a href="private/profil.html"><i class="fa-solid fa-user" style="color: #feffff"></i></a> --}}
         </div>

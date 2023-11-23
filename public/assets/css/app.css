@@ -726,11 +726,6 @@ textarea {
     border-radius: 12px;
 }
 @media screen and (max-width: 1160px) {
-    .content-element {
-        /* display: flex;
-        flex-direction: column !important; */
-    }
-
     .profil-content {
         width: 100% !important;
     }
