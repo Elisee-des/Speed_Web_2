@@ -2,7 +2,7 @@ composer require spatie/laravel-permission
 
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 
-php artisan serve --host=0.0.0.0 --port=8005
+php artisan serve --host=0.0.0.0 --port=8000
 
 ipconfig getifaddr en0
 

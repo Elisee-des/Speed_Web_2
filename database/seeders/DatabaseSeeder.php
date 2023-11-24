@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             RoleAndPermissionSeeder::class,
             UserSeeder::class,
             DelegueSeeder::class,
+            AffectationDelegueSeeder::class,
         ]);
     }
 }

@@ -53,9 +53,9 @@
           <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i>
           Changer
         </button>
-        <a href="{{route('profil.accueil')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
-          {{-- <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i> --}}
-          Retour
+        <a href="{{route('profil.accueil')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
+          class="submit-profil">
+          <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
         </a>
       </div>
     </form>

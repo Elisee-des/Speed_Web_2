@@ -325,11 +325,11 @@ input[type="password"]:focus {
 
 hr {
     border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.hr {
-    border: 1px solid #f1f1f1;
+.hr-trait {
+    border: 1px solid #d3d3d3 !important;
     /* margin-bottom: 25px; */
 }
 
@@ -728,6 +728,7 @@ textarea {
 @media screen and (max-width: 1160px) {
     .profil-content {
         width: 100% !important;
+        margin-bottom: 40px !important;
     }
 }
 
@@ -877,17 +878,33 @@ textarea {
 .container-formulaire-file {
     /* height: 80%; */
     margin: auto;
-    width: 40%;
+    width: 50%;
     border: 1px solid var(--aa-primary);
-    padding: 20px;
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 10px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 618px) {
+.container-formulaire-file-parametre {
+    /* height: 80%; */
+    margin: auto;
+    width: 50%;
+    border: 1px solid var(--aa-primary);
+    padding: 10px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1018px) {
     .container-formulaire-file {
         width: 100%;
+        margin-bottom: 40px !important;
+    }
+
+    .container-formulaire-file-parametre{
+        width: 100% !important;
     }
 }
 
@@ -1288,7 +1305,19 @@ textarea {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
 }
 
-.list-fichiers a {
+.delegue-detail-liste-etudiant {
+    margin-bottom: 50px !important;
+    display: flex;
+    background-color: #ddd !important;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.list-fichiers a,
+.delegue-detail-liste-etudiant a {
     text-decoration: none;
 }
 
@@ -1305,6 +1334,12 @@ textarea {
     gap: 5px;
 }
 
+.delegues-tile-container-2 {
+    gap: 10px;
+    display: flex;
+    justify-content: end;
+}
+
 .detail-liste-profil-dashbord {
     display: flex;
     justify-content: start;
@@ -1316,7 +1351,19 @@ textarea {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
     gap: 5px;
+}
 
+.detail-liste-delegue-detail {
+    display: flex;
+    justify-content: start;
+    background-color: var(--aa-primary);
+    padding: 5px 40px;
+    width: 100%;
+    color: var(--aa-white);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+    gap: 5px;
 }
 
 .detail-liste-aide-dashbord {
@@ -1330,7 +1377,6 @@ textarea {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
     gap: 5px;
-
 }
 
 .detail-liste-notification-dashbord {
@@ -1344,6 +1390,41 @@ textarea {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
     gap: 5px;
+}
+
+.detail-liste-delegue-licence-detail {
+    display: flex;
+    justify-content: start;
+    background-color: #6c757d;
+    padding: 5px 40px;
+    width: 100%;
+    color: var(--aa-white);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+    gap: 5px;
+    /* cursor: default; */
+}
+
+.detail-liste-delegue-licence-detail a:hover {
+    /* cursor: default; */
+}
+
+.ajout-delegue-association {
+    text-decoration: none;
+    font-size: 18px;
+    background-color: var(--aa-primary);
+    color: white;
+    border-radius: 12px;
+    padding: 6px;
+    transition: 0.5s;
+    padding: 5px 15px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ajout-delegue-association:hover {
+    background-color: var(--aa-orange);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
 
 .detail-liste-fichier-dashbord {
@@ -1384,7 +1465,8 @@ textarea {
 .detail-liste-nos-delegue-dashbord:hover,
 .detail-liste-aide-dashbord:hover,
 .detail-liste-notification-dashbord:hover,
-.a-liste-fichier:hover {
+.a-liste-fichier:hover,
+.detail-liste-delegue-detail:hover {
     background-color: var(--aa-orange);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 }
@@ -1394,15 +1476,70 @@ textarea {
     text-align: center;
     font-size: 24px;
     font-weight: 400 !important;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 2110px) {
-    .list-fichiers {
+    .list-fichiers,
+    .delegue-detail-liste-etudiant {
         display: flex;
         flex-direction: column;
         gap: 12px;
         background-color: #f2f3f5 !important;
     }
 }
+
+.modal-footer {
+    display: flex !important;
+    justify-content: end !important;
+}
+
 /*FinEtudiant ajout dashbord*/
+
+/*Autre*/
+@media screen and (max-width: 1300px) {
+    /* .delegues-tile-container-2 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px;
+    } */
+}
+
+.parametre-delegue-detail {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    gap: 10px;
+    height: auto;
+    /* padding: 5px 0; */
+}
+
+.parametre-npm_delegue {
+    background-color: var(--aa-primary);
+    border-radius: 5px;
+    padding: 12px;
+    color: var(--aa-white);
+    height: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.parametre-npm_delegue-action {
+    color: var(--aa-white);
+    padding: 12px;
+    background-color: var(--aa-orange);
+    border-radius: 5px;
+    height: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+}
+
+.parametre-npm_delegue-action:hover {
+    background-color: var(--aa-dark);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+}
+
+.delegues-parametre-container-2{
+    gap:15px;
+    margin-top: 20px;
+}
+/*Fin autre*/

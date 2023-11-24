@@ -15,85 +15,37 @@
 
 <div class="container-content">
 
+
   <div class="row mt-4 g-2">
     <p class="title-liste-fichier">Liste de mes délégues</p>
-    <div class="list-fichiers">
-
-      <div class="detail-liste-notification-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Délégues
-          de la Licence 1</a>
-      </div>
-
-      <div class="detail-liste-profil-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-user"
-            style="color: #feffff;"></i> Ouedraogo Alain</a>
-      </div>
-      <div class="detail-liste-nos-delegue-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-user" style="color: #feffff;"></i> Tapsoba
-          Karim</a>
-
-      </div>
-
-      {{-- <div class="detail-liste-notification-dashbord">
-        <a href="" class="" style="color: white"><i class="fa-solid fa-bell" style="color: #feffff;"></i>
-          Notifications</a>
-
-      </div> --}}
+    <div class="delegues-tile-container-2">
+      <a href="{{route('etudiant.delegues.parametre')}}" class="ajout-delegue-association"
+        title="Clique  ici pour ajouter un nouveau délégué a suivre" data-toggle="modal"
+        data-target="#exampleModalCenter"><i class="fa-solid fa-gear" style="color: #feffff;"></i>
+        Paramètre</a>
     </div>
 
-    <div class="list-fichiers">
-      <div class="detail-liste-notification-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-right-long" style="color: #feffff"></i>
-          Délégues de la Licence 2</a>
-      </div>
-      <div class="detail-liste-profil-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-user"
-            style="color: #feffff;"></i> Zongo Daniel</a>
-      </div>
-      <div class="detail-liste-nos-delegue-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-user" style="color: #feffff;"></i> Sawadogo Salif
-        </a>
+    @foreach ($delegues as $delegue)
+    <div class="delegue-detail-liste-etudiant">
+      <a href="{{route('etudiant.delegues.detail', $delegue->id)}}" class="detail-liste-delegue-licence-detail"
+        style="color: white"><i class="fa-solid fa-right-long" style="color: #feffff"></i>
+        {{$delegue->niveau_etude}}</a>
 
-      </div>
-      {{-- <div class="detail-liste-fichier-dashbord">
-        <a href="" class="" style="color: white"><i class="fa-regular fa-file-image" style="color: #feffff;"></i> Mes
-          fichiers</a>
-
-      </div>
-      <div class="detail-liste-notification-dashbord">
-        <a href="" class="" style="color: white"><i class="fa-solid fa-bell" style="color: #feffff;"></i>
-          Notifications</a>
-
-      </div> --}}
+      <a href="{{route('etudiant.delegues.detail', $delegue->id)}}" class="detail-liste-delegue-detail"
+        style="color: white"><i class="fa-solid fa-user" style="color: #feffff;"></i> {{$delegue->delegues}}</a>
     </div>
-
-    <div class="list-fichiers">
-      <div class="detail-liste-notification-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Délégues
-          de la Licence 3</a>
-      </div>
-      <div class="detail-liste-profil-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-user"
-            style="color: #feffff;"></i> Zongo Daniel</a>
-      </div>
-      <div class="detail-liste-nos-delegue-dashbord">
-        <a href="#" class="" style="color: white"><i class="fa-solid fa-user" style="color: #feffff;"></i> Sawadogo Salif
-        </a>
-
-      </div>
-      {{-- <div class="detail-liste-fichier-dashbord">
-        <a href="" class="" style="color: white"><i class="fa-regular fa-file-image" style="color: #feffff;"></i> Mes
-          fichiers</a>
-
-      </div>
-      <div class="detail-liste-notification-dashbord">
-        <a href="" class="" style="color: white"><i class="fa-solid fa-bell" style="color: #feffff;"></i>
-          Notifications</a>
-
-      </div> --}}
+    @endforeach
+    <div class="cnt-profil" style="margin-bottom: 40px">
+      <a href="{{route('etudiant.tableaudebord')}}" type="submit"
+        style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
+        <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
+      </a>
     </div>
-
   </div>
 </div>
+
+{{-- Using bootstrap model --}}
+
+
 
 @endsection

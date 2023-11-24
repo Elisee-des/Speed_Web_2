@@ -47,6 +47,11 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/delegues/liste', [DelegueController::class, 'index'])->name('etudiant.delegues');
+    Route::get('/delegues/detail/{idDelegue}', [DelegueController::class, 'detail'])->name('etudiant.delegues.detail');
+    Route::post('/delegues/detail/suicis/action', [DelegueController::class, 'suivre_action'])->name('etudiant.delegues.suivis.action');
+    Route::get('/delegues/paramètre', [DelegueController::class, 'parametre_delegue'])->name('etudiant.delegues.parametre');
+    Route::post('/delegues/paramètre/ajout', [DelegueController::class, 'parametre_delegue_ajout'])->name('etudiant.delegues.parametre.ajout');
+    Route::post('/delegues/paramètre/detache/{idDelegue}', [DelegueController::class, 'parametre_delegue_detache'])->name('etudiant.delegues.parametre.detache');
 
     /******** Fin  Etudiant  ********/
 

@@ -58,13 +58,19 @@ class AuthController extends Controller
                 ->withInput();
         }
 
+        if ($request->delegue_id) {
+        }
         $user = User::create([
             'nom_prenom' => $request->nom_prenom,
             'email' => $request->email,
             'password' => $request->password,
-
         ]);
         $user->assignRole('Etudiant');
+
+        if ($request->delegue_id) {
+            $delegue = Delegue::find($request->delegue_id);
+            $user->delegues()->attach($delegue);
+        }
 
         return redirect()->route('login')->withMessage('Inscription réussie ! Connectez-vous maintenant.');
     }

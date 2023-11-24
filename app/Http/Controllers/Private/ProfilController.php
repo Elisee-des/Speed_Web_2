@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ProfilController extends Controller
 {
@@ -87,7 +88,7 @@ class ProfilController extends Controller
     public function profil_edition_image()
     {
         $user = auth()->user();
-        return view('private.profil.edition-image', ['user'=>$user]);
+        return view('private.profil.edition-image', ['user' => $user]);
     }
 
     public function profil_edition_image_action(Request $request)
@@ -102,33 +103,46 @@ class ProfilController extends Controller
                 'new_image.file' => 'Le champ doit être un fichier.',
                 'new_image.mimes' => 'Le fichier doit être de type :values.',
                 'new_image.max' => 'La taille du fichier ne doit pas dépasser :max kilo-octets.',
-                ]
-            );
-            
-            if ($validator->fails()) {
-                return redirect()->back()
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-            }
-            
-            $user = auth()->user(); // ou récupère l'utilisateur d'une autre manière
+        }
 
-            // Supprime l'image précédente s'il y en a une
-            if ($user->image) {
-                Storage::delete($user->image->url); // Supprime le fichier physique
-                $user->image->delete(); // Supprime l'entrée de la base de données
-            }
-        
-            $imageProfilPath = $request->file('new_image')->store('images');
-        
-            $nouvelleImage = new Image([
+        // dd($request->new_image);
+
+        $user = auth()->user(); // ou récupère l'utilisateur d'une autre manière
+
+        // Supprime l'image précédente s'il y en a une
+        if ($user->image) {
+            Storage::delete($user->image->url); // Supprime le fichier physique
+            $user->image->delete(); // Supprime l'entrée de la base de données
+        }
+
+        $photo_64 = $request->new_image; //your base64 encoded data
+        // $extension = explode('/', explode(':', substr($pdf_64, 0, strpos($pdf_64, ';')))[1])[1];   // .jpg .png .pdf
+        $replace = substr($photo_64, 0, strpos($photo_64, ',') + 1);
+        $file = str_replace($replace, '', $photo_64);
+        $myImage = str_replace(' ', '+', $file);
+        $filename = $request->file('new_image')->getClientOriginalName();
+
+        Storage::disk('public')->put('uploads/images/profil/' . $filename, base64_decode($myImage));
+        $path = 'uploads/images/profil/' . $filename;
+
+        $nouvelleImage = Image::updateOrCreate(
+            ['user_id' => $user->id],
+            [
                 'nom' => $request->file('new_image')->getClientOriginalName(),
-                'url' => $imageProfilPath,
-            ]);
-        
-            $user->image()->save($nouvelleImage);
+                'url' => $path,
+            ]
+        );
 
-            return redirect()->back()->with('message', 'Image edité avec succès.');
+        $user->image()->save($nouvelleImage);
+
+        return redirect()->back()->with('message', 'Image edité avec succès.');
     }
 
     public function profil_edition_email()

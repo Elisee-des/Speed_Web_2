@@ -30,14 +30,13 @@
       <form action="{{route('profil.edition.image.action')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="content-edit-file">
-          <h5>Votre image actuel</h5>
-          {{-- @if ($user->image)
+          <h5>Mon image actuel</h5>
+          @if ($user->image)
+          <img src="{{ asset($user->image->nom) }}" alt="{{ $user->image->nom }}" class="image-profil-file">
           @else
           <p>Aucune image disponible</p>
-          @endif --}}
-          <img src="{{ url($user->image->url) }}" alt="{{ $user->image->nom }}" class="image-profil-file">
-          {{-- <img src="{{asset('assets/images/img-2.jpg')}}" alt="mon image de profil" class="image-profil-file" />
-          --}}
+          @endif
+
           <div class="container-edit-file">
             <label for="new_image">Choisir une nouvelle image</label>
             <input type="file" id="new_image" name="new_image" class="input-file-edit" />
@@ -51,8 +50,7 @@
           </button>
           <a href="{{route('profil.accueil')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
             class="submit-profil">
-            {{-- <i class="fa-regular fa-floppy-disk" style="color: #feffff"></i> --}}
-            Retour
+            <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
           </a>
         </div>
       </form>

@@ -13,6 +13,8 @@ class Delegue extends Model
         'delegues',
         'niveau_etude',
         'filiere',
+        'id_delegue_1',
+        'id_delegue_2',
         'promotion',
     ];
 

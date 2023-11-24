@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('url');
+            $table->mediumText('url');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
             $table->foreignId('resultat_id')->nullable()->references('id')->on('resultats');
             $table->foreignId('proclamations_id')->nullable()->references('id')->on('proclamations');

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('delegues');
             $table->string('filiere');
+            $table->string('id_delegue_1');
+            $table->string('id_delegue_2');
             $table->string('niveau_etude');
             $table->string('promotion');
             $table->timestamps();
