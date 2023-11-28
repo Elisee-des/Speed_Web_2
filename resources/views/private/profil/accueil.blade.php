@@ -27,7 +27,7 @@
   <h2 class="title-header">Mon profil</h2>
   <div class="profil-container">
     <div class="content-profil-image">
-      @if (Auth()->user()->image->nom)
+      @if (Auth()->user()->image)
       <img src="{{asset(Auth()->user()->image->nom)}}" alt="" class="image-profil" />
       @else
       <p>Aucune image disponible</p>

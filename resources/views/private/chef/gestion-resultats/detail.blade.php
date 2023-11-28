@@ -16,7 +16,7 @@
 
 <div class="container-content">
     <h2 class="title-header" style="text-align: center;, margin-bottom:10px;">
-        Detail des résultats de Electronique svt L2 S3 session normal
+        Detail des résultats de {{$resultat->nom_module}}
     </h2>
 
     <div class="container">
@@ -31,34 +31,46 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>9</td>
-                        <td>12/02/2023</td>
+                        <td>{{count($resultat->images)}}</td>
+                        <td>{{$resultat->created_at->format('d/m/y')}}</td>
                         <td>
-                            <a href='' class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEdition" title="Cliquez ici pour modifier le resultat"><i class="fa-solid fa-pen" style="color: #0432ff;"></i> Modifier</a>
+                            <a href='' class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalEdition" title="Cliquez ici pour modifier le resultat"><i
+                                    class="fa-solid fa-pen" style="color: #0432ff;"></i> Modifier</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <div class="card p-3">
-                <div class="f-colunm ">
-                    <div class="card p-3 mb-3 contenair-images-detail">
-                        <div class="a-content-option mb-3">
-                            <a href="" class="img-gestion" data-bs-toggle="modal" title="Cliquez ici pour modifier cette image" data-bs-target="#exampleModalEditionImage"><i class="fa-solid fa-pen-to-square" style="color: #0432ff;"></i> Changer cette image</a>
-                            <a href="" class="img-gestion" data-bs-toggle="modal" title="Cliquez ici pour supprimer cette le image" data-bs-target="#exampleModalDelete" style="color: #e3423d"><i class="fa-solid fa-trash" style="color: #ff2600;"></i> Supprimer cette image</a>
-                        </div>
-                        <img src="{{asset('assets/images/Proclamation des résultats svt l2 s3 session norma/20231031_125117.jpg')}}"
-                            class="d-block w-100" alt="images des proclamations de resultats de" />
+            <div class="f-colunm ">
+                {{-- @dd($resultat->images) --}}
+                @foreach ($resultat->images as $image)
+                <div class="card p-1 mb-3 contenair-images-detail">
+                    <div class="a-content-option mb-3">
+                        <a href="" class="img-gestion" data-bs-toggle="modal"
+                        title="Cliquez ici pour modifier cette image" data-bs-target="#exampleModalEditionImage"><i
+                        class="fa-solid fa-pen-to-square" style="color: #0432ff;"></i> Changer cette image</a>
+                        <a href="" class="img-gestion" data-bs-toggle="modal"
+                        title="Cliquez ici pour supprimer cette le image" data-bs-target="#exampleModalDelete"
+                        style="color: #e3423d"><i class="fa-solid fa-trash" style="color: #ff2600;"></i> Supprimer
+                        cette image</a>
                     </div>
-
+                    <img src="{{ asset($image->nom) }}"
+                        class="d-block w-100" alt="images des proclamations de resultats de {{ $image->nom }}" />
                 </div>
+                @endforeach
             </div>
 
             <div class="text-images-plus">
-                <a href="" class="text-images-plus-text" title="Cliquez ici pour changer tous les images" data-bs-toggle="modal" data-bs-target="#exampleModalEditionAllImages" style="font-size: 15px;"><i class="fa-solid fa-pen-to-square" style="color: #feffff;"></i> Changer tous les images</a>
+                <a href="" class="text-images-plus-text" title="Cliquez ici pour changer tous les images"
+                    data-bs-toggle="modal" data-bs-target="#exampleModalEditionAllImages" style="font-size: 15px;"><i
+                        class="fa-solid fa-pen-to-square" style="color: #feffff;"></i> Changer tous les images</a>
             </div>
             <div class="text-images-plus-delete">
-                <a href="" class="text-images-plus-text" title="Cliquez ici pour supprimer definitivement cette publication" onclick="return confirm('Etes vous sûr cette  publication ?')" style="font-size: 15px;"><i class="fa-solid fa-trash" style="color: #feffff;"></i> Supprimer cette publication</a>
+                <a href="" class="text-images-plus-text"
+                    title="Cliquez ici pour supprimer definitivement cette publication"
+                    onclick="return confirm('Etes vous sûr cette  publication ?')" style="font-size: 15px;"><i
+                        class="fa-solid fa-trash" style="color: #feffff;"></i> Supprimer cette publication</a>
             </div>
         </div>
     </div>

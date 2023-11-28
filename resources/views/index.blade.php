@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titre', "SPEED-RESULTAT")
+@section('titre', "CAMPUS-AFFICHES")
 
 @section('content')
 

@@ -1,5 +1,5 @@
 <div class="header">
-    <a href="{{route('accueil')}}" class="logo">SPEED-RESULTAT</a>
+    <a href="{{route('accueil')}}" class="logo">CAMPUS-AFFICHES</a>
     <div class="header-right">
         <div>
             <a href="{{route('accueil')}}">Accueil</a>

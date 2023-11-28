@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
             Route::resource('resultats', GestionResultatsController::class);
             Route::resource('proclamations', GestionProclamationsController::class);
             Route::resource('deliberations', GestionDeliberationController::class);
+            Route::get('resultats/paramètre', [GestionResultatsController::class, 'parametre_liste'])->name('resultat.parametre');
         }
     );
 

@@ -671,6 +671,7 @@ textarea {
 
 .container-content {
     height: 100%;
+    width: 100% !important;
 }
 
 .container-formulaire-contact {
@@ -824,10 +825,20 @@ textarea {
     /* background-color: var(--aa-light-gray); */
     width: 100%;
     margin: auto;
-    padding: 20px;
+    padding: 12px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     flex-direction: row;
     border-radius: 12px;
+}
+
+.container-formulaire-card {
+    /* background-color: var(--aa-light-gray); */
+    width: 100%;
+    padding: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    flex-direction: row;
+    border-radius: 5px;
+    margin-bottom: 50px !important;
 }
 
 .content-edit-profil {
@@ -957,7 +968,8 @@ textarea {
 
 .submit-file:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .image-profil-file {

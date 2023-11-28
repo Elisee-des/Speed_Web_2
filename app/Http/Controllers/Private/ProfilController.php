@@ -96,7 +96,7 @@ class ProfilController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'new_image' => 'required|file|mimes:jpeg,png,jpg|max:5120', // Adapté pour les images (modifiable selon tes besoins)
+                'new_image' => 'required|file|mimes:jpeg,png,jpg|max:5120',
             ],
             [
                 'new_image.required' => 'Le champ image est requis.',

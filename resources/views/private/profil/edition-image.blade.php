@@ -41,6 +41,7 @@
             <label for="new_image">Choisir une nouvelle image</label>
             <input type="file" id="new_image" name="new_image" class="input-file-edit" />
           </div>
+          
         </div>
 
         <div class="cnt-file" style="gap: 3px">
