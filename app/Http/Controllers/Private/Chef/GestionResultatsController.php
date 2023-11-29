@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Private\Chef;
 
 use App\Http\Controllers\Controller;
-use App\Models\Image;
+use App\Models\Image as ImageModel;
+use Intervention\Image\Facades\Image;
 use App\Models\Resultat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -71,29 +72,43 @@ class GestionResultatsController extends Controller
                 'user_id' => $user->id,
             ]);
 
-            $images = $request->file('images');
+            // Traitement des images
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $imageName = time() . '_' . $image->getClientOriginalName();
+                    $path = 'images/resultats/' . $imageName;
 
-            foreach ($images as $image) {
-                $photo_64 = $image; //your base64 encoded data
-                // $extension = explode('/', explode(':', substr($pdf_64, 0, strpos($pdf_64, ';')))[1])[1];   // .jpg .png .pdf
-                $replace = substr($photo_64, 0, strpos($photo_64, ',') + 1);
-                $file = str_replace($replace, '', $photo_64);
-                $myImage = str_replace(' ', '+', $file);
-                $filename = $image->getClientOriginalName();
+                    // Redimensionner l'image si nécessaire
+                    $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                    Storage::disk('public')->put($path, (string)$img->encode());
 
-                Storage::disk('public')->put('uploads/images/resultats/' . $filename, base64_decode($myImage));
-                $path = 'uploads/images/resultats/' . $filename;
-
-                $nouvelleImage = Image::updateOrCreate(
-                    ['resultat_id' => $resultat->id],
-                    [
-                        'nom' => $image->getClientOriginalName(),
-                        'url' => $path,
-                    ]
-                );
-
-                $resultat->images()->save($nouvelleImage);
+                    $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
+                }
             }
+
+            // if($request->hasFile('images'))
+            // {
+            //     foreach ($request->file('images') as $image) {
+            //         $photo_64 = $image;
+            //         $replace = substr($photo_64, 0, strpos($photo_64, ',') + 1);
+            //         $file = str_replace($replace, '', $photo_64);
+            //         $myImage = str_replace(' ', '+', $file);
+            //         $filename = $image->getClientOriginalName();
+
+            //         Storage::disk('public')->put('images/resultats/' . $filename, base64_decode($myImage));
+            //         $path = 'images/resultats/' . $filename;
+
+            //         $nouvelleImage = Image::updateOrCreate(
+            //             ['resultat_id' => $resultat->id],
+            //             [
+            //                 'nom' => $image->getClientOriginalName(),
+            //                 'url' => $path,
+            //             ]
+            //         );
+
+            //         $resultat->images()->save($nouvelleImage);
+            //     }
+            // }
 
             return redirect()->route('delegue.resultats.index')->with('message', 'Résultat ajouter avec succès !!!.');
         } else {
@@ -143,6 +158,102 @@ class GestionResultatsController extends Controller
         } else {
             $resultats = [];
             return view('private.chef.gestion-resultats.index', compact('resultats'));
+        }
+    }
+
+    public function edition_nom_module(Request $request, $idResultat)
+    {
+        $user = auth()->user();
+
+        if ($user->hasRole('Delegue')) {
+            $resultat = Resultat::find($idResultat);
+            $resultat->nom_module = $request->nom_module;
+            $resultat->save();
+
+            return redirect()->back()->with('success', "Nom du module modifié avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
+    }
+
+    public function suppression_image($idResultat, $idImage)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+            $image = ImageModel::where('id', $idImage)->where('resultat_id', $idResultat)->get()->first();
+
+            $image->delete();
+
+            return redirect()->back()->with('success', "Image supprimée avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
+    }
+
+    public function edition_image($idResultat, $idImage, Request $request)
+    {
+        $user = auth()->user();
+        $resultat = Resultat::find($idResultat);
+        if ($user->hasRole('Delegue')) {
+            $image = ImageModel::where('id', $idImage)->where('resultat_id', $idResultat)->get()->first();
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $imageName = time() . '_' . $image->getClientOriginalName();
+                    $path = 'images/resultats/' . $imageName;
+
+                    // Redimensionner l'image si nécessaire
+                    $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                    Storage::disk('public')->put($path, (string)$img->encode());
+
+                    $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
+                }
+            }
+
+            return redirect()->back()->with('success', "Image edité avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
+    }
+
+    public function ajout_image($idResultat, Request $request)
+    {
+        $user = auth()->user();
+        $resultat = Resultat::find($idResultat);
+        if ($user->hasRole('Delegue')) {
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $imageName = time() . '_' . $image->getClientOriginalName();
+                    $path = 'images/resultats/' . $imageName;
+
+                    // Redimensionner l'image si nécessaire
+                    $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                    Storage::disk('public')->put($path, (string)$img->encode());
+
+                    $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
+                }
+                return redirect()->back()->with('success', "Image ajouté avec succès.");
+            } else {
+                return redirect()->back()->with('error', "Vos fichier doivent être des images.");
+            }
+
+            // if ($user->hasRole('Delegue') && $request->hasFile('image')) {
+
+            //     $image = $request->file('image');
+            //     $imageName = time() . '_' . $image->getClientOriginalName();
+            //     $path = 'images/resultats/' . $imageName;
+            //     // Redimensionner l'image si nécessaire
+            //     $img = Image::make($image->getRealPath())->fit(1397, 1048);
+            //     Storage::disk('public')->put($path, (string)$img->encode());
+
+            //     $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
+
+            //     return redirect()->back()->with('success', "Image supprimer avec succès.");
+            // }
+
+        } else {
+            return redirect()->back()->with('error', "Vous n'avez pas les droits requis.");
         }
     }
 }

@@ -42,6 +42,26 @@
             toastr.success("{{ Session::get('message') }}", {timeOut:30000});
     </script>
     @endif
+
+    @if (Session::has('success'))
+    <script>
+        toastr.options = {
+                "progressBar":true,
+                "closeButton":true
+            }
+            toastr.success("{{ Session::get('success') }}", {timeOut:30000});
+    </script>
+    @endif
+
+    @if (Session::has('error'))
+    <script>
+        toastr.options = {
+                "progressBar":true,
+                "closeButton":true
+            }
+            toastr.error("{{ Session::get('error') }}", {timeOut:30000});
+    </script>
+    @endif
 </body>
 
 </html>
