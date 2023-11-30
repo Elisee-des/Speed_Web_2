@@ -114,7 +114,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edition de l'Image</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Changer cette image</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -140,7 +140,6 @@
                 </div>
                 {{-- Fin Modal pour la l'edition de l'image --}}
 
-
                 @endforeach
 
             </div>
@@ -151,7 +150,9 @@
                         class="fa-solid fa-pen-to-square" style="color: #feffff;"></i> Changer tous les images</a>
             </div> --}}
             <div class="text-images-plus-delete">
-                <a href="" class="text-images-plus-text"
+
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteResultat"
+                    class="text-images-plus-text" type="submit"
                     title="Cliquez ici pour supprimer definitivement cette publication"
                     onclick="return confirm('Etes vous sûr ?')" style="font-size: 15px;"><i class="fa-solid fa-trash"
                         style="color: #feffff;"></i> Supprimer cette publication</a>
@@ -159,6 +160,40 @@
         </div>
     </div>
 </div>
+
+{{-- Modal pour la suppression du resultat --}}
+<div class="modal fade" id="exampleModalDeleteResultat" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Suppression de
+                    <strong>{{$resultat->nom_module}}</strong>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('delegue.suppresion-module.action', $resultat->id)}}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <div class="">
+                        <label for="recipient-name" class="col-form-label">Tout les images associés à
+                            <strong>{{$resultat->nom_module}}</strong> seront supprimées.
+                        </label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                                class="fa-solid fa-xmark" style="color: #feffff;"></i> Annuler</button>
+                        <button type="submit" class="btn btn-primary btn-cool-delete"><i class="fa-solid fa-trash"
+                                style="color: #feffff;"></i>
+                            Supprimer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- Modal pour la suppression du resultat --}}
 
 <div class="modal fade" id="exampleModalEdition" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -195,7 +230,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ajout d'image à
-                    <strong>{{$resultat->nom_module}}</strong></h5>
+                    <strong>{{$resultat->nom_module}}</strong>
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

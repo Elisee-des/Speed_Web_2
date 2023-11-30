@@ -144,9 +144,18 @@ class GestionResultatsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($idResultat)
     {
-        //
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+
+            $resultat = Resultat::find($idResultat);
+            $resultat->delete();
+
+            return redirect()->route('delegue.resultats.index')->with('success', "Resultat supprimé avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
     }
 
     public function parametre_liste()
@@ -180,8 +189,9 @@ class GestionResultatsController extends Controller
     {
         $user = auth()->user();
         if ($user->hasRole('Delegue')) {
-            $image = ImageModel::where('id', $idImage)->where('resultat_id', $idResultat)->get()->first();
 
+            $image = ImageModel::where('id', $idImage)->where('resultat_id', $idResultat)->get()->first();
+            Storage::delete($image->path); // Supprime le fichier physique
             $image->delete();
 
             return redirect()->back()->with('success', "Image supprimée avec succès.");
@@ -195,19 +205,20 @@ class GestionResultatsController extends Controller
         $user = auth()->user();
         $resultat = Resultat::find($idResultat);
         if ($user->hasRole('Delegue')) {
-            $image = ImageModel::where('id', $idImage)->where('resultat_id', $idResultat)->get()->first();
+            $imageOld = ImageModel::where('id', $idImage)->where('resultat_id', $idResultat)->get()->first();
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $path = 'images/resultats/' . $imageName;
 
-            if ($request->hasFile('images')) {
-                foreach ($request->file('images') as $image) {
-                    $imageName = time() . '_' . $image->getClientOriginalName();
-                    $path = 'images/resultats/' . $imageName;
+                // Redimensionner l'image si nécessaire
+                $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                Storage::disk('public')->put($path, (string)$img->encode());
 
-                    // Redimensionner l'image si nécessaire
-                    $img = Image::make($image->getRealPath())->fit(1397, 1048);
-                    Storage::disk('public')->put($path, (string)$img->encode());
+                $imageOld->nom = $image->getClientOriginalName();
+                $imageOld->path = $imageName;
 
-                    $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
-                }
+                $imageOld->save();
             }
 
             return redirect()->back()->with('success', "Image edité avec succès.");
@@ -256,4 +267,5 @@ class GestionResultatsController extends Controller
             return redirect()->back()->with('error', "Vous n'avez pas les droits requis.");
         }
     }
+
 }
