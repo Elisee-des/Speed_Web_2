@@ -4,7 +4,7 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 
 composer require intervention/image
 
-php artisan serve --host=0.0.0.0 --port=8000
+php artisan serve --host=0.0.0.0 --port=8001
 
 ipconfig getifaddr en0
 

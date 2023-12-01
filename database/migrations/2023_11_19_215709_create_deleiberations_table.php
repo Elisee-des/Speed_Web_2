@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nom_module');
             $table->string('niveau_licence');
             $table->string('session');
+            $table->boolean('actif')->default(false);
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
             $table->timestamps();
         });

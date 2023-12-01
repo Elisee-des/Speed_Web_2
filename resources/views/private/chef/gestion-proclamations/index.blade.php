@@ -1,6 +1,6 @@
 @extends('layouts.private.app')
 
-@section('titre', "Gestion des proclamations")
+@section('titre', "Gestion des resultats")
 
 @section('content_private')
 
@@ -19,12 +19,12 @@
         Liste des proclamations enregistrés
     </h2>
 
-    <div class="container">
         <div class="">
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="mb-0"></h1>
                 <div>
-                    <a href="" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter une nouvelle proclamation" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-sharp fa-plus"></i> Ajouter</a>
+                    {{-- <a href="{{route('delegue.setting')}}" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter une nouvelle délibération."><i class="fa-solid fa-gear" style="color: #feffff;"></i> Paramètre</a> --}}
+                    <a href="{{route('delegue.proclamations.create')}}" class="btn btn-primary btn-cool" title="Clique  ici pour modifier les proclamations affichées."><i class="fa-solid fa-plus"></i> Ajouter</a>
                 </div>
             </div>
         
@@ -32,7 +32,7 @@
             <table class="table table-bordered table-container-elements">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        {{-- <th scope="col">#</th> --}}
                         <th scope="col">Noms</th>
                         <th scope="col">Images</th>
                         <th scope="col">Date</th>
@@ -40,16 +40,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($proclamations as $proclamation)
+                        
                     <tr>
-                        <th scope="row"><a href="{{route('delegue.proclamations.show', 1)}}" title="Cliquez pour voir les details">1</a></th>
-                        <td><a href="{{route('delegue.proclamations.show', 1)}}" title="Cliquez pour voir les details">Electronique</a></td>
-                        <td><a href="{{route('delegue.proclamations.show', 1)}}" title="Cliquez pour voir les details">9</a></td>
-                        <td><a href="{{route('delegue.proclamations.show', 1)}}" title="Cliquez pour voir les details">12/02/2023</a></td>
+                        {{-- <th scope="row"><a href="{{route('delegue.resultats.show', 1)}}" title="Cliquez pour voir les details">1</a></th> --}}
+                        <td><a href="{{route('delegue.resultats.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{$proclamation->nom_module}}</a></td>
+                        <td><a href="{{route('delegue.resultats.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{count($proclamation->images)}}</a></td>
+                        <td><a href="{{route('delegue.resultats.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{$proclamation->created_at->format('d/m/y')}}</a></td>
                     </tr>
+                    
+                    @endforeach
                 </tbody>
             </table>
         </div>
-    </div>
 </div>
 
 @include('layouts.private.modal-create-gestion')

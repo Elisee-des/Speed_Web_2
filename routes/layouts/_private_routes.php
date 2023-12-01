@@ -66,12 +66,13 @@ Route::middleware('auth')->group(function () {
             Route::resource('resultats', GestionResultatsController::class);
             Route::resource('proclamations', GestionProclamationsController::class);
             Route::resource('deliberations', GestionDeliberationController::class);
-            Route::get('resultats/paramètre', [GestionResultatsController::class, 'parametre_liste'])->name('resultat.parametre');
             Route::post('resultats/edtion-nom-du-module/action{idResultat}/', [GestionResultatsController::class, 'edition_nom_module'])->name('edition-nom-module.action');
             Route::post('resultats/suppresion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'suppression_image'])->name('suppression-image.action');
             Route::post('resultats/edtion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'edition_image'])->name('edition-image.action');
             Route::post('resultats/ajout-image-du-module/action/{idResultat}/', [GestionResultatsController::class, 'ajout_image'])->name('ajout-image.action');
             Route::delete('resultats/suppresion-module/action/{idResultat}/', [GestionResultatsController::class, 'destroy'])->name('suppresion-module.action');
+            Route::post('resultats/affiche/{idResultat}/', [GestionResultatsController::class, 'affiche_resultat'])->name('resultats.affiche');
+            Route::post('resultats/cache/{idResultat}/', [GestionResultatsController::class, 'cache_resultat'])->name('resultats.cacher');
         }
     );
 

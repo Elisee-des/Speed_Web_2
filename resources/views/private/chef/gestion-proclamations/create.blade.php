@@ -7,7 +7,7 @@
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{route('delegue.resultats.index')}}">Liste des résultats</a>
+            <a href="{{route('delegue.proclamations.index')}}">Liste des proclamations</a>
         </li>
 
         <li class="breadcrumb-item active" aria-current="page">Ajout</li>
@@ -16,12 +16,12 @@
 
 <div class="container-content">
     <h2 class="title-header" style="text-align: center;, margin-bottom:10px;">
-        Enregistré un nouveau résultat
+        Enregistré une nouvelle proclamation
     </h2>
 
     <div class="container-formulaire-card">
         <div class="modal-body">
-            <form action="{{route('delegue.resultats.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('delegue.proclamations.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="">
                     <label for="recipient-name" class="col-form-label">Nom du module</label>
@@ -59,7 +59,7 @@
                         <i class="fa-sharp fa-plus" style="color: #feffff;"></i>
                         Ajouter
                     </button>
-                    <a href="{{route('delegue.resultats.index')}}" type="submit"
+                    <a href="{{route('delegue.proclamations.index')}}" type="submit"
                         style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
                         <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
                     </a>

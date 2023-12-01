@@ -17,7 +17,7 @@ return new class extends Migration
             $table->mediumText('path');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
             $table->foreignId('resultat_id')->nullable()->references('id')->on('resultats')->cascadeOnDelete();
-            $table->foreignId('proclamations_id')->nullable()->references('id')->on('proclamations');
+            $table->foreignId('proclamation_id')->nullable()->references('id')->on('proclamations');
             $table->foreignId('deliberation_id')->nullable()->references('id')->on('deleiberations');
             $table->timestamps();
         });

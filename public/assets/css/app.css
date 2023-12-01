@@ -1032,6 +1032,13 @@ textarea {
     border: none !important;
 }
 
+.btn-cool-2 {
+    background-color: var(--aa-orange) !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s !important;
+    border: none !important;
+}
+
 .btn-cool-delete {
     background-color: var(--aa-red) !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
@@ -1039,8 +1046,9 @@ textarea {
     border: none !important;
 }
 
-.btn-cool:hover {
-    letter-spacing: 1px;
+.btn-cool:hover, .btn-cool-2:hover {
+    /* letter-spacing: 1px; */
+    background-color: var(--aa-orange) !important;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
 }
 
@@ -1553,5 +1561,11 @@ textarea {
 .delegues-parametre-container-2{
     gap:15px;
     margin-top: 20px;
+}
+
+.option-detail-liste-container{
+    display: flex;
+    justify-content: center;
+     gap: 12px;
 }
 /*Fin autre*/

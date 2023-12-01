@@ -23,7 +23,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="mb-0"></h1>
                 <div>
-                    <a href="{{route('delegue.resultat.parametre')}}" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter une nouvelle délibération."><i class="fa-solid fa-gear" style="color: #feffff;"></i> Paramètre</a>
+                    {{-- <a href="{{route('delegue.setting')}}" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter une nouvelle délibération."><i class="fa-solid fa-gear" style="color: #feffff;"></i> Paramètre</a> --}}
                     <a href="{{route('delegue.resultats.create')}}" class="btn btn-primary btn-cool" title="Clique  Ici pour modifier les resultats afficher."><i class="fa-solid fa-plus"></i> Ajouter</a>
                 </div>
             </div>

@@ -23,4 +23,14 @@ class Image extends Model
     {
         return $this->belongsTo(Resultat::class);
     }
+
+    public function proclamation()
+    {
+        return $this->belongsTo(Proclamation::class);
+    }
+
+    public function deleiberation()
+    {
+        return $this->belongsTo(Deleiberation::class);
+    }
 }

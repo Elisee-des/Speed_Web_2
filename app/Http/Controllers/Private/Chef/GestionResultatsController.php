@@ -158,18 +158,6 @@ class GestionResultatsController extends Controller
         }
     }
 
-    public function parametre_liste()
-    {
-        $user = auth()->user();
-        if ($user->hasRole('Delegue')) {
-            $resultats = Resultat::where('user_id', $user->id)->get();
-            return view('private.chef.gestion-resultats.parametre', compact('resultats'));
-        } else {
-            $resultats = [];
-            return view('private.chef.gestion-resultats.index', compact('resultats'));
-        }
-    }
-
     public function edition_nom_module(Request $request, $idResultat)
     {
         $user = auth()->user();
@@ -268,4 +256,27 @@ class GestionResultatsController extends Controller
         }
     }
 
+    public function affiche_resultat($idResultat)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+            $resultat = Resultat::find($idResultat);
+            $resultat->actif = 1;
+            $resultat->update();
+            
+            return redirect()->back()->with('success', "L'opération est un succès.");
+        }
+    }
+    
+    public function cache_resultat($idResultat)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+            $resultat = Resultat::find($idResultat);
+            $resultat->actif = 0;
+            $resultat->update();
+
+            return redirect()->back()->with('success', "L'opération est un succès.");
+        }
+    }
 }
