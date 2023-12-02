@@ -7,7 +7,7 @@
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="contact.html">Gestion des résultats</a>
+            <a href="#">Gestion des résultats</a>
         </li>
 
         <li class="breadcrumb-item active" aria-current="page">Liste</li>

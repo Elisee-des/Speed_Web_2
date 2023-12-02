@@ -47,9 +47,9 @@
                 {{-- <a href="{{route('delegue.resultat.parametre')}}" class="btn btn-primary btn-cool"
                     title="Clique  Ici pour ajouter une nouvelle délibération."><i class="fa-solid fa-gear"
                         style="color: #feffff;"></i> Paramètre</a> --}}
-                <a href="{{route('delegue.resultats.create')}}" data-bs-toggle="modal"
+                <a href="{{route('delegue.ajout-image.action', $resultat->id)}}" data-bs-toggle="modal"
                     data-bs-target="#exampleModalAjoutImage" class="btn btn-primary btn-cool"
-                    title="Clique  Ici pour modifier les resultats afficher."><i class="fa-solid fa-plus"></i>
+                    title="Clique  Ici pour ajouter une ou des images."><i class="fa-solid fa-plus"></i>
                     Ajouter une ou des images</a>
 
                 @if ($resultat->actif == 0)
@@ -58,7 +58,7 @@
                     <a href="#" class="btn btn-primary btn-cool-2" data-bs-toggle="modal" type="submit"
                         data-bs-target="#exampleModalResultatAffiche"
                         title="Clique  Ici pour afficher ces résultats."><i class="fa-solid fa-eye"></i>
-                        Afficher ces résultats</a>
+                        Afficher ces images</a>
                 </form>
                 @else
                 <form action="{{route('delegue.resultats.cacher', $resultat->id)}}" method="POST">
@@ -66,7 +66,7 @@
                     <a href="#" class="btn btn-primary btn-cool-2" data-bs-toggle="modal" type="submit"
                         data-bs-target="#exampleModalResultatCache" title="Clique  Ici pour cacher ces résultats."><i
                             class="fa-solid fa-eye"></i>
-                        Cacher ces résultats</a>
+                        Cacher ces images</a>
                 </form>
                 @endif
             </div>
@@ -161,7 +161,7 @@
                 class="text-images-plus-text" type="submit"
                 title="Cliquez ici pour supprimer definitivement cette publication"
                 onclick="return confirm('Etes vous sûr ?')" style="font-size: 15px;"><i class="fa-solid fa-trash"
-                    style="color: #feffff;"></i> Supprimer cette publication</a>
+                    style="color: #feffff;"></i> Supprimer tout ces résultats</a>
         </div>
     </div>
 
@@ -179,7 +179,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Suppression de
+                <h5 class="modal-title" id="exampleModalLabel">Suppression des résultats de 
                     <strong>{{$resultat->nom_module}}</strong>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -189,7 +189,7 @@
                     @method('delete')
                     @csrf
                     <div class="">
-                        <label for="recipient-name" class="col-form-label">Tout les images associés à
+                        <label for="recipient-name" class="col-form-label">Tout les images associés au résultat de
                             <strong>{{$resultat->nom_module}}</strong> seront supprimées.
                         </label>
                     </div>
@@ -211,7 +211,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edition de <strong>{{$resultat->nom_module}}</strong>
+                <h5 class="modal-title" id="exampleModalLabel">Edition du résultat <strong>{{$resultat->nom_module}}</strong>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

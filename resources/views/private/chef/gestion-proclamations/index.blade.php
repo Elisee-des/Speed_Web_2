@@ -7,7 +7,7 @@
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="contact.html">Gestion des proclamations</a>
+            <a href="#">Gestion des proclamations</a>
         </li>
 
         <li class="breadcrumb-item active" aria-current="page">Liste</li>
@@ -44,9 +44,9 @@
                         
                     <tr>
                         {{-- <th scope="row"><a href="{{route('delegue.resultats.show', 1)}}" title="Cliquez pour voir les details">1</a></th> --}}
-                        <td><a href="{{route('delegue.resultats.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{$proclamation->nom_module}}</a></td>
-                        <td><a href="{{route('delegue.resultats.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{count($proclamation->images)}}</a></td>
-                        <td><a href="{{route('delegue.resultats.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{$proclamation->created_at->format('d/m/y')}}</a></td>
+                        <td><a href="{{route('delegue.proclamations.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{$proclamation->nom_module}}</a></td>
+                        <td><a href="{{route('delegue.proclamations.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{count($proclamation->images)}}</a></td>
+                        <td><a href="{{route('delegue.proclamations.show', $proclamation->id)}}" title="Cliquez pour voir les details">{{$proclamation->created_at->format('d/m/y')}}</a></td>
                     </tr>
                     
                     @endforeach

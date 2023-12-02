@@ -14,6 +14,7 @@ class Proclamation extends Model
         'niveau_licence',
         'session',
         'user_id',
+        'actif',
     ];
 
     public function images()

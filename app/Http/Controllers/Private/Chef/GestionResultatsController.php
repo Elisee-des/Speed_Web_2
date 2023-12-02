@@ -79,7 +79,7 @@ class GestionResultatsController extends Controller
                     $path = 'images/resultats/' . $imageName;
 
                     // Redimensionner l'image si nécessaire
-                    $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                    $img = Image::make($image->getRealPath());
                     Storage::disk('public')->put($path, (string)$img->encode());
 
                     $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
@@ -200,7 +200,7 @@ class GestionResultatsController extends Controller
                 $path = 'images/resultats/' . $imageName;
 
                 // Redimensionner l'image si nécessaire
-                $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                $img = Image::make($image->getRealPath());
                 Storage::disk('public')->put($path, (string)$img->encode());
 
                 $imageOld->nom = $image->getClientOriginalName();
@@ -227,7 +227,7 @@ class GestionResultatsController extends Controller
                     $path = 'images/resultats/' . $imageName;
 
                     // Redimensionner l'image si nécessaire
-                    $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                    $img = Image::make($image->getRealPath());
                     Storage::disk('public')->put($path, (string)$img->encode());
 
                     $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
@@ -236,20 +236,6 @@ class GestionResultatsController extends Controller
             } else {
                 return redirect()->back()->with('error', "Vos fichier doivent être des images.");
             }
-
-            // if ($user->hasRole('Delegue') && $request->hasFile('image')) {
-
-            //     $image = $request->file('image');
-            //     $imageName = time() . '_' . $image->getClientOriginalName();
-            //     $path = 'images/resultats/' . $imageName;
-            //     // Redimensionner l'image si nécessaire
-            //     $img = Image::make($image->getRealPath())->fit(1397, 1048);
-            //     Storage::disk('public')->put($path, (string)$img->encode());
-
-            //     $resultat->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
-
-            //     return redirect()->back()->with('success', "Image supprimer avec succès.");
-            // }
 
         } else {
             return redirect()->back()->with('error', "Vous n'avez pas les droits requis.");

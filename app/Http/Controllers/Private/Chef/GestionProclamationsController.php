@@ -74,7 +74,7 @@ class GestionProclamationsController extends Controller
                     $path = 'images/proclamations/' . $imageName;
 
                     // Redimensionner l'image si nécessaire
-                    $img = Image::make($image->getRealPath())->fit(1397, 1048);
+                    $img = Image::make($image->getRealPath());
                     Storage::disk('public')->put($path, (string)$img->encode());
 
                     $proclamation->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
@@ -90,32 +90,134 @@ class GestionProclamationsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $idResultat)
+    public function show(string $idProclamation)
     {
-        return view('private.chef.gestion-proclamations.detail', ['idResultat' => $idResultat]);
+        $proclamation = Proclamation::find($idProclamation);
+        return view('private.chef.gestion-proclamations.detail', ['proclamation' => $proclamation]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edition_nom_module(Request $request, $idProclamation)
     {
-        //
-    }
+        $user = auth()->user();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        if ($user->hasRole('Delegue')) {
+            $proclamation = Proclamation::find($idProclamation);
+            $proclamation->nom_module = $request->nom_module;
+            $proclamation->save();
+
+            return redirect()->back()->with('success', "Nom de la proclamation a été modifié avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($idProclamation)
     {
-        //
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+
+            $proclamation = Proclamation::find($idProclamation);
+            $proclamation->delete();
+
+            return redirect()->route('delegue.proclamations.index')->with('success', "Proclamation supprimée avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
+    }
+
+    public function suppression_image($idProclamation, $idImage)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+
+            $image = ImageModel::where('id', $idImage)->where('proclamation_id', $idProclamation)->get()->first();
+            Storage::delete($image->path); // Supprime le fichier physique
+            $image->delete();
+
+            return redirect()->back()->with('success', "Image supprimée avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
+    }
+
+    public function edition_image($idProclamation, $idImage, Request $request)
+    {
+        $user = auth()->user();
+        $proclamation = Proclamation::find($idProclamation);
+        if ($user->hasRole('Delegue')) {
+            $imageOld = ImageModel::where('id', $idImage)->where('proclamation_id', $idProclamation)->get()->first();
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $path = 'images/proclamations/' . $imageName;
+
+                // Redimensionner l'image si nécessaire
+                $img = Image::make($image->getRealPath());
+                Storage::disk('public')->put($path, (string)$img->encode());
+
+                $imageOld->nom = $image->getClientOriginalName();
+                $imageOld->path = $imageName;
+
+                $imageOld->save();
+            }
+
+            return redirect()->back()->with('success', "Image edité avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
+    }
+
+    public function ajout_image($idProclamation, Request $request)
+    {
+        $user = auth()->user();
+        $proclamation = Proclamation::find($idProclamation);
+        if ($user->hasRole('Delegue')) {
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $imageName = time() . '_' . $image->getClientOriginalName();
+                    $path = 'images/proclamations/' . $imageName;
+
+                    // Redimensionner l'image si nécessaire
+                    $img = Image::make($image->getRealPath());
+                    Storage::disk('public')->put($path, (string)$img->encode());
+
+                    $proclamation->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
+                }
+                return redirect()->back()->with('success', "Image ajouté avec succès.");
+            } else {
+                return redirect()->back()->with('error', "Vos fichier doivent être des images.");
+            }
+
+        } else {
+            return redirect()->back()->with('error', "Vous n'avez pas les droits requis.");
+        }
+    }
+
+    public function affiche_resultat($idProclamation)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+            $proclamation = Proclamation::find($idProclamation);
+            $proclamation->actif = 1;
+            $proclamation->update();
+            
+            return redirect()->back()->with('success', "L'opération est un succès.");
+        }
+    }
+    
+    public function cache_resultat($idProclamation)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+            $proclamation = Proclamation::find($idProclamation);
+            $proclamation->actif = 0;
+            $proclamation->update();
+
+            return redirect()->back()->with('success', "L'opération est un succès.");
+        }
     }
 }

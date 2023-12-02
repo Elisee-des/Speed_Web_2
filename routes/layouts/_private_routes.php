@@ -66,13 +66,26 @@ Route::middleware('auth')->group(function () {
             Route::resource('resultats', GestionResultatsController::class);
             Route::resource('proclamations', GestionProclamationsController::class);
             Route::resource('deliberations', GestionDeliberationController::class);
-            Route::post('resultats/edtion-nom-du-module/action{idResultat}/', [GestionResultatsController::class, 'edition_nom_module'])->name('edition-nom-module.action');
-            Route::post('resultats/suppresion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'suppression_image'])->name('suppression-image.action');
-            Route::post('resultats/edtion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'edition_image'])->name('edition-image.action');
-            Route::post('resultats/ajout-image-du-module/action/{idResultat}/', [GestionResultatsController::class, 'ajout_image'])->name('ajout-image.action');
-            Route::delete('resultats/suppresion-module/action/{idResultat}/', [GestionResultatsController::class, 'destroy'])->name('suppresion-module.action');
-            Route::post('resultats/affiche/{idResultat}/', [GestionResultatsController::class, 'affiche_resultat'])->name('resultats.affiche');
-            Route::post('resultats/cache/{idResultat}/', [GestionResultatsController::class, 'cache_resultat'])->name('resultats.cacher');
+
+            Route::prefix('resultats')->group(function () {
+                Route::post('edtion-nom-du-module/action{idResultat}/', [GestionResultatsController::class, 'edition_nom_module'])->name('edition-nom-module.action');
+                Route::post('suppresion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'suppression_image'])->name('suppression-image.action');
+                Route::post('edtion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'edition_image'])->name('edition-image.action');
+                Route::post('ajout-image-du-module/action/{idResultat}/', [GestionResultatsController::class, 'ajout_image'])->name('ajout-image.action');
+                Route::delete('suppresion-module/action/{idResultat}/', [GestionResultatsController::class, 'destroy'])->name('suppresion-module.action');
+                Route::post('affiche/{idResultat}/', [GestionResultatsController::class, 'affiche_resultat'])->name('resultats.affiche');
+                Route::post('cache/{idResultat}/', [GestionResultatsController::class, 'cache_resultat'])->name('resultats.cacher');
+            });
+
+            Route::prefix('proclamations')->name('proclamations.')->group(function () {
+                Route::post('edtion-nom-du-module/action{idProclamation}/', [GestionProclamationsController::class, 'edition_nom_module'])->name('edition-nom-module.action');
+                Route::post('suppresion-image-du-module/action/{idProclamation}/{idImage}/', [GestionProclamationsController::class, 'suppression_image'])->name('suppression-image.action');
+                Route::post('edtion-image-du-module/action/{idProclamation}/{idImage}/', [GestionProclamationsController::class, 'edition_image'])->name('edition-image.action');
+                Route::post('ajout-image-du-module/action/{idProclamation}/', [GestionProclamationsController::class, 'ajout_image'])->name('ajout-image.action');
+                Route::delete('suppresion-module/action/{idProclamation}/', [GestionProclamationsController::class, 'destroy'])->name('suppresion-module.action');
+                Route::post('affiche/{idProclamation}/', [GestionProclamationsController::class, 'affiche_resultat'])->name('affiche');
+                Route::post('cache/{idProclamation}/', [GestionProclamationsController::class, 'cache_resultat'])->name('cacher');
+            });
         }
     );
 
