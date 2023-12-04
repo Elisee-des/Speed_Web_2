@@ -12,6 +12,7 @@ class Image extends Model
     protected $fillable = [
         'nom',
         'path',
+        'deleiberation_id'
     ];
 
     public function user()

@@ -76,4 +76,12 @@ class DelegueController extends Controller
             return redirect()->back()->with('message', "Desolé! Ces délégués n'existe pas.");
         }
     }
+
+    public function etudiants_liste()
+    {
+        $delegue = auth()->user();
+        $etudiants = $delegue->users;
+        dd($etudiants);
+        return view('private.chef.etudiants.index', compact('etudiants'));
+    }
 }

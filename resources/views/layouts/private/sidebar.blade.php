@@ -48,7 +48,7 @@
         <a href="{{route('delegue.deliberations.index')}}"><i class="fa-solid fa-right-long" style="color: #feffff"></i> Gestion
             Délibérations</a>
     </div>
-    <a href="" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
+    <a href="{{route('delegue.etudiants.liste')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
         Etudiants</a>
     <a href="{{route('compte.aide')}}"><i class="fa-solid fa-message" style="color: #feffff"></i> Aide</a>
     <a href="{{route('profil.accueil')}}"><i class="fa-sharp fa-solid fa-address-card" style="color: #feffff"></i>

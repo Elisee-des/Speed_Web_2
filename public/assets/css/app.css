@@ -1046,7 +1046,14 @@ textarea {
     border: none !important;
 }
 
-.btn-cool:hover, .btn-cool-2:hover {
+.btn-cool-dark {
+    background-color: var(--aa-dark) !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.5s !important;
+    border: none !important;
+}
+
+.btn-cool:hover, .btn-cool-2:hover, .btn-cool-delete:hover, .btn-cool-dark:hover {
     /* letter-spacing: 1px; */
     background-color: var(--aa-orange) !important;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
