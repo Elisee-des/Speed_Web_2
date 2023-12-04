@@ -4,7 +4,7 @@
         <div>
             <a href="{{route('accueil')}}">Accueil</a>
             <a href="{{route('apropos')}}">A propos</a>
-            {{-- <a href="{{route('contact')}}">Contact</a> --}}
+            <a href="#">Affiches</a>
             @auth
             <a href="#">{{ Auth::user()->nom_prenom }}</a>
             <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
