@@ -82,6 +82,7 @@ class DelegueController extends Controller
         $delegue = auth()->user();
         $etudiants = $delegue->users;
         dd($etudiants);
+        
         return view('private.chef.etudiants.index', compact('etudiants'));
     }
 }
