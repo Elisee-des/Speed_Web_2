@@ -5,7 +5,7 @@
         bord</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-file-image" style="color: #feffff;"></i>
         Fichiers</a>
-    <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-user-secret" style="color: #feffff;"></i>
+    <a href="{{route('admin.gestionnaires.index')}}" class=""><i class="fa-solid fa-user-secret" style="color: #feffff;"></i>
         Gestionnaires</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-user-group" style="color: #feffff;"></i>
         Délégués</a>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Private\Admin\AdminTableaudebordController;
+use App\Http\Controllers\private\Admin\GestionnaireController;
 use App\Http\Controllers\Private\AideController;
 use App\Http\Controllers\Private\Chef\DelegueTableaudebordController;
 use App\Http\Controllers\Private\Chef\GestionDeliberationController;
@@ -125,6 +126,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:Admin')->name('admin.')->prefix('admin')->group(
         function () {
             Route::get('tableau-de-bord', [AdminTableaudebordController::class, 'index'])->name('tableaudebord');
+            Route::resource('gestionnaires', GestionnaireController::class);
         }
     );
 
