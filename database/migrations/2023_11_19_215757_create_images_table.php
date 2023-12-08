@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('deleiberations', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_module');
-            $table->string('niveau_licence');
-            $table->string('session');
-            $table->boolean('actif')->default(false);
+            $table->string('nom');
+            $table->mediumText('path');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
+            $table->foreignId('affiche_id')->references('id')->on('affiches');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('deleiberations');
+        Schema::dropIfExists('images');
     }
 };

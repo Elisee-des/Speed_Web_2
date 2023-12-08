@@ -7,6 +7,7 @@ use App\Http\Controllers\Private\Chef\DelegueTableaudebordController;
 use App\Http\Controllers\Private\Chef\GestionDeliberationController;
 use App\Http\Controllers\Private\Chef\GestionProclamationsController;
 use App\Http\Controllers\Private\Chef\GestionResultatsController;
+use App\Http\Controllers\Private\Chef\GestionSemestreController;
 use App\Http\Controllers\Private\DeliberationController;
 use App\Http\Controllers\Private\Etudiant\DelegueController;
 use App\Http\Controllers\Private\Etudiant\EtudiantTableaudebordController;
@@ -67,6 +68,7 @@ Route::middleware('auth')->group(function () {
             Route::resource('resultats', GestionResultatsController::class);
             Route::resource('proclamations', GestionProclamationsController::class);
             Route::resource('deliberations', GestionDeliberationController::class);
+            Route::resource('semestres', GestionSemestreController::class);
 
             Route::prefix('resultats')->group(function () {
                 Route::post('edtion-nom-du-module/action{idResultat}/', [GestionResultatsController::class, 'edition_nom_module'])->name('edition-nom-module.action');
@@ -100,6 +102,8 @@ Route::middleware('auth')->group(function () {
 
             Route::get('etudiant/liste', [DelegueController::class, 'etudiants_liste'])->name('etudiants.liste');
             Route::get('etudiant/ajout', [DelegueController::class, 'ajout_etudiant'])->name('etudiants.create');
+            Route::get('gestionnaire/detail/{idGestionnaire}', [DelegueController::class, 'gestionnaire_detail'])->name('gestionnaire.detail');
+
         }
     );
 

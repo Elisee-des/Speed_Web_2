@@ -125,12 +125,41 @@
     </div>
   </div>
   
-  <div class="cnt-profil" style="margin-bottom: 40px">
-    <a href="{{route('etudiant.tableaudebord')}}" type="submit"
-      style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
-      <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
-    </a>
-  </div>
+@role("Admin")
+<div class="cnt-profil" style="margin-bottom: 40px">
+  <a href="{{route('admin.tableaudebord')}}" type="submit"
+    style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
+    <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
+  </a>
+</div>
+@endrole
+
+@role("Gestionnaire")
+<div class="cnt-profil" style="margin-bottom: 40px">
+  <a href="{{route('gestionnaire.tableaudebord')}}" type="submit"
+    style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
+    <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
+  </a>
+</div>
+@endrole
+
+@role("Delegue")
+<div class="cnt-profil" style="margin-bottom: 40px">
+  <a href="{{route('delegue.tableaudebord')}}" type="submit"
+    style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
+    <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
+  </a>
+</div>
+@endrole
+
+@role("Etudiant")
+<div class="cnt-profil" style="margin-bottom: 40px">
+  <a href="{{route('etudiant.tableaudebord')}}" type="submit"
+    style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
+    <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
+  </a>
+</div>
+@endrole
 </div>
 
 @endsection

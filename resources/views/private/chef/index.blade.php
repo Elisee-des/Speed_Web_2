@@ -28,7 +28,8 @@
                                     data-target="28.05">102</span>
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-success mb-0"><i
-                                        class="ri-arrow-up-line align-middle"></i>Le total </span> résultats que vous avez enregistré</p>
+                                        class="ri-arrow-up-line align-middle"></i>Le total </span> résultats que vous
+                                avez enregistré</p>
                         </div>
                         <div>
                             <div class="avatar-sm flex-shrink-0">
@@ -78,7 +79,8 @@
                                     data-target="3">309</span>
                             </h2>
                             <p class="mb-0 text-white-50"><span class="badge badge-soft-light mb-0"><i
-                                        class="ri-arrow-down-line align-middle"></i> le total </span> Déliberation que vous avez enregistré</p>
+                                        class="ri-arrow-down-line align-middle"></i> le total </span> Déliberation que
+                                vous avez enregistré</p>
                         </div>
                         <div>
                             <div class="avatar-sm flex-shrink-0">
@@ -102,7 +104,8 @@
                                     data-target="33.48">502</span>
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-success mb-0"><i
-                                        class="ri-arrow-up-line align-middle"></i> Total </span> des etudiant qui vous suivent.</p>
+                                        class="ri-arrow-up-line align-middle"></i> Total </span> des etudiant qui vous
+                                suivent.</p>
                         </div>
                         <div>
                             <div class="avatar-sm flex-shrink-0">
@@ -120,25 +123,53 @@
     <div class="row mt-4 g-2">
         <div class="col-xl-12 col-md-6">
             <div class="p-1">
-                <p style="font-size: 20px">Vous avez comme gestionnaire : <a href="" title="Cliquz pour voir plus d'information">Sawadogo Francis</a></p>
+                <p style="font-size: 20px">Vous avez comme gestionnaire : <a
+                        href="{{route('delegue.gestionnaire.detail', 1)}}"
+                        title="Cliquz pour voir plus d'information">Sawadogo Francis</a></p>
             </div>
         </div>
     </div>
 
-    <div class="row mt-4 g-2">
-        <p>Les délégues qui forment ce compte sont : </p>
-        <div class="col-xl-6 col-md-6 card-dashbord">
-            <div class="p-1">
-                <p style="font-size: 20px">Délégué : <a href="" title="Cliquz pour voir plus d'information">Ouedraogo Junoir</a></p>
-            </div>
+    <p>Les délégues qui forment ce compte sont : </p>
+    <div class="delegue-detail">
+        <div class="delegues-details">
+            <p style="font-size: 20px">Délégué : <a href="" title="Cliquz pour voir plus d'information">Ouedraogo
+                    Junoir</a></p>
         </div>
-        <div class="col-xl-6 col-md-6 card-dashbord">
-            <div class="p-1">
-                <p style="font-size: 20px">Délégué adjoint : <a href="" title="Cliquz pour voir plus d'information">Ramdé Soulemane</a></p>
-            </div>
+        <div class="delegues-details">
+            <p style="font-size: 20px">Délégué adjoint : <a href="" title="Cliquz pour voir plus d'information">Ramdé
+                    Soulemane</a></p>
         </div>
     </div>
 
+    <div class="list-fichiers">
+
+        <div class="detail-liste-aide-dashbord">
+            <a href="{{route('delegue.semestres.index')}}" class="" style="color: white"><i class="fa-regular fa-file-image" style="color: #feffff;"></i>
+                Gestions</a>
+        </div>
+
+        <div class="detail-liste-profil-dashbord">
+            <a href="{{route('profil.accueil')}}" class="" style="color: white"><i class="fa-solid fa-user"
+                    style="color: #feffff;"></i> Notre profil</a>
+        </div>
+        <div class="detail-liste-notification-dashbord">
+            <a href="{{route('compte.aide')}}" class="" style="color: white"><i class="fa-solid fa-bell"
+                    style="color: #feffff;"></i>
+                Aide</a>
+        </div>
+
+        <div class="detail-liste-autre-dashbord"><a href="{{route('accueil')}}" class="a-liste-fichier"
+                style="color: white"><i class="fa-solid fa-house" style="color: #feffff;"></i> Site</a>
+            <a href="{{route('logout')}}" class="a-liste-fichier" onclick="event.preventDefault(); 
+        document.getElementById('logout-form').submit();" style="color: white"><i
+                    class="fa-solid fa-right-from-bracket" style="color: #feffff;"></i> Déconnexion</a>
+        </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+            @method('post')
+        </form>
+    </div>
 </div>
 
 @endsection

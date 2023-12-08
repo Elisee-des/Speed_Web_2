@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resultats', function (Blueprint $table) {
+        Schema::create('caracteristiques', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_module');
-            $table->string('niveau_licence');
-            $table->string('session');
-            $table->boolean('actif')->default(false);
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string("nom");
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resultats');
+        Schema::dropIfExists('caracteristiques');
     }
 };

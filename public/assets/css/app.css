@@ -1575,4 +1575,25 @@ textarea {
     justify-content: center;
      gap: 12px;
 }
+
+.delegue-detail{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.delegues-details {
+    background-color: var(--aa-light-gray);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 500px) {
+    .delegue-detail{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 /*Fin autre*/

@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proclamations', function (Blueprint $table) {
+        Schema::create('affiches', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_module');
-            $table->string('niveau_licence');
-            $table->string('session');
+            $table->string('nom');
+            $table->string('niveau_etude')->nullable();
+            $table->string('session')->nullable();
             $table->boolean('actif')->default(false);
-            $table->foreignId('user_id')->nullable()->references('id')->on('users');
+            $table->foreignId('caracteristique_id')->references('id')->on('caracteristiques');
+            $table->foreignId('semestre_id')->references('id')->on('semestres');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proclamations');
+        Schema::dropIfExists('affiches');
     }
 };
