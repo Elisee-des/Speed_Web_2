@@ -60,7 +60,7 @@
                 <span class="text-danger">{{ $errors->first('delegue_id') }}</span>
                 @endif --}}
                 </div>
-                <hr />
+                <div style="display: flex; justify-content:center;"><hr></div>
 
                 <p>
                     Pour creer votre compte, assurer vous de lire les conditions

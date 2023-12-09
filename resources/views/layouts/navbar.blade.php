@@ -4,10 +4,21 @@
         <div>
             <a href="{{route('accueil')}}">Accueil</a>
             <a href="{{route('affiches')}}">Affiches</a>
-            <a href="#">Réalisations</a>
+            <a href="{{route('realisations.index')}}">Réalisations</a>
             @auth
-            <a href="#">{{ Auth::user()->nom_prenom }}</a>
-            <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+            @role('Admin')
+            <a href="{{route('admin.tableaudebord')}}">Mon compte</a>
+            @endrole
+            @role('Gestionnaire')
+            <a href="{{route('gestionnaire.tableaudebord')}}">Mon compte</a>
+            @endrole
+            @role('Delegue')
+            <a href="{{route('delegue.tableaudebord')}}">Mon compte</a>
+            @endrole
+            @role('Etudiant')
+            <a href="{{route('etudiant.tableaudebord')}}">Mon compte</a>
+            @endrole
+            <a class="{{ route('logout') }}" href="{{ route('logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">Déconnexion</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
@@ -36,6 +47,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     <a href="{{route('accueil')}}"><i class="fa-solid fa-house" style="color: #feffff;"></i> Accueil</a>
+    <a href="{{route('realisations.index')}}"><i class="fa-solid fa-list" style="color: #feffff;"></i> Rèalisations</a>
     <a href="{{route('affiches')}}"><i class="fa-solid fa-list" style="color: #feffff;"></i> Affiches</a>
     {{-- <a href="{{route('contact')}}">Contact</a> --}}
     @auth

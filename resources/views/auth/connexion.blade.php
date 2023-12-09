@@ -37,7 +37,7 @@
                 <span class="text-danger">{{ $errors->first('password') }}</span>
                 @endif
 
-                <hr />
+                <div style="display: flex; justify-content:center;"><hr></div>
 
                 <button type="submit" class="registerbtn">
                     <i class="fa-solid fa-arrow-right-to-bracket" style="color: #feffff;"></i> Se Connecter

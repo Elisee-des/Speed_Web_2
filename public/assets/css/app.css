@@ -69,7 +69,7 @@ html {
     display: none;
 }
 
-@media screen and (max-width: 785px) {
+@media screen and (max-width: 885px) {
     .header-right {
         display: none;
     }
@@ -326,6 +326,7 @@ input[type="password"]:focus {
 hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 20px;
+    width: 90%;
 }
 
 .hr-trait {
@@ -992,6 +993,14 @@ textarea {
     width: 100%;
 }
 
+.realisations {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
 .text-apropos {
     height: auto;
     margin: auto;
@@ -1015,9 +1024,23 @@ textarea {
     width: 100%;
 }
 
-.container-contenu-propos:hover {
+.container-contenu-propos-realisations {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 12px;
+    transition: 0.5s;
+    margin-top: 10px;
+    width: 99%;
+}
+
+.container-real-1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-contenu-propos:hover, .container-contenu-propos-realisations:hover {
     /* padding: 14px; */
-    cursor: pointer;
+    /* cursor: pointer; */
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.8);
 }
 
@@ -1034,9 +1057,36 @@ textarea {
     margin-top: 5px;
 }
 
-.description-propos-h5 {
+.description-propos-h1 {
     margin-top: 5px;
+    background-color:var(--aa-dark);
+    color: var(--aa-white);
+    padding: 5px;
+    border-radius: 5px;
+}
 
+.description-propos-h2 {
+    margin-top: 5px;
+    background-color:var(--aa-orange);
+    color: var(--aa-white);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.description-propos-h3 {
+    margin-top: 7px;
+    background-color:var(--aa-primary);
+    color: var(--aa-white);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.description-propos-h4 {
+    /* margin-top: 5px; */
+    background-color:var(--aa-black);
+    color: var(--aa-white);
+    padding: 5px;
+    border-radius: 5px;
 }
 /*Fin Page a propos*/
 
@@ -1618,3 +1668,111 @@ textarea {
     }
 }
 /*Fin autre*/
+
+
+/*Detail etudiant dans realisation*/
+.main-body {
+    padding: 15px;
+}
+
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+.card-img-top{
+    background-color: var(--aa-primary);
+    height: 110px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.bg-white {
+    background-color: #fff!important;
+}
+.btn-light {
+    color: #1a202c;
+    background-color: #fff;
+    border-color: #cbd5e0;
+}
+.ml-2, .mx-2 {
+    margin-left: .5rem!important;
+}
+
+.card-footer:last-child {
+    border-radius: 0 0 .25rem .25rem;
+}
+.card-footer, .card-header {
+    display: flex;
+    align-items: center;
+}
+
+.card-footer {
+    /* padding: .5rem 1rem; */
+    background-color: #fff;
+    border-top: 0 solid rgba(0,0,0,.125);
+}
+
+.etiquete-competence {
+    background-color: var(--aa-dark);
+    color: var(--aa-white) !important;
+    padding: 3px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.etiquete-competence-1 {
+    background-color: var(--aa-black);
+    color: var(--aa-white) !important;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    width: 80%;
+    
+}
+
+.bouton-voir-plus:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6) !important;
+    background-color: var(--aa-orange) !important;
+}
+/*Fin detail etudiant dans realisation*/

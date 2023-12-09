@@ -5,7 +5,7 @@
 @section('content')
 <div class="main">
     <div class="container-regsiter">
-        <h1 class="title-register">MPCI L1 S2 Session Normal Promotion 2020</h1>
+        <h1 class="title-register">UNZ - MPCI L1 S2 Session Normal Promotion 2020</h1>
 
         <div class="f-colunm ">
             <div class="a-content-option mb-3">
@@ -49,6 +49,12 @@
             {{-- @endforeach --}}
 
         </div>
+        <div class="mt-3 mb-3 cnt-profil">
+            <a href="{{route('affiches')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
+              class="submit-profil">
+              <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Tableau d'affiche
+            </a>
+          </div>
     </div>
 </div>
 @endsection
