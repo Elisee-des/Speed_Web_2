@@ -23,7 +23,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="mb-0"></h1>
                 <div>
-                    <a href="{{route('delegue.semestres.create')}}" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter un nouveau semestre."><i class="fa-solid fa-plus"></i> Ajouter</a>
+                    <a href="{{route('delegue.semestres.create')}}" class="btn btn-primary btn-cool" title="Clique  Ici pour ajouter un nouveau semestre."><i class="fa-solid fa-plus"></i> Ajouter un semestre</a>
                 </div>
             </div>
         
@@ -32,8 +32,8 @@
                 <thead>
                     <tr>
                         <th scope="col">Semestres</th>
-                        <th scope="col">Element Total</th>
-                        <th scope="col">Date</th>
+                        {{-- <th scope="col">Element Total</th> --}}
+                        {{-- <th scope="col">Date</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -41,8 +41,8 @@
                         
                     <tr>
                         <td><a href="{{route('delegue.semestres.show', $semestre->id)}}" title="Cliquez pour voir les details">{{$semestre->nom}}</a></td>
-                        <td><a href="{{route('delegue.semestres.show', $semestre->id)}}" title="Cliquez pour voir les details">10</a></td>
-                        <td><a href="{{route('delegue.semestres.show', $semestre->id)}}" title="Cliquez pour voir les details">{{$semestre->created_at->format('d/m/y')}}</a></td>
+                        {{-- <td><a href="{{route('delegue.semestres.show', $semestre->id)}}" title="Cliquez pour voir les details">{{count($semestre->affiches)}}</a></td> --}}
+                        {{-- <td><a href="{{route('delegue.semestres.show', $semestre->id)}}" title="Cliquez pour voir les details">{{$semestre->created_at->format('d/m/y')}}</a></td> --}}
                     </tr>
                     
                     @endforeach

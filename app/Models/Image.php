@@ -34,4 +34,9 @@ class Image extends Model
     {
         return $this->belongsTo(Deleiberation::class);
     }
+
+    public function getDay()
+    {
+        return $this->created_at->format('d/m/y');
+    }
 }

@@ -14,4 +14,9 @@ class Filiere extends Model
         'niveau_licence',
         'session',
     ];
+
+    public function getDay()
+    {
+        return $this->created_at->format('d/m/y');
+    }
 }

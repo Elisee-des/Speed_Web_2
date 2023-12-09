@@ -22,4 +22,9 @@ class Delegue extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function getDay()
+    {
+        return $this->created_at->format('d/m/y');
+    }
 }

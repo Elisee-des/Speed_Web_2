@@ -307,7 +307,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: 1px solid var(--aa-primary);
@@ -609,6 +609,7 @@ div.content {
 
 .title-header {
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .accordon-container {

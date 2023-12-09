@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('semestres', function (Blueprint $table) {
             $table->id();
-            $table->string("nom");
+            $table->string("nom")->unique();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

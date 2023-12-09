@@ -83,4 +83,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Image::class);
     }
+
+    public function getDay()
+    {
+        return $this->created_at->format('d/m/y');
+    }
 }
