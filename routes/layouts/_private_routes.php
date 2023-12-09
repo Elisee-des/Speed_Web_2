@@ -104,7 +104,7 @@ Route::middleware('auth')->group(function () {
             Route::prefix('affiches')->name('affiches.')->group(function () {
                 Route::get('ajout/{idSemestre}/', [GestionAfficheController::class, 'ajout_affiche'])->name('ajout');
                 Route::post('ajout/action/{idSemestre}/', [GestionAfficheController::class, 'ajout_affiche_action'])->name('action');
-                Route::get('detail/{idSemestre/{idAffiche}/', [GestionAfficheController::class, 'detail_affiche'])->name('detail');
+                Route::get('detail/{idSemestre}/{idAffiche}/', [GestionAfficheController::class, 'detail_affiche'])->name('detail');
 
                 Route::post('edtion-nom-du-module/action{idDeliberation}/', [GestionDeliberationController::class, 'edition_nom_module'])->name('edition-nom-module.action');
                 Route::post('suppresion-image-du-module/action/{idDeliberation}/{idImage}/', [GestionDeliberationController::class, 'suppression_image'])->name('suppression-image.action');

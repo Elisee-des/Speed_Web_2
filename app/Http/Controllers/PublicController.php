@@ -11,9 +11,15 @@ class PublicController extends Controller
         return view('index');
     }
 
-    public function apropos()
+    public function affiches()
     {
-        return view('apropos');
+        return view('affiches');
+    }
+
+    public function affiches_detail($id)
+    {
+        $id = 1;
+        return view('affiches-detail', compact('id'));
     }
 
     public function contact()

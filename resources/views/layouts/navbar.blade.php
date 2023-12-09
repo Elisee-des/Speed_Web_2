@@ -3,8 +3,8 @@
     <div class="header-right">
         <div>
             <a href="{{route('accueil')}}">Accueil</a>
-            <a href="{{route('apropos')}}">A propos</a>
-            <a href="#">Affiches</a>
+            <a href="{{route('affiches')}}">Affiches</a>
+            <a href="#">Réalisations</a>
             @auth
             <a href="#">{{ Auth::user()->nom_prenom }}</a>
             <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -36,7 +36,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     <a href="{{route('accueil')}}"><i class="fa-solid fa-house" style="color: #feffff;"></i> Accueil</a>
-    <a href="{{route('apropos')}}"><i class="fa-solid fa-list" style="color: #feffff;"></i> A propos</a>
+    <a href="{{route('affiches')}}"><i class="fa-solid fa-list" style="color: #feffff;"></i> Affiches</a>
     {{-- <a href="{{route('contact')}}">Contact</a> --}}
     @auth
     @role('Admin')

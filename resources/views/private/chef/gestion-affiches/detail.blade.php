@@ -1,13 +1,13 @@
 @extends('layouts.private.app')
 
-@section('titre', "Detail de {{$affiche->nom}}")
+@section('titre', "Detail de {$affiche->nom}")
 
 @section('content_private')
 
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{route('delegue.semestres.show', $idSemestre)}}">Liste des affiches</a>
+            <a href="{{route('delegue.semestres.show', $semestre->id)}}">Liste des affiches</a>
         </li>
 
         <li class="breadcrumb-item active" aria-current="page">Détail</li>
@@ -47,7 +47,7 @@
                 {{-- <a href="{{route('delegue.resultat.parametre')}}" class="btn btn-primary btn-cool"
                     title="Clique  Ici pour ajouter une nouvelle délibération."><i class="fa-solid fa-gear"
                         style="color: #feffff;"></i> Paramètre</a> --}}
-                <a href="{{route('delegue.affiches.ajout-image.action', $resultat->id)}}" data-bs-toggle="modal"
+                <a href="{{route('delegue.affiches.ajout-image.action', $affiche->id)}}" data-bs-toggle="modal"
                     data-bs-target="#exampleModalAjoutImage" class="btn btn-primary btn-cool"
                     title="Clique  Ici pour ajouter une ou des images."><i class="fa-solid fa-plus"></i>
                     Ajouter une ou des images</a>
@@ -166,7 +166,7 @@
     </div>
 
     <div class="mt-3 cnt-profil">
-        <a href="{{route('delegue.resultats.index')}}" type="submit"
+        <a href="{{route('delegue.semestres.show', [$semestre->id])}}" type="submit"
             style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
             <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
         </a>

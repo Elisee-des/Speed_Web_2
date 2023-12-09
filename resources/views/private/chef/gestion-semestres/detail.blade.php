@@ -39,14 +39,13 @@
       </thead>
       <tbody>
         @foreach ($affiches as $affiche)
-
         <tr>
-          <td><a href="{{route('delegue.semestres.show', $affiche->id)}}"
+          <td><a href="{{route('delegue.affiches.detail', [$semestre->id, $affiche->id])}}"
               title="Cliquez pour voir les details">{{$affiche->nom}}</a></td>
-          <td><a href="{{route('delegue.semestres.show', $affiche->id)}}"
+          <td><a href="{{route('delegue.affiches.detail', [$semestre->id, $affiche->id])}}"
               title="Cliquez pour voir les details">{{count($affiche->images)}}</a>
           </td>
-          <td><a href="{{route('delegue.semestres.show', $affiche->id)}}"
+          <td><a href="{{route('delegue.affiches.detail', [$semestre->id, $affiche->id])}}"
               title="Cliquez pour voir les details">{{$affiche->created_at->format('d/m/y')}}</a></td>
         </tr>
 
