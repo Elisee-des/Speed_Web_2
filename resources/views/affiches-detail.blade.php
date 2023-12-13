@@ -52,7 +52,7 @@
         <div class="mt-3 mb-3 cnt-profil">
             <a href="{{route('affiches')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
               class="submit-profil">
-              <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Tableau d'affiche
+              <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Tableau d'affiches
             </a>
           </div>
     </div>

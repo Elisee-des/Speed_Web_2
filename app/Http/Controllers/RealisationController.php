@@ -15,4 +15,9 @@ class RealisationController extends Controller
     {
         return view('public.realisations.etudiants-liste');
     }
+
+    public function ma_page($idOption, $idEtudiant)
+    {
+        return view('public.realisations.ma-page');
+    }
 }

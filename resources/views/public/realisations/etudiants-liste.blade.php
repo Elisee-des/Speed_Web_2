@@ -39,7 +39,7 @@
                         <span class="font-size-sm"><span class="etiquete-competence-1">Projets(3)</span></span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-sm w-100 has-icon btn-block bouton-voir-plus"
+                        <a href="{{route('realisations.mapage', [1, 2])}}" class="btn btn-sm w-100 has-icon btn-block bouton-voir-plus"
                             style="background-color: #008069; color:white; padding:7px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4); font-size:17px; transition: 0.5s;"
                             type="button">Voir +</a>
                     </div>
@@ -60,7 +60,7 @@
                         <span class="etiquete-competence-1 font-size-sm">Projets(2)</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-sm w-100 has-icon btn-block bouton-voir-plus"
+                        <a href="{{route('realisations.mapage', [1, 2])}}" class="btn btn-sm w-100 has-icon btn-block bouton-voir-plus"
                             style="background-color: #008069; color:white; padding:7px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4); font-size:17px; transition: 0.5s;"
                             type="button">Voir +</a>
                     </div>
@@ -81,12 +81,21 @@
                         <span class="etiquete-competence-1 font-size-sm" style="width: auto">Projets(2)</span>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-sm w-100 has-icon btn-block bouton-voir-plus"
+                        <a href="{{route('realisations.mapage', [1, 3])}}" class="btn btn-sm w-100 has-icon btn-block bouton-voir-plus"
                             style="background-color: #008069; color:white; padding:7px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4); font-size:17px; transition: 0.5s;"
                             type="button">Voir +</a>
                     </div>
                 </div>
             </div>
+
+            
+        </div>
+
+        <div class="mt-3 mb-3 cnt-profil">
+            <a href="{{route('realisations.index')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
+                class="submit-profil">
+                <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
+            </a>
         </div>
     </div>
 </div>

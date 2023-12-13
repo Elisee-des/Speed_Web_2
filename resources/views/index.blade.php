@@ -11,6 +11,10 @@
     <p>des proclamations et des délibérations.</p>
     @auth
     <div class="auth-container">
+      <a href="{{route('affiches')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-user-plus" style="color: #feffff;"></i> Tableau d'affiches</a>
+      <a href="{{route('realisations.index')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-arrow-right-to-bracket" style="color: #feffff;"></i> Réalisations</a>
       @role('Admin')
       <a href="{{route('admin.tableaudebord')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
           class="fa-solid fa-up-right-from-square" style="color: #feffff;"></i> Aller dans mon compte</a>
@@ -34,13 +38,19 @@
         @csrf
       </form>
     </div>
+
     @else
     <div class="auth-container">
-      <a href="{{route('register')}}" style="text-decoration: none;" class="submit-contact"><i
+      <a href="{{route('register')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
           class="fa-solid fa-user-plus" style="color: #feffff;"></i> Inscription</a>
-      <a href="{{route('login')}}" style="text-decoration: none;" class="submit-contact"><i
+      <a href="{{route('login')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
           class="fa-solid fa-arrow-right-to-bracket" style="color: #feffff;"></i> Connexion</a>
+      <a href="{{route('affiches')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-user-plus" style="color: #feffff;"></i> Tableau d'affiches</a>
+      <a href="{{route('realisations.index')}}" style="text-decoration: none;" class="submit-contact-accueil"><i
+          class="fa-solid fa-arrow-right-to-bracket" style="color: #feffff;"></i> Réalisations</a>
     </div>
+
     @endauth
   </div>
 </div>

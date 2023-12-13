@@ -15,6 +15,7 @@ Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
 Route::prefix('realisations')->name('realisations.')->group(function () {
     Route::get('/listes', [RealisationController::class, 'index'])->name('index');
     Route::get('/etudiants/{id}', [RealisationController::class, 'etudiants_liste'])->name('etudiants-liste');
+    Route::get('/ma-page/{idOption}/{idEtudiant}', [RealisationController::class, 'ma_page'])->name('mapage');
 });
 // Route::get('/Realisations', [PublicController::class, 'realisation'])->name('realisastion');
 
