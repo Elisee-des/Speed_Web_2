@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('assets/css/mapage.css')}}">
-    <link rel="stylesheet" href='{{asset('assets/css/bootstrap/css/bootstrap.min.css')}}' />
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap/css/bootstrap.min.css')}}"" />
     {{--
-    <link rel="stylesheet" href='{{asset(' assets/css/dataTables.bootstrap5.min.css')}}' /> --}}
+    <link rel=" stylesheet" href='{{asset(' assets/css/dataTables.bootstrap5.min.css')}}' /> --}}
     {{--
     <link rel="stylesheet" href='{{asset(' assets/css/jquery.dataTables.min.css')}}' /> --}}
     <title>Mon profil</title>
@@ -23,7 +23,7 @@
                 <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" style="text-decoration: none"
                     href="#" target="_blank">Mon profil</a>
                 <!-- Form -->
-                
+
                 <!-- User -->
                 <ul class="navbar-nav align-items-center d-none d-md-flex">
                     <li class="nav-item dropdown">
@@ -31,7 +31,7 @@
                             aria-expanded="false">
                             <div class="media align-items-center">
                                 <div class="media-body ml-2 d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">Ouedraogo Antoine wendkunta</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">SABIDANI YENTEM ELISEE</span>
                                 </div>
                             </div>
                         </a>
@@ -48,9 +48,9 @@
             <div class="container-fluid d-flex align-items-center">
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
-                        <h3 class="display-2 text-white">Ouedraogo Antoine wendkunta</h3>
-                        <p class="text-white mt-0 mb-5">Je suis etudiante a UNZ de koudougou licence 3 en Science
-                            Economique et Gestion. Mes activités, comptences, et projets son relate dans ma page.</p>
+                        <h3 class="display-2 text-white" style="text-transform: uppercase;">SABIDANI Yentem Elisée</h3>
+                        <p class="text-white mt-0 mb-5">Je suis etudiant à UNZ de koudougou licence 3 en Science
+                            Economique et Gestion. Mes activités, comptences, et projets son relaté dans ma page.</p>
                         {{-- <a href="#!" class="btn btn-info">Edit profile</a> --}}
                     </div>
                 </div>
@@ -83,22 +83,22 @@
                                     <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                                         <div>
                                             <span class="heading">22</span>
-                                            <span class="description">Friends</span>
+                                            <span class="description">Comptences</span>
                                         </div>
                                         <div>
                                             <span class="heading">10</span>
-                                            <span class="description">Photos</span>
+                                            <span class="description">Projets</span>
                                         </div>
                                         <div>
                                             <span class="heading">89</span>
-                                            <span class="description">Comments</span>
+                                            <span class="description">Formations</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center">
                                 <h3>
-                                    Ouedraogo Antoine wendkunta<span class="font-weight-light">, 25 ans</span>
+                                    Sabidani Yentem Elisée<span class="font-weight-light">, 25 ans</span>
                                 </h3>
                                 <div class="h5 font-weight-300">
                                     <i class="ni location_pin mr-2"></i>Nationnalité : Burkinabé
@@ -128,7 +128,8 @@
                     </div>
                 </div>
                 <div class="col-xl-8 order-xl-1">
-                    <div class="card shadow" style="box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3) !important;">
+                    <div class="card shadow"
+                        style="box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3) !important; margin-bottom: 5px;">
                         <div class="card-header bg-white border-0">
                             <div class="row align-items-center">
                                 <div class="">
@@ -141,12 +142,13 @@
                         </div>
                         <div class="card-body">
                             <h5 class="heading-small text-muted mb-4"><strong style="text-decoration: underline">Mes
-                                    Hards Skils</strong></h5>
+                                    compétences techniques(Hard Skills)</strong></h5>
                             <div class="card p-2 mb-5">
                                 <div class="pl-lg-4">
                                     <div class="">
                                         <h5 class="heading-small text-muted mb-1" style="text-align: center">
-                                            <strong>Developpement web</strong></h5>
+                                            <strong>Developpement web</strong>
+                                        </h5>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">HTML</label>
@@ -224,11 +226,13 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="card p-2 mb-5">
                                 <div class="pl-lg-4">
                                     <div class="">
                                         <h5 class="heading-small text-muted mb-1" style="text-align: center">
-                                            <strong>Admistration réseau</strong></h5>
+                                            <strong>Admistration réseau</strong>
+                                        </h5>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Mise en réseau des
@@ -258,7 +262,8 @@
                                 <div class="pl-lg-4">
                                     <div class="">
                                         <h5 class="heading-small text-muted mb-1" style="text-align: center">
-                                            <strong>Securité informatique</strong></h5>
+                                            <strong>Securité informatique</strong>
+                                        </h5>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Chiffrement de
@@ -286,7 +291,51 @@
                             <hr class="my-4">
                             <!-- Address -->
                             <h5 class="heading-small text-muted mb-4"><strong style="text-decoration: underline">Mes
-                                    Softs Skils</strong></h5>
+                                    compétences humaines (Soft Skills)</strong></h5>
+                            <div class="card p-2 mb-5">
+                                <div class="pl-lg-4">
+                                    <div class="">
+
+                                        <div class="card-hard-skil">
+                                            <label class="form-control-label" for="input-username"><span
+                                                    style="color: #008089">*</span> La communication efficace.</label>
+                                        </div>
+
+                                        <div class="card-hard-skil">
+                                            <label class="form-control-label" for="input-username"><span
+                                                    style="color: #008089">*</span> La pensée critique.</label>
+                                        </div>
+
+                                        <div class="card-hard-skil">
+                                            <label class="form-control-label" for="input-username"><span
+                                                    style="color: #008089">*</span> La collaboration et le travail
+                                                d'équipe.</label>
+                                        </div>
+
+                                        <div class="card-hard-skil">
+                                            <label class="form-control-label" for="input-username"><span
+                                                    style="color: #008089">*</span> L'intelligence émotionnelle.</label>
+                                        </div>
+
+                                        <div class="card-hard-skil">
+                                            <label class="form-control-label" for="input-username"><span
+                                                    style="color: #008089">*</span> L'adaptabilité.</label>
+                                        </div>
+
+                                        <div class="card-hard-skil">
+                                            <label class="form-control-label" for="input-username"><span
+                                                    style="color: #008089">*</span> La créativité.</label>
+                                        </div>
+
+                                        <div class="card-hard-skil">
+                                            <label class="form-control-label" for="input-username"><span
+                                                    style="color: #008089">*</span> La gestion du temps.</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
 
                             {{-- <div class="pl-lg-4">
                                 <div class="row">
@@ -326,7 +375,546 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <hr class="my-4">
+                            {{-- <div class="">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card profile-project-warning">
+                                                    <div class="card-body p-1">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted">
+                                                                <h4 class="fs-14"><strong>Convertiseur d'unité</strong>
+                                                                </h4>
+                                                                <p class="text-muted text-truncate mb-0">Last Update :
+                                                                    <span class="fw-semibold text-dark">2 year
+                                                                        Ago</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex mt-4">
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <div>
+                                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                                    </div>
+                                                                    <div class="avatar-group">
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-1.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-3.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <div
+                                                                                    class="avatar-title rounded-circle bg-light text-primary">
+                                                                                    J
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card  profile-project-success">
+                                                    <div class="card-body p-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                                <h5 class="fs-14 text-truncate"><a href="#"
+                                                                        class="text-dark">ABC Project Customization</a>
+                                                                </h5>
+                                                                <p class="text-muted text-truncate mb-0">Last Update :
+                                                                    <span class="fw-semibold text-dark">2 month
+                                                                        Ago</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex mt-4">
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <div>
+                                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                                    </div>
+                                                                    <div class="avatar-group">
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-8.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-7.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-6.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <div
+                                                                                    class="avatar-title rounded-circle bg-primary">
+                                                                                    2+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card  profile-project-info">
+                                                    <div class="card-body p-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                                <h5 class="fs-14 text-truncate"><a href="#"
+                                                                        class="text-dark">Client - Frank Hook</a></h5>
+                                                                <p class="text-muted text-truncate mb-0">Last Update :
+                                                                    <span class="fw-semibold text-dark">1 hr Ago</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="flex-shrink-0 ms-2">
+                                                                <div class="badge badge-soft-info fs-10">New</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex mt-4">
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <div>
+                                                                        <h5 class="fs-12 text-muted mb-0"> Members :
+                                                                        </h5>
+                                                                    </div>
+                                                                    <div class="avatar-group">
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-4.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <div
+                                                                                    class="avatar-title rounded-circle bg-light text-primary">
+                                                                                    M
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-3.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card  profile-project-primary">
+                                                    <div class="card-body p-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                                <h5 class="fs-14 text-truncate"><a href="#"
+                                                                        class="text-dark">Velzon Project</a></h5>
+                                                                <p class="text-muted text-truncate mb-0">Last Update :
+                                                                    <span class="fw-semibold text-dark">11 hr Ago</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="flex-shrink-0 ms-2">
+                                                                <div class="badge badge-soft-success fs-10">Completed
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex mt-4">
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <div>
+                                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                                    </div>
+                                                                    <div class="avatar-group">
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-7.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-5.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card  profile-project-danger">
+                                                    <div class="card-body p-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                                <h5 class="fs-14 text-truncate"><a href="#"
+                                                                        class="text-dark">Brand Logo Design</a></h5>
+                                                                <p class="text-muted text-truncate mb-0">Last Update :
+                                                                    <span class="fw-semibold text-dark">10 min
+                                                                        Ago</span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="flex-shrink-0 ms-2">
+                                                                <div class="badge badge-soft-info fs-10">New</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex mt-4">
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <div>
+                                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                                    </div>
+                                                                    <div class="avatar-group">
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-7.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-6.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <div
+                                                                                    class="avatar-title rounded-circle bg-light text-primary">
+                                                                                    E
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card  profile-project-primary">
+                                                    <div class="card-body p-4">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                                <h5 class="fs-14 text-truncate"><a href="#"
+                                                                        class="text-dark">Chat App</a></h5>
+                                                                <p class="text-muted text-truncate mb-0">Last Update :
+                                                                    <span class="fw-semibold text-dark">8 hr Ago</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex mt-4">
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <div>
+                                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                                    </div>
+                                                                    <div class="avatar-group">
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <div
+                                                                                    class="avatar-title rounded-circle bg-light text-primary">
+                                                                                    R
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-3.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="avatar-group-item">
+                                                                            <div class="avatar-xs">
+                                                                                <img src="assets/images/users/avatar-8.jpg"
+                                                                                    alt=""
+                                                                                    class="rounded-circle img-fluid" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div> --}}
+
+                        </div>
+                    </div>
+
+                    <div class="card shadow"
+                        style="box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3) !important; margin-bottom: 5px;">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="">
+                                    <h2 class="mb-0">Mes Réalisations/Projets</h2>
+                                </div>
+                                {{-- <div class="col-4 text-right">
+                                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                                </div> --}}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="heading-small text-muted mb-4"><strong style="text-decoration: underline">Au
+                                    Niveau accadémique (Universitaire)</strong></h5>
+
+                            <div class="">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card profile-project-warning">
+                                                    <div class="card-body p-1">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted">
+                                                                <h4 class="fs-14"><a href="" class="text-muted"
+                                                                        style=""><strong>Application mobile avec le
+                                                                            language JAVA (Convertiseur
+                                                                            d'unité)</a></strong>
+                                                                </h4>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>C'est un
+                                                                    application mobile dans lequel il est possible de
+                                                                    convertir...
+                                                                </div>
+
+                                                                <div class="h4">
+                                                                    <i class="ni business_briefcase-24 mr-2"></i>Rapport
+                                                                    : android.pdf
+                                                                </div>
+
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Debut :
+                                                                    12/11/2023
+                                                                </div>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Fin : 20/12/2023
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card profile-project-dark">
+                                                    <div class="card-body p-1">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted">
+                                                                <h4 class="fs-14"><a href="" class="text-muted"
+                                                                        style=""><strong>Chiffrement des mots de passe
+                                                                            sous linux</a></strong>
+                                                                </h4>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Danss cette
+                                                                    etude chiffremment des mot de passe, nous verrons en
+                                                                    detail comment et quels sont les diferents...
+                                                                </div>
+
+                                                                <div class="h4">
+                                                                    <i class="ni business_briefcase-24 mr-2"></i>Rapport
+                                                                    : chiffremment.pdf
+                                                                </div>
+
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Debut :
+                                                                    16/10/2023
+                                                                </div>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Fin : 20/11/2023
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div>
+
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="heading-small text-muted mb-4"><strong style="text-decoration: underline">Niveau
+                                    Professionel et personnel</strong></h5>
+                            <div class="">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card profile-project-danger">
+                                                    <div class="card-body p-1">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted">
+                                                                <h4 class="fs-14"><a href="" class="text-muted"
+                                                                        style=""><strong>Developpement de site de
+                                                                            colloque</a></strong>
+                                                                </h4>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Le site est pour
+                                                                    le colloque de savoir endomgene a kdg...
+                                                                </div>
+
+                                                                {{-- <div class="h4">
+                                                                    <i class="ni business_briefcase-24 mr-2"></i>Rapport
+                                                                    : android.pdf
+                                                                </div> --}}
+
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Debut :
+                                                                    12/11/2023
+                                                                </div>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Fin : 20/12/2023
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+
+                                            <div class="col-xxl-3 col-sm-6">
+                                                <div
+                                                    class="card card-soft-skils profile-project-card profile-project-success">
+                                                    <div class="card-body p-1">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 text-muted">
+                                                                <h4 class="fs-14"><a href="" class="text-muted"
+                                                                        style=""><strong>Application Small
+                                                                            Ecommerce</a></strong>
+                                                                </h4>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Un petit site
+                                                                    ecommerce dans le cadre mon entre en stage...
+                                                                </div>
+
+                                                                {{-- <div class="h4">
+                                                                    <i class="ni business_briefcase-24 mr-2"></i>Rapport
+                                                                    : chiffremment.pdf
+                                                                </div> --}}
+
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Debut :
+                                                                    29/10/2023
+                                                                </div>
+                                                                <div class="h5 font-weight-300">
+                                                                    <i class="ni location_pin mr-2"></i>Fin : 20/12/2023
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- end card body -->
+                                                </div>
+                                                <!-- end card -->
+                                            </div>
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div>
 
                         </div>
                     </div>
