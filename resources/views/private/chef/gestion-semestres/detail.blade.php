@@ -21,7 +21,11 @@
 
   <div class="">
     <div class="d-flex align-items-center justify-content-between">
-      <h1 class="mb-0"></h1>
+      <div>
+        <a href="{{route('delegue.affiches.ajout', ['idSemestre' => $semestre->id])}}" class="btn btn-primary btn-cool"
+          data-bs-toggle="modal" data-bs-target="#exampleModalGere" title="Clique  ici pour géré le compte."><i
+            class="fa-solid fa-gear" style="color: #feffff;"></i> Géré</a>
+      </div>
       <div>
         <a href="{{route('delegue.affiches.ajout', ['idSemestre' => $semestre->id])}}" class="btn btn-primary btn-cool"
           title="Clique  ici pour ajouter un nouveau semestre."><i class="fa-solid fa-plus"></i> Nouvelle affiche</a>
@@ -48,7 +52,6 @@
           <td><a href="{{route('delegue.affiches.detail', [$semestre->id, $affiche->id])}}"
               title="Cliquez pour voir les details">{{$affiche->created_at->format('d/m/y')}}</a></td>
         </tr>
-
         @endforeach
       </tbody>
     </table>
@@ -63,67 +66,63 @@
 </div>
 
 {{-- Modal pour la suppression du semestre --}}
-{{-- <div class="modal fade" id="exampleModalDeletesemestre" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="exampleModalGere" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Suppression des résultats de
-          <strong>{{$semestre->nom_module}}</strong>
+        <h5 class="modal-title" id="exampleModalLabel">Option de gestion
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{route('delegue.suppresion-module.action', $semestre->id)}}" method="POST">
-          @method('delete')
-          @csrf
-          <div class="">
-            <label for="recipient-name" class="col-form-label">Tout les images associés au résultat de
-              <strong>{{$semestre->nom_module}}</strong> seront supprimées.
-            </label>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"
-                style="color: #feffff;"></i> Annuler</button>
-            <button type="submit" class="btn btn-primary btn-cool-delete"><i class="fa-solid fa-trash"
-                style="color: #feffff;"></i>
-              Supprimer</button>
-          </div>
-        </form>
+        <div class="bouton-gestion-semestres">
+          <button class="bouton-gestion-semestres-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEditNom">Editer le nom du semestre</button>
+        </div>
+        <div class="mb-3 bouton-gestion-semestres">
+          <button class="bouton-gestion-semestres-red"><a href="#" style="text-decoration: none; color:white;">Supprimer
+              ce semestre</a></button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"
+              style="color: #feffff;"></i> Fermer</button>
+          {{-- <button type="submit" class="btn btn-primary btn-cool-delete"><i class="fa-solid fa-trash"
+              style="color: #feffff;"></i>
+            Supprimer</button> --}}
+        </div>
       </div>
     </div>
   </div>
-</div> --}}
+</div>
 {{-- Modal pour la suppression du semestre --}}
 
-{{-- <div class="modal fade" id="exampleModalEdition" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModalEditNom" tabindex="-1" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edition du résultat <strong>{{$semestre->nom_module}}</strong>
+        <h5 class="modal-title" id="exampleModalLabel">Changer le nom : <strong>{{$semestre->nom}}</strong>
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{route('delegue.edition-nom-module.action', $semestre->id)}}" method="POST">
+        <form action="{{route('delegue.semestres.update', $semestre->id)}}" method="POST">
           @csrf
+          @method("PATCH")
           <div class="">
-            <label for="recipient-name" class="col-form-label">Nom du résultat</label>
-            <input type="text" name="nom_module" class="form-control" value="{{$semestre->nom_module}}"
-              placeholder="Veuillez entre le nom du module" id="recipient-name">
+            <label for="recipient-name" class="col-form-label">Nom du semestre</label>
+            <input type="text" name="nom" class="form-control" value="{{$semestre->nom}}"
+              placeholder="Veuillez entre le nom du semestre" id="recipient-name">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"
                 style="color: #feffff;"></i> Fermer</button>
-            <button type="submit" class="btn btn-primary btn-cool"><i class="fa-sharp fa-plus"
-                style="color: #feffff;"></i> Enregistré</button>
+            <button type="submit" class="btn btn-primary btn-cool"><i class="fa-solid fa-pen" style="color: #feffff;"></i> Modifier</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div> --}}
+</div>
 
 {{-- Modal ajout de l'image --}}
 {{-- <div class="modal fade" id="exampleModalAjoutImage" tabindex="-1" aria-labelledby="exampleModalLabel"

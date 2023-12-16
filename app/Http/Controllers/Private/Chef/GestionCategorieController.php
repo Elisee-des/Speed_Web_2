@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Private\Chef;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class GestionCarateristiqueController extends Controller
+class GestionCategorieController extends Controller
 {
     /**
      * Display a listing of the resource.

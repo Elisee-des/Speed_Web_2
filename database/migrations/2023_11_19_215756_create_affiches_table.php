@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('affiches', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("id")->primary();
             $table->string('nom');
             $table->string('niveau_etude')->nullable();
             $table->string('session')->nullable();
             $table->boolean('actif')->default(false);
-            $table->foreignId('caracteristique_id')->references('id')->on('caracteristiques');
-            $table->foreignId('semestre_id')->references('id')->on('semestres');
+            $table->foreignUuid('categorie_id')->references('id')->on('categories');
+            $table->foreignUuid('semestre_id')->references('id')->on('semestres');
             $table->timestamps();
         });
     }

@@ -2049,7 +2049,7 @@ p {
 /*Mon ajout */
 .card-hard-skil {
     background-color: var(--secondary);
-    padding: 7px;
+    padding: 0 4px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     margin-bottom: 5px;
@@ -2933,3 +2933,58 @@ p {
 .table-card .table > :not(:first-child) {
     border-top-width: 1px;
 }
+
+
+.custom-progess {
+    position: relative;
+  }
+  .custom-progess .progress-icon {
+    position: absolute;
+    top: -12px;
+  }
+  .custom-progess .progress-icon .avatar-title {
+    background: var(--vz-card-bg-custom);
+  }
+  
+  .animated-progress {
+    position: relative;
+  }
+  .animated-progress .progress-bar {
+    position: relative;
+    border-radius: 6px;
+    -webkit-animation: animate-positive 2s;
+            animation: animate-positive 2s;
+  }
+  
+  @-webkit-keyframes animate-positive {
+    0% {
+      width: 0;
+    }
+  }
+  
+  @keyframes animate-positive {
+    0% {
+      width: 0;
+    }
+  }
+  .custom-progress {
+    height: 15px;
+    padding: 4px;
+    border-radius: 30px;
+  }
+  .custom-progress .progress-bar {
+    position: relative;
+    border-radius: 30px;
+  }
+  .custom-progress .progress-bar::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 7px;
+    right: 2px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }

@@ -29,19 +29,19 @@
 
                     <div class="card mb-2">
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Caractéristique</h5>
+                            <h5 class="card-title mb-0">Catégories</h5>
                         </div>
                         <!-- end card body -->
                         <div class="card-body">
-                            <select name="caracteristique_id" class="form-select" id="choices-publish-visibility-input" data-choices
+                            <select name="categorie_id" class="form-select" id="choices-publish-visibility-input" data-choices
                                 data-choices-search-false>
-                                @foreach ($caracteristiques as $caracteristique)
-                                <option value="{{$caracteristique->id}}" selected>{{$caracteristique->nom}}</option>
+                                @foreach ($categories as $categorie)
+                                <option value="{{$categorie->id}}" selected>{{$categorie->nom}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        @if ($errors->has('caracteristique_id'))
-                        <span class="text-danger">{{ $errors->first('caracteristique_id') }}</span>
+                        @if ($errors->has('categorie_id'))
+                        <span class="text-danger">{{ $errors->first('categorie_id') }}</span>
                         @endif
                     </div>
                     <div class="card mb-2">

@@ -918,7 +918,7 @@ textarea {
         margin-bottom: 40px !important;
     }
 
-    .container-formulaire-file-parametre{
+    .container-formulaire-file-parametre {
         width: 100% !important;
     }
 }
@@ -1040,7 +1040,8 @@ textarea {
     justify-content: space-between;
 }
 
-.container-contenu-propos:hover, .container-contenu-propos-realisations:hover {
+.container-contenu-propos:hover,
+.container-contenu-propos-realisations:hover {
     /* padding: 14px; */
     /* cursor: pointer; */
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.8);
@@ -1061,7 +1062,7 @@ textarea {
 
 .description-propos-h1 {
     margin-top: 5px;
-    background-color:var(--aa-dark);
+    background-color: var(--aa-dark);
     color: var(--aa-white);
     padding: 5px;
     border-radius: 5px;
@@ -1069,7 +1070,7 @@ textarea {
 
 .description-propos-h2 {
     margin-top: 5px;
-    background-color:var(--aa-orange);
+    background-color: var(--aa-orange);
     color: var(--aa-white);
     padding: 5px;
     border-radius: 5px;
@@ -1077,7 +1078,7 @@ textarea {
 
 .description-propos-h3 {
     margin-top: 7px;
-    background-color:var(--aa-primary);
+    background-color: var(--aa-primary);
     color: var(--aa-white);
     padding: 5px;
     border-radius: 5px;
@@ -1085,7 +1086,7 @@ textarea {
 
 .description-propos-h4 {
     /* margin-top: 5px; */
-    background-color:var(--aa-black);
+    background-color: var(--aa-black);
     color: var(--aa-white);
     padding: 5px;
     border-radius: 5px;
@@ -1126,7 +1127,10 @@ textarea {
     border: none !important;
 }
 
-.btn-cool:hover, .btn-cool-2:hover, .btn-cool-delete:hover, .btn-cool-dark:hover {
+.btn-cool:hover,
+.btn-cool-2:hover,
+.btn-cool-delete:hover,
+.btn-cool-dark:hover {
     /* letter-spacing: 1px; */
     background-color: var(--aa-orange) !important;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
@@ -1527,6 +1531,37 @@ textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
 
+.bouton-gestion-semestres {
+    display: flex;
+    justify-content: center;
+}
+
+.bouton-gestion-semestres-primary {
+    background-color: var(--aa-primary);
+    border: none;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--aa-white);
+    transition: all 0.5s ease;
+}
+
+.bouton-gestion-semestres-red {
+    background-color: var(--aa-red);
+    border: none;
+    width: 250px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: var(--aa-white);
+    transition: all 0.5s ease;
+}
+
+.bouton-gestion-semestres-primary:hover,
+.bouton-gestion-semestres-red:hover {
+    background-color: var(--aa-orange);
+}
+
 .detail-liste-fichier-dashbord {
     display: flex;
     justify-content: start;
@@ -1638,21 +1673,20 @@ textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 }
 
-.delegues-parametre-container-2{
-    gap:15px;
+.delegues-parametre-container-2 {
+    gap: 15px;
     margin-top: 20px;
 }
 
-.option-detail-liste-container{
+.option-detail-liste-container {
     display: flex;
     justify-content: center;
-     gap: 12px;
+    gap: 12px;
 }
 
-.delegue-detail{
+.delegue-detail {
     display: flex;
     justify-content: space-between;
-
 }
 
 .delegues-details {
@@ -1663,7 +1697,7 @@ textarea {
 }
 
 @media screen and (max-width: 500px) {
-    .delegue-detail{
+    .delegue-detail {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -1671,14 +1705,13 @@ textarea {
 }
 /*Fin autre*/
 
-
 /*Detail etudiant dans realisation*/
 .main-body {
     padding: 15px;
 }
 
 .card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 2px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card {
@@ -1689,12 +1722,12 @@ textarea {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4) !important;
 }
 
-.card-img-top{
+.card-img-top {
     background-color: var(--aa-primary);
     height: 110px;
 }
@@ -1710,40 +1743,44 @@ textarea {
     margin-left: -8px;
 }
 
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
+.gutters-sm > .col,
+.gutters-sm > [class*="col-"] {
     padding-right: 8px;
     padding-left: 8px;
 }
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
+.mb-3,
+.my-3 {
+    margin-bottom: 1rem !important;
 }
 
 .bg-gray-300 {
     background-color: #e2e8f0;
 }
 .h-100 {
-    height: 100%!important;
+    height: 100% !important;
 }
 .shadow-none {
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
 .bg-white {
-    background-color: #fff!important;
+    background-color: #fff !important;
 }
 .btn-light {
     color: #1a202c;
     background-color: #fff;
     border-color: #cbd5e0;
 }
-.ml-2, .mx-2 {
-    margin-left: .5rem!important;
+.ml-2,
+.mx-2 {
+    margin-left: 0.5rem !important;
 }
 
 .card-footer:last-child {
-    border-radius: 0 0 .25rem .25rem;
+    border-radius: 0 0 0.25rem 0.25rem;
 }
-.card-footer, .card-header {
+.card-footer,
+.card-header {
     display: flex;
     align-items: center;
 }
@@ -1751,7 +1788,7 @@ textarea {
 .card-footer {
     /* padding: .5rem 1rem; */
     background-color: #fff;
-    border-top: 0 solid rgba(0,0,0,.125);
+    border-top: 0 solid rgba(0, 0, 0, 0.125);
 }
 
 .etiquete-competence {
@@ -1770,7 +1807,6 @@ textarea {
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     width: 80%;
-    
 }
 
 .bouton-voir-plus:hover {
@@ -1778,8 +1814,3 @@ textarea {
     background-color: var(--aa-orange) !important;
 }
 /*Fin detail etudiant dans realisation*/
-
-
-/*Ma page*/
-
-/*Fin Ma page*/

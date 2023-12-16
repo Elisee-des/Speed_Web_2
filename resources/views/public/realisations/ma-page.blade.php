@@ -120,12 +120,14 @@
                                     <i class="ni education_hat mr-2"></i>Université Norbert Zongo de koudougou
                                 </div>
                                 <div class="mt-1">
+                                    <i class="ni education_hat mr-2"></i>Coordonateur : Dr Bikienga
+                                </div>
+                                <div class="mt-1">
                                     <i class="ni education_hat mr-2"></i><strong>Mes contacts : 57788967
                                         61785687</strong>
                                 </div>
                                 <hr class="my-4">
                                 <p>Baccalauréat obtenu en 2019, a Ouagadougou</p>
-                                {{-- <a href="#">Show more</a> --}}
                             </div>
                         </div>
                     </div>
@@ -152,77 +154,76 @@
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">HTML</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
                                                     style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-                                                    aria-valuemax="100">70%</div>
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">CSS</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-                                                    aria-valuemax="100">70%</div>
+                                                    style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Javascript</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 40%" aria-valuenow="40" aria-valuemin="0"
-                                                    aria-valuemax="100">40%</div>
+                                                    style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Bootstrap</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                                                    aria-valuemax="100">80%</div>
+                                                    style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">PHP</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
                                                     style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-                                                    aria-valuemax="100">60%</div>
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">JAVA</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
                                                     style="width: 40%" aria-valuenow="40" aria-valuemin="0"
-                                                    aria-valuemax="100">40%</div>
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Laravel</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
                                                     style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                                                    aria-valuemax="100">80%</div>
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
+
                                             <label class="form-control-label" for="input-username">React JS</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 70%" aria-valuenow="70" aria-valuemin="0"
-                                                    aria-valuemax="100">70%</div>
+                                                    style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -237,20 +238,20 @@
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Mise en réseau des
                                                 ordinateurs</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
                                                     style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                                                    aria-valuemax="100">90%</div>
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Mise en place de
                                                 serveur NAK</label>
-                                            <div class="progress">
+                                            <div class="progress animated-progress custom-progress mb-4">
                                                 <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-                                                    aria-valuemax="100">100%</div>
+                                                    style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
                                             </div>
                                         </div>
 
@@ -268,21 +269,21 @@
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Chiffrement de
                                                 fichier sous linux</label>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                                                    aria-valuemax="100">80%</div>
-                                            </div>
+                                                <div class="progress animated-progress custom-progress mb-4">
+                                                    <div class="progress-bar bg-success" role="progressbar"
+                                                        style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
                                         </div>
 
                                         <div class="card-hard-skil">
                                             <label class="form-control-label" for="input-username">Securité OpenSSL et
                                                 OpenSSH</label>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                                                    aria-valuemax="100">80%</div>
-                                            </div>
+                                                <div class="progress animated-progress custom-progress mb-4">
+                                                    <div class="progress-bar bg-success" role="progressbar"
+                                                        style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
                                         </div>
 
                                     </div>
@@ -1497,11 +1498,12 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="heading-small text-muted mb-4"><strong
-                                    style="text-decoration: underline">Centre d'intêret(Loisir)</strong></h5>
+                            <h5 class="heading-small text-muted mb-4"><strong style="text-decoration: underline">Centre
+                                    d'intêret(Loisir)</strong></h5>
                             <div class="">
                                 <div class="p-1">
-                                    <div class="card p-1" style="box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3) !important; margin-bottom: 5px;">
+                                    <div class="card p-1"
+                                        style="box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3) !important; margin-bottom: 5px;">
                                         <div class="">
                                             <table class="table mb-0">
                                                 <tbody>

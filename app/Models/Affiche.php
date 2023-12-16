@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Affiche extends Model
 {
-    use HasFactory;
+    use HasFactory, Uuids;
 
     protected $fillable = [
         'nom',
         'niveau_etude',
         'session',
         'actif',
-        'caracteristique_id',
+        'categorie_id',
         'semestre_id'
     ];
 

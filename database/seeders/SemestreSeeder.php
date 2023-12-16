@@ -12,6 +12,6 @@ class SemestreSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }

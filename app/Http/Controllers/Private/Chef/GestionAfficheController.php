@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Private\Chef;
 
 use App\Http\Controllers\Controller;
 use App\Models\Affiche;
-use App\Models\Caracteristique;
+use App\Models\Categorie;
 use App\Models\Semestre;
 use Illuminate\Http\Request;
 use App\Models\Image as ImageModel;
@@ -28,10 +28,10 @@ class GestionAfficheController extends Controller
     public function ajout_affiche($idSemestre)
     {
         $semestre = Semestre::find($idSemestre);
-        $caracteristiques =  Caracteristique::all();
+        $categories =  Categorie::all();
         return view('private.chef.gestion-affiches.create', [
             'semestre'  => $semestre,
-            'caracteristiques' => $caracteristiques
+            'categories' => $categories
         ]);
     }
 
@@ -69,7 +69,7 @@ class GestionAfficheController extends Controller
             'nom' => $request->nom,
             'niveau_etude' => $request->niveau_etude,
             'session' => $request->session,
-            'caracteristique_id' => $request->caracteristique_id,
+            'categorie_id' => $request->categorie_id,
             'semestre_id' => $semestre->id,
         ]);
 

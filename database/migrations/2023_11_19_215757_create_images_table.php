@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->mediumText('path');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
-            $table->foreignId('affiche_id')->references('id')->on('affiches');
+            $table->foreignUuid('affiche_id')->references('id')->on('affiches');
             $table->timestamps();
         });
     }

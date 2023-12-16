@@ -91,7 +91,11 @@ class GestionSemestreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $semestre = Semestre::find($id);
+        $semestre->nom = $request->nom;
+        $semestre->save();
+
+        return redirect()->back()->with('success', "Le nom a été modifié avec succès.");
     }
 
     /**

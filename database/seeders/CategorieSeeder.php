@@ -3,25 +3,26 @@
 namespace Database\Seeders;
 
 use App\Models\Caracteristique;
+use App\Models\Categorie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CaracteristiqueSeeder extends Seeder
+class CategorieSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Caracteristique::create([
+        Categorie::create([
             'nom' => 'Résultat',
         ]);
 
-        Caracteristique::create([
+        Categorie::create([
             'nom' => 'Proclamation',
         ]);
 
-        Caracteristique::create([
+        Categorie::create([
             'nom' => 'Délibération',
         ]);
     }

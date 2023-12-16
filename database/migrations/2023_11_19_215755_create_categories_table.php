@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('caracteristiques', function (Blueprint $table) {
-            $table->id();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->uuid("id")->primary();
             $table->string("nom");
             $table->timestamps();
         });
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('caracteristiques');
+        Schema::dropIfExists('categories');
     }
 };
