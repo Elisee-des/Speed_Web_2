@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('session')->nullable();
             $table->boolean('actif')->default(false);
             $table->foreignUuid('categorie_id')->references('id')->on('categories');
-            $table->foreignUuid('semestre_id')->references('id')->on('semestres');
+            $table->foreignUuid('semestre_id')->references('id')->cascadeOnDelete()->on('semestres')->onDelete('cascade');
             $table->timestamps();
         });
     }

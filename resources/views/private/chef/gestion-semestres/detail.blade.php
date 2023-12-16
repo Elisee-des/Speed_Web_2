@@ -65,7 +65,7 @@
   </div>
 </div>
 
-{{-- Modal pour la suppression du semestre --}}
+{{-- Modal pour la gestion du semestre --}}
 <div class="modal fade" id="exampleModalGere" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -76,11 +76,15 @@
       </div>
       <div class="modal-body">
         <div class="bouton-gestion-semestres">
-          <button class="bouton-gestion-semestres-primary" data-bs-toggle="modal" data-bs-target="#exampleModalEditNom">Editer le nom du semestre</button>
+          <button class="bouton-gestion-semestres-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModalEditNom"><span><i class="fa-solid fa-pen" style="color: #feffff;"></i></span>
+            Editer le nom du semestre</button>
         </div>
         <div class="mb-3 bouton-gestion-semestres">
-          <button class="bouton-gestion-semestres-red"><a href="#" style="text-decoration: none; color:white;">Supprimer
-              ce semestre</a></button>
+          <button class="bouton-gestion-semestres-red" data-bs-toggle="modal"
+            data-bs-target="#exampleModalSuppresion"><span><i class="fa-solid fa-trash"
+                style="color: #feffff;"></i></span> Supprimer
+            ce semestre</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"
@@ -93,10 +97,9 @@
     </div>
   </div>
 </div>
-{{-- Modal pour la suppression du semestre --}}
+{{-- Modal pour la gestion du semestre --}}
 
-<div class="modal fade" id="exampleModalEditNom" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="exampleModalEditNom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -116,13 +119,48 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"
                 style="color: #feffff;"></i> Fermer</button>
-            <button type="submit" class="btn btn-primary btn-cool"><i class="fa-solid fa-pen" style="color: #feffff;"></i> Modifier</button>
+            <button type="submit" class="btn btn-primary btn-cool"><i class="fa-solid fa-pen"
+                style="color: #feffff;"></i> Modifier</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+{{-- Modal pour la supression du semestre --}}
+<div class="modal fade" id="exampleModalSuppresion" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suppresion du semestre
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p>En supprimant ce semestre, vos etudiants ne le verrons plus et tous les affiches, proclamations et
+            délibération que vous aurais enrgistré dans cette session seront perdu. Êtes vous sûr de vouloir continuer ?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"
+              style="color: #feffff;"></i> Fermer</button>
+          <button class="btn btn-primary btn-cool-delete">
+            <a href="#" style="text-decoration: none; color:white;" onclick="event.preventDefault();
+          document.getElementById('delete-form').submit();"><i class="fa-solid fa-trash" style="color: #feffff;"></i> Supprimer</a></button>
+
+          <form id="delete-form" action="{{ route('delegue.semestres.destroy', $semestre->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- Modal pour la gestion du semestre --}}
 
 {{-- Modal ajout de l'image --}}
 {{-- <div class="modal fade" id="exampleModalAjoutImage" tabindex="-1" aria-labelledby="exampleModalLabel"

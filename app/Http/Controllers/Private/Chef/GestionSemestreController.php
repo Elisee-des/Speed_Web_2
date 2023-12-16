@@ -103,6 +103,8 @@ class GestionSemestreController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $semestre = Semestre::find($id);
+        $semestre->delete();
+        return redirect()->route('delegue.semestres.index', $semestre)->with('success', "Semestre supprimé avec succès !!!.");
     }
 }
