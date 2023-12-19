@@ -33,8 +33,8 @@
                     <td>{{count($affiche->images)}}</td>
                     <td>{{$affiche->created_at->format('d/m/y')}}</td>
                     <td>
-                        <a href='#' class="btn btn-outline-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModalEdition" title="Cliquez ici pour modifier le resultat"><i
+                        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModalEdition" title="Cliquez ici pour modifier le résultat"><i
                                 class="fa-solid fa-pen" style="color: #0432ff;"></i> Modifier</a>
                     </td>
                 </tr>
@@ -78,10 +78,10 @@
             <div class="card p-1 mb-3 contenair-images-detail">
                 <div class="a-content-option mb-3">
                     <a href="" class="img-gestion" data-bs-toggle="modal" title="Cliquez ici pour modifier cette image"
-                        data-bs-target="#exampleModalEditionImage"><i class="fa-solid fa-pen-to-square"
+                        data-bs-target="#exampleModalEditionImage_{{ $image->id }}"><i class="fa-solid fa-pen-to-square"
                             style="color: #0432ff;"></i> Changer cette image</a>
                     <a href="" class="img-gestion" data-bs-toggle="modal"
-                        title="Cliquez ici pour supprimer cette le image" data-bs-target="#exampleModalDelete"
+                        title="Cliquez ici pour supprimer cette le image" data-bs-target="#exampleModalDelete_{{ $image->id }}"
                         style="color: #e3423d"><i class="fa-solid fa-trash" style="color: #ff2600;"></i> Supprimer
                         cette image</a>
                 </div>
@@ -90,7 +90,7 @@
             </div>
 
             {{-- Modal pour la suppression de l'image --}}
-            {{-- <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="exampleModalDelete_{{ $image->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -100,12 +100,13 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{route('delegue.suppression-image.action', [$resultat->id, $image->id])}}"
-                                method="post">
+                            <form action="{{route('delegue.affiches.suppression-image.action', [$affiche->id, $image->id])}}"
+                                method="POST">
                                 @csrf
+                                @method('DELETE')
                                 <div class="">
                                     <label for="recipient-name" class="col-form-label">Confirmer la suppression de
-                                        <strong>{{$resultat->nom_module}}</strong></label>
+                                        cette image ? Elle sera definitivement perdu !!!!</label>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
@@ -118,12 +119,12 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             {{-- Fin Modal pour la suppression de l'image --}}
 
             {{-- Modal pour la suppression de l'image --}}
-            {{-- <div class="modal fade" id="exampleModalEditionImage" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="exampleModalEditionImage_{{ $image->id }}" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -131,7 +132,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{route('delegue.edition-image.action', [$resultat->id, $image->id])}}"
+                            <form
+                                action="{{route('delegue.affiches.edition-image.action', [$affiche->id, $image->id])}}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="">
@@ -149,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             {{-- Fin Modal pour la l'edition de l'image --}}
             @endforeach
 
@@ -170,6 +172,38 @@
             style="text-decoration:none;, gap: 3; background:#ff6333;" class="submit-profil">
             <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Retour
         </a>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalEdition" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modifier le nom de l'affiche</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('delegue.affiches.edition-nom-affiche.action', $affiche->id)}}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    <div class="">
+                        <label for="recipient-etude" class="col-form-label">Nom de l'affiche</label>
+                        <input type="text" name="nom" class="form-control" value="{{$affiche->nom}}"
+                            placeholder="Exple : Electricité" id="recipient-etude">
+                        @if ($errors->has('nom'))
+                        <span class="text-danger">{{ $errors->first('nom') }}</span>
+                        @endif
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                                class="fa-solid fa-xmark" style="color: #feffff;"></i> Fermer</button>
+                        <button type="submit" class="btn btn-primary btn-cool"><i class="fa-regular fa-floppy-disk"
+                                style="color: #feffff;"></i>
+                            Changer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -207,7 +241,8 @@
 </div> --}}
 {{-- Modal pour la suppression du resultat --}}
 
-{{-- <div class="modal fade" id="exampleModalEdition" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModalEdition" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

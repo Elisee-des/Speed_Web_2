@@ -49,32 +49,39 @@ class GestionAfficheController extends Controller
                 'nom' => 'required',
                 'niveau_etude' => 'required',
                 'session' => 'required',
-                'images' => 'required',
+                'images' => 'required|array|min:1', // Au moins un fichier doit être présent
+                'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             ],
             [
                 'nom.required' => 'Le champ nom est requis.',
                 'session.required' => 'Le champ session est requis.',
-                'niveau_licence.required' => "Le champ niveau d'etude est requis.",
-                'images.required' => 'Le champ images est requis.',
+                'niveau_etude.required' => "Le champ niveau d'etude est requis.",
+                'images' => 'required|array|min:1', // Au moins un fichier doit être présent
+                'images.*.image' => 'Le fichier doit être une image.',
+                'images.*.mimes' => 'Les images doivent être de type :jpeg, :png, :jpg ou :gif.',
+                'images.*.max' => 'La taille maximale de chaque image est de 2048 kilo-octets.',
             ]
         );
 
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
+        // dd("OK ce sont des images");
 
-        $affiche = Affiche::create([
-            'nom' => $request->nom,
-            'niveau_etude' => $request->niveau_etude,
-            'session' => $request->session,
-            'categorie_id' => $request->categorie_id,
-            'semestre_id' => $semestre->id,
-        ]);
-
-        // Traitement des images
         if ($request->hasFile('images')) {
+
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $affiche = Affiche::create([
+                'nom' => $request->nom,
+                'niveau_etude' => $request->niveau_etude,
+                'session' => $request->session,
+                'categorie_id' => $request->categorie_id,
+                'semestre_id' => $semestre->id,
+            ]);
+
+            // Traitement des images
             foreach ($request->file('images') as $image) {
                 $imageName = time() . '_' . $image->getClientOriginalName();
                 $path = 'images/affiches/' . $imageName;
@@ -85,10 +92,13 @@ class GestionAfficheController extends Controller
 
                 $affiche->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
             }
+        } else {
+            return redirect()->back()->with('error', "Vous devez sélectionner des images !");
         }
 
         return redirect()->route('delegue.affiches.detail', ['idSemestre' => $semestre->id, 'idAffiche' => $affiche->id])->with('success', "{$affiche->nom} ajouté avec succès !!!.");
     }
+
 
     /**
      * Display the specified resource.
@@ -104,10 +114,98 @@ class GestionAfficheController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edition_nom_affiche(Request $request, $idAffiche)
     {
-        //
+        $user = auth()->user();
+
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'nom' => 'required',
+            ],
+            [
+                'nom.required' => 'Le champ nom est requis.',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        if ($user->hasRole('Delegue')) {
+            $affiche = Affiche::find($idAffiche);
+            $affiche->nom = $request->nom;
+            $affiche->save();
+
+            return redirect()->back()->with('success', "Le nom de l'affiche' a été modifié avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
     }
+
+    public function edition_image($idAffiche, $idImage, Request $request)
+    {
+        $user = auth()->user();
+
+        if ($user->hasRole('Delegue')) {
+            $imageOld = ImageModel::where('id', $idImage)->where('affiche_id', $idAffiche)->first();
+
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    'image' => 'required|file|mimes:jpeg,png,jpg|max:5120',
+                ],
+                [
+                    'image.required' => 'Le champ image est requis.',
+                    'image.file' => 'Le champ doit être un fichier.',
+                    'image.mimes' => 'Le fichier doit être de type :values.',
+                    'image.max' => 'La taille du fichier ne doit pas dépasser :max kilo-octets.',
+                ]
+            );
+    
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            // Vérifier si une image existe avant de la supprimer
+            if ($imageOld) {
+                // Supprimer l'ancienne image du stockage
+                $oldImagePath = 'images/affiches/' . $imageOld->path;
+                Storage::disk('public')->delete($oldImagePath);
+            }
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $path = 'images/affiches/' . $imageName;
+
+                // Redimensionner l'image si nécessaire
+                $img = Image::make($image->getRealPath());
+                Storage::disk('public')->put($path, (string)$img->encode());
+
+                if (!$imageOld) {
+                    // Créer une nouvelle instance s'il n'y a pas d'ancienne image
+                    $imageOld = new ImageModel();
+                    $imageOld->affiche_id = $idAffiche;
+                }
+
+                $imageOld->nom = $image->getClientOriginalName();
+                $imageOld->path = $imageName;
+
+                $imageOld->save();
+                return redirect()->back()->with('success', "Image éditée avec succès.");
+            }
+            return redirect()->back()->with('error', "Vous devez sélectionner une image !");
+        } else {
+            return redirect()->back()->with('error', "Vous n'avez pas les droits requis.");
+        }
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -123,5 +221,25 @@ class GestionAfficheController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function suppression_image($idAffiche, $idImage)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+
+            $imageOld = ImageModel::where('id', $idImage)->where('affiche_id', $idAffiche)->get()->first();
+
+            if ($imageOld) {
+                // Supprimer l'ancienne image du stockage
+                $oldImagePath = 'images/affiches/' . $imageOld->path;
+                Storage::disk('public')->delete($oldImagePath);
+                $imageOld->delete();
+            }
+
+            return redirect()->back()->with('success', "Image supprimée avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
     }
 }

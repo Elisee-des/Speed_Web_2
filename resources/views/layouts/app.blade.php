@@ -40,7 +40,7 @@
                 "progressBar":true,
                 "closeButton":true
             }
-            toastr.success("{{ Session::get('message') }}", {timeOut:30000});
+            toastr.success("{{ Session::get('message') }}", {timeOut:100000});
     </script>
     @endif
 
@@ -50,7 +50,7 @@
                 "progressBar":true,
                 "closeButton":true
             }
-            toastr.success("{{ Session::get('success') }}", {timeOut:30000});
+            toastr.success("{{ Session::get('success') }}", {timeOut:100000});
     </script>
     @endif
 
@@ -60,7 +60,7 @@
                 "progressBar":true,
                 "closeButton":true
             }
-            toastr.error("{{ Session::get('error') }}", {timeOut:30000});
+            toastr.error("{{ Session::get('error') }}", {timeOut:100000});
     </script>
     @endif
 </body>

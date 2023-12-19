@@ -20,8 +20,7 @@
             Enregistré une nouvelle affiche
         </h2>
 
-        <form id="createproduct-form" action="{{route('delegue.affiches.action', $semestre->id)}}"
-            class="needs-validation" novalidate method="POST">
+        <form action="{{route('delegue.affiches.action', $semestre->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
 
@@ -33,8 +32,8 @@
                         </div>
                         <!-- end card body -->
                         <div class="card-body">
-                            <select name="categorie_id" class="form-select" id="choices-publish-visibility-input" data-choices
-                                data-choices-search-false>
+                            <select name="categorie_id" class="form-select" id="choices-publish-visibility-input"
+                                data-choices data-choices-search-false>
                                 @foreach ($categories as $categorie)
                                 <option value="{{$categorie->id}}" selected>{{$categorie->nom}}</option>
                                 @endforeach
@@ -50,7 +49,7 @@
                         </div>
                         <div class="card-body">
                             <input type="text" disabled class="form-control"
-                                placeholder="Elle sera mise automatiquement" required>
+                                placeholder="Elle sera mise automatiquement">
                         </div>
                         <!-- end card body -->
                     </div>
@@ -67,17 +66,17 @@
                         <div class="card-body">
                             <div class="mb-1">
                                 <label for="recipient-name" class="col-form-label">Nom du module</label>
-                                <input type="text" name="nom" class="form-control"
-                                    placeholder="Exple: Electricité" id="recipient-name">
-                                @if ($errors->has('nom_module'))
-                                <span class="text-danger">{{ $errors->first('nom_module') }}</span>
+                                <input type="text" name="nom" class="form-control" placeholder="Exple: Electricité"
+                                    id="recipient-name">
+                                @if ($errors->has('nom'))
+                                <span class="text-danger">{{ $errors->first('nom') }}</span>
                                 @endif
                             </div>
 
                             <div class="mb-1">
-                                <label for="recipient-name" class="col-form-label">Niveau d'etude</label>
-                                <input type="text" name="niveau_etude" class="form-control"
-                                    placeholder="Exple : L1 S1" id="recipient-name">
+                                <label for="recipient-etude" class="col-form-label">Niveau d'etude</label>
+                                <input type="text" name="niveau_etude" class="form-control" placeholder="Exple : L1 S1"
+                                    id="recipient-etude">
                                 @if ($errors->has('niveau_etude'))
                                 <span class="text-danger">{{ $errors->first('niveau_etude') }}</span>
                                 @endif
@@ -85,9 +84,9 @@
                             </div>
 
                             <div class="mb-1">
-                                <label for="recipient-name" class="col-form-label">Session</label>
+                                <label for="recipient-session" class="col-form-label">Session</label>
                                 <input type="text" name="session" class="form-control"
-                                    placeholder="Exple : Session normal" id="recipient-name">
+                                    placeholder="Exple : Session normal" id="recipient-session">
                                 @if ($errors->has('session'))
                                 <span class="text-danger">{{ $errors->first('session') }}</span>
                                 @endif
@@ -97,7 +96,13 @@
                                 <label for="recipient-file" class="col-form-label">Choisir des images</label>
                                 <input type="file" name="images[]" class="form-control" multiple id="recipient-file">
                                 @if ($errors->has('images'))
-                                <span class="text-danger">{{ $errors->first('images') }}</span>
+                                <div class="alert alert-danger mt-2">
+                                    <ul>
+                                        @foreach($errors->get('images.*') as $error)
+                                        <li>{{ $error[0] }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                                 @endif
                             </div>
 
