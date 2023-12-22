@@ -4,7 +4,7 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
 
 
 <div class="header">
-  <a href="{{route('accueil')}}" class="logo">CAMPUS-RESULTATS</a>
+  <a href="{{route('accueil')}}" class="logo">CAMPUS-AFFICHES</a>
   <div class="header-right">
     <div>
       <a class="" href="{{route('accueil')}}">Accueil</a>

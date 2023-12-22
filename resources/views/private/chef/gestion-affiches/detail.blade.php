@@ -47,24 +47,23 @@
                 {{-- <a href="{{route('delegue.resultat.parametre')}}" class="btn btn-primary btn-cool"
                     title="Clique  Ici pour ajouter une nouvelle délibération."><i class="fa-solid fa-gear"
                         style="color: #feffff;"></i> Paramètre</a> --}}
-                <a href="{{route('delegue.affiches.ajout-image.action', $affiche->id)}}" data-bs-toggle="modal"
-                    data-bs-target="#exampleModalAjoutImage" class="btn btn-primary btn-cool"
+                <a href="{{route('delegue.affiches.ajout-image', [$semestre->id, $affiche->id])}}" class="btn btn-primary btn-cool"
                     title="Clique  Ici pour ajouter une ou des images."><i class="fa-solid fa-plus"></i>
                     Ajouter une ou des images</a>
 
                 @if ($affiche->actif == 0)
-                <form action="{{route('delegue.affiches.affiche', $affiche->id)}}" method="POST">
+                <form action="{{route('delegue.affiches.afficher', $affiche->id)}}" method="POST">
                     @csrf
-                    <a href="#" class="btn btn-primary btn-cool-2" data-bs-toggle="modal" type="submit"
-                        data-bs-target="#exampleModalResultatAffiche"
-                        title="Clique  Ici pour afficher ces résultats."><i class="fa-solid fa-eye"></i>
+                    <a href="#" class="btn btn-primary btn-cool" data-bs-toggle="modal" type="submit"
+                        data-bs-target="#exampleModalAfficherAffiche"
+                        title="Clique  Ici pour afficher ces affiches."><i class="fa-solid fa-eye"></i>
                         Afficher ces images</a>
                 </form>
                 @else
-                <form action="{{route('delegue.affiches.resultats.cacher', $affiche->id)}}" method="POST">
+                <form action="{{route('delegue.affiches.cacher', $affiche->id)}}" method="POST">
                     @csrf
                     <a href="#" class="btn btn-primary btn-cool-2" data-bs-toggle="modal" type="submit"
-                        data-bs-target="#exampleModalResultatCache" title="Clique  Ici pour cacher ces résultats."><i
+                        data-bs-target="#exampleModalAfficheCache" title="Clique  Ici pour cacher ces affiches."><i
                             class="fa-solid fa-eye"></i>
                         Cacher ces images</a>
                 </form>
@@ -72,7 +71,7 @@
             </div>
         </div>
 
-        <div class="f-colunm ">
+        <div class="f-colunm">
             {{-- @dd($resultat->images) --}}
             @foreach ($affiche->images as $image)
             <div class="card p-1 mb-3 contenair-images-detail">
@@ -159,11 +158,11 @@
 
         <div class="text-images-plus-delete">
 
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteResultat"
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteAffiche"
                 class="text-images-plus-text" type="submit"
                 title="Cliquez ici pour supprimer definitivement cette publication"
                 onclick="return confirm('Etes vous sûr ?')" style="font-size: 15px;"><i class="fa-solid fa-trash"
-                    style="color: #feffff;"></i> Supprimer tout ces résultats</a>
+                    style="color: #feffff;"></i> Supprimer l'affiche et tous les images en même temps</a>
         </div>
     </div>
 
@@ -208,23 +207,23 @@
 </div>
 
 {{-- Modal pour la suppression du resultat --}}
-{{-- <div class="modal fade" id="exampleModalDeleteResultat" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModalDeleteAffiche" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Suppression des résultats de
-                    <strong>{{$resultat->nom_module}}</strong>
+                <h5 class="modal-title" id="exampleModalLabel">Suppression de
+                    <strong>{{$affiche->nom}}</strong>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('delegue.suppresion-module.action', $resultat->id)}}" method="POST">
-                    @method('delete')
+                <form action="{{route('delegue.affiches.suppression-affiche.action', [$semestre->id, $affiche->id])}}" method="POST">
                     @csrf
+                    @method('DELETE')
                     <div class="">
-                        <label for="recipient-name" class="col-form-label">Tout les images associés au résultat de
-                            <strong>{{$resultat->nom_module}}</strong> seront supprimées.
+                        <label for="recipient-name" class="col-form-label">Tout les images associés l'affiche de
+                            <strong>{{$affiche->nom}}</strong> seront supprimées.
                         </label>
                     </div>
                     <div class="modal-footer">
@@ -232,13 +231,13 @@
                                 class="fa-solid fa-xmark" style="color: #feffff;"></i> Annuler</button>
                         <button type="submit" class="btn btn-primary btn-cool-delete"><i class="fa-solid fa-trash"
                                 style="color: #feffff;"></i>
-                            Supprimer</button>
+                            Oui! Supprimer</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 {{-- Modal pour la suppression du resultat --}}
 
 {{-- <div class="modal fade" id="exampleModalEdition" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -304,63 +303,62 @@
 {{-- Fin Modal ajout de l'image --}}
 
 {{-- Modal pour la suppression du resultat --}}
-{{-- <div class="modal fade" id="exampleModalResultatAffiche" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModalAfficherAffiche" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Afficher
-                    <strong>{{$resultat->nom_module}}</strong>
+                    <strong>{{$affiche->nom}}</strong>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('delegue.resultats.affiche', $resultat->id)}}" method="POST">
+                <form action="{{route('delegue.affiches.afficher', $affiche->id)}}" method="POST">
                     @method('post')
                     @csrf
                     <div class="">
                         <label for="recipient-name" class="col-form-label">Tout les images associés à
-                            <strong>{{$resultat->nom_module}}</strong> seront visible chez vos etudiants.
+                            <strong>{{$affiche->nom}}</strong> seront visible chez vos etudiants.
                         </label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
                                 class="fa-solid fa-xmark" style="color: #feffff;"></i> Annuler</button>
-                        <button type="submit" class="btn btn-primary btn-cool-delete"><i class="fa-solid fa-trash"
-                                style="color: #feffff;"></i>
-                            Je confirme</button>
+                        <button type="submit" class="btn btn-primary btn-cool"><i class="fa-solid fa-eye"></i>
+                            Oui! Afficher</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 {{-- Modal pour la suppression du resultat --}}
 
 {{-- Modal pour la suppression du resultat --}}
-{{-- <div class="modal fade" id="exampleModalResultatCache" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModalAfficheCache" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Cacher
-                    <strong>{{$resultat->nom_module}}</strong>
+                    <strong>{{$affiche->nom}}</strong>
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('delegue.resultats.cacher', $resultat->id)}}" method="POST">
+                <form action="{{route('delegue.affiches.cacher', $affiche->id)}}" method="POST">
                     @method('post')
                     @csrf
                     <div class="">
                         <label for="recipient-name" class="col-form-label">Tout les images associés à
-                            <strong>{{$resultat->nom_module}}</strong> seront cachés chez vos etudiants.
+                            <strong>{{$affiche->nom}}</strong> seront cachés chez vos etudiants.
                         </label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
                                 class="fa-solid fa-xmark" style="color: #feffff;"></i> Annuler</button>
-                        <button type="submit" class="btn btn-primary btn-cool-delete"><i class="fa-solid fa-trash"
+                        <button type="submit" class="btn btn-primary btn-cool-2"><i class="fa-solid fa-eye"
                                 style="color: #feffff;"></i>
                             Je confirme</button>
                     </div>
@@ -368,7 +366,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 {{-- Modal pour la suppression du resultat --}}
 
 @include('layouts.private.modal-update-image-gestion')

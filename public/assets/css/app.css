@@ -166,13 +166,14 @@ html {
 
 .hero-image a {
     font-weight: 600;
+    transition: 0.5s;
 }
 
 .hero-image a:hover {
     letter-spacing: normal !important;
     text-decoration: solid !important;
     background-color: var(--aa-orange);
-    border: 1px solid var(--aa-white);
+    /* border: 1px solid var(--aa-white); */
 }
 
 .hero-text {
@@ -683,9 +684,10 @@ textarea {
     margin: auto;
     width: 100%;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 7px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
 }
 
 /*Profil*/
@@ -1404,7 +1406,7 @@ textarea {
     background-color: #ddd !important;
     justify-content: space-between;
     gap: 10px;
-    padding: 30px;
+    padding: 10px;
     border-radius: 12px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
 }
@@ -1595,6 +1597,17 @@ textarea {
     transition: 0.5s;
 }
 
+@media screen and (max-width: 500px) {
+    .a-liste-fichier  {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .a-liste-fichier-icon {
+        justify-content: center;
+    }
+}
+
 .detail-liste-fichier-dashbord:hover,
 .detail-liste-profil-dashbord:hover,
 .detail-liste-nos-delegue-dashbord:hover,
@@ -1607,10 +1620,10 @@ textarea {
 }
 
 .title-liste-fichier {
-    margin-top: 50px !important;
+    margin-top: 40px !important;
     text-align: center;
-    font-size: 24px;
-    font-weight: 400 !important;
+    font-size: 20px;
+    font-weight: 600 !important;
     text-decoration: underline;
 }
 
@@ -1702,6 +1715,28 @@ textarea {
         flex-direction: column;
         gap: 10px;
     }
+    .contact{
+        display: flex;
+        flex-direction: column !important;
+    }
+    
+}
+
+.contact-admin-aide {
+    display: flex;
+    justify-content: center;
+}
+
+.contact{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.contact li {
+    font-weight: 800;
+    list-style: none;
 }
 /*Fin autre*/
 

@@ -52,13 +52,10 @@
     @role('Etudiant')
     <a href="{{route('etudiant.tableaudebord')}}"><i class="fa-solid fa-gauge" style="color: #feffff"></i> Tableau de
         bord</a>
-    <a href="{{route('compte.resultats')}}"><i class="fa-solid fa-rectangle-list" style="color: #feffff;"></i>
-        Résultats</a>
-    <a href="{{route('compte.proclamations')}}"><i class="fa-solid fa-list" style="color: #feffff"></i>
-        Proclamations</a>
-    <a href="{{route('compte.deliberations')}}">
-        <i class="fa-solid fa-list-check" style="color: #feffff"></i>
-        Delibérations</a>
+    <a href="#"><i class="fa-solid fa-rectangle-list" style="color: #feffff;"></i>
+        Mon cv</a>
+    <a href="#"><span><i class="fa-solid fa-bell" style="color: #feffff;"></i>
+            Notifications</a>
     <a href="{{route('profil.accueil')}}"><i class="fa-sharp fa-solid fa-address-card" style="color: #feffff"></i>
         Profil</a>
     <a href="{{route('compte.aide')}}"><i class="fa-solid fa-message" style="color: #feffff"></i> Aide</a>

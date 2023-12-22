@@ -2,7 +2,7 @@
     <a href="{{route('accueil')}}" class="logo">CAMPUS-AFFICHES</a>
     <div class="header-right">
         <div>
-            <a href="{{route('accueil')}}">Accueil</a>
+            <a href="{{route('accueil')}}"> Accueil</a>
             <a href="{{route('affiches')}}">Affiches</a>
             <a href="{{route('realisations.index')}}">Réalisations</a>
             @auth
@@ -24,8 +24,8 @@
                 @csrf
             </form>
             @else
-            <a href="{{route('register')}}" class="">Inscription</a>
-            <a class='active' href="{{route('login')}}">Connexion</a>
+            <a href="{{route('register')}}" class=""> Inscription</a>
+            <a class='active' href="{{route('login')}}"> Connexion</a>
             @endauth
             {{-- <a href="private/profil.html"><i class="fa-solid fa-user" style="color: #feffff"></i></a> --}}
         </div>

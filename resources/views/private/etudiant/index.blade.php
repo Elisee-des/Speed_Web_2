@@ -73,7 +73,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-between">
             <div>
-              <p class="fw-medium text-white mb-0">Déliberation</p>
+              <p class="fw-medium text-white mb-0">Délibération</p>
               <h2 class="mt-2 ff-secondary fw-semibold"><span class="counter-value" style="color: white"
                   data-target="33.48">50</span>
               </h2>
@@ -92,37 +92,48 @@
       </div> <!-- end card-->
     </a>
 
+    <p class="title-liste-fichier">ACCADEMIQUE</p>
+    <div class="list-fichiers">
+      {{-- <a href="{{route('etudiant.semestres.index')}}" class="detail-liste-profil-dashbord" style="color: white"><span><i
+            class="fa-solid fa-list-check" style="color: #feffff"></i></span> Voir les affiches</a>
+      <a href="{{route('etudiant.delegues')}}" class="detail-liste-nos-delegue-dashbord" style="color: white"><span><i
+            class="fa-solid fa-users-between-lines" style="color: #feffff;"></i></span>
+        Mes délégués</a> --}}
+        <a href="#" class="detail-liste-profil-dashbord" style="color: white"><span><i class="fa-regular fa-file-image"
+          style="color: #feffff;"></i></span> Mon CV en ligne</a>
+      <a href="#" class="detail-liste-fichier-dashbord" style="color: white"><span><i class="fa-solid fa-file-lines"
+            style="color: #feffff;"></i></span> Mes
+        fichiers</a>
+    </div>
+
     <p class="title-liste-fichier">PERSONNEL</p>
     <div class="list-fichiers">
-      <div class="detail-liste-profil-dashbord">
-        <a href="{{route('profil.accueil')}}" class="" style="color: white"><i class="fa-solid fa-user"
-            style="color: #feffff;"></i> Mon profil</a>
-      </div>
-      <div class="detail-liste-nos-delegue-dashbord">
-        <a href="{{route('etudiant.delegues')}}" class="" style="color: white"><i class="fa-solid fa-users-between-lines" style="color: #feffff;"></i>
-          Nos délégués</a>
-      </div>
-      <div class="detail-liste-fichier-dashbord">
-        <a href="" class="" style="color: white"><i class="fa-regular fa-file-image" style="color: #feffff;"></i> Mes
-          fichiers</a>
-      </div>
-      <div class="detail-liste-notification-dashbord">
-        <a href="" class="" style="color: white"><i class="fa-solid fa-bell" style="color: #feffff;"></i>
-          Notifications</a>
-      </div>
-      <div class="detail-liste-aide-dashbord">
-        <a href="{{route('compte.aide')}}" class="" style="color: white"><i class="fa-solid fa-handshake-angle"
-            style="color: #feffff;"></i> Demander de l'aide</a>
-      </div>
-      <div class="detail-liste-autre-dashbord"><a href="{{route('accueil')}}" class="a-liste-fichier"
-          style="color: white"><i class="fa-solid fa-house" style="color: #feffff;"></i> Site</a>
-        <a href="{{route('logout')}}" class="a-liste-fichier" onclick="event.preventDefault(); 
-        document.getElementById('logout-form').submit();" style="color: white"><i
-            class="fa-solid fa-right-from-bracket" style="color: #feffff;"></i> Déconnexion</a>
-      </div>
+      <a href="{{route('profil.accueil')}}" class="detail-liste-profil-dashbord" style="color: white"><span><i
+            class="fa-solid fa-user" style="color: #feffff;"></i></span> Mon profil</a>
+      <a href="#" class="detail-liste-notification-dashbord" style="color: white"><span><i class="fa-solid fa-bell"
+            style="color: #feffff;"></i></span>
+        Notifications</a>
+      <a href="{{route('compte.aide')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
+            class="fa-solid fa-handshake-angle" style="color: #feffff;"></i></span> Demander de l'aide</a>
+    </div>
+
+    <p class="title-liste-fichier">AUTRES</p>
+    <div class="list-fichiers">
+      <a href="{{route('accueil')}}" class="detail-liste-profil-dashbord" style="color: white"><small
+          class="a-liste-fichier-icon"><i class="fa-solid fa-house" style="color: #feffff;"></i></small>
+        Page d'accueil</a>
+      <a href="{{route('affiches')}}" class="detail-liste-nos-delegue-dashbord" style="color: white"><span><i
+            class="fa-solid fa-list-check" style="color: #feffff"></i></span>
+        Les Affiches</a>
+      <a href="{{route('realisations.index')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
+            class="fa-solid fa-book-journal-whills" style="color: #feffff;"></i></span>
+        Les Réalisations</a>
+      <a href="{{route('logout')}}" class="detail-liste-profil-dashbord" onclick="event.preventDefault(); 
+        document.getElementById('logout-form').submit();" style="color: white"><span class="a-liste-fichier-icon"><i
+            class="fa-solid fa-right-from-bracket" style="color: #feffff;"></i></span> Déconnexion</a>
       <form id="logout-form" action="{{ route('logout') }}" method="POST">
         @csrf
-        @method('post')
+        @method('POST')
       </form>
     </div>
 

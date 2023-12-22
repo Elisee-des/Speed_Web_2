@@ -165,7 +165,7 @@ class GestionAfficheController extends Controller
                     'image.max' => 'La taille du fichier ne doit pas dépasser :max kilo-octets.',
                 ]
             );
-    
+
             if ($validator->fails()) {
                 return redirect()->back()
                     ->withErrors($validator)
@@ -218,9 +218,89 @@ class GestionAfficheController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($idSemestre, $idAffiche)
     {
-        //
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+
+            $affiche = Affiche::find($idAffiche);
+            foreach ($affiche->images as $image) {
+                $imageOld = ImageModel::where('id', $image->id)->where('affiche_id', $idAffiche)->get()->first();
+                if ($imageOld) {
+                    // Supprimer l'ancienne image du stockage
+                    $oldImagePath = 'images/affiches/' . $imageOld->path;
+                    Storage::disk('public')->delete($oldImagePath);
+                    $imageOld->delete();
+                }
+                
+            }
+
+            $affiche->delete();
+            return redirect()->route('delegue.semestres.show', $idSemestre)->with('success', "Affiche supprimée avec succès.");
+        } else {
+            return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
+        }
+    }
+
+    public function ajout_image($idSemestre, $idAffiche)
+    {
+        $semestre = Semestre::find($idSemestre);
+        $affiche = Affiche::find($idAffiche);
+
+        if ($affiche) {
+            return view("private.chef.gestion-affiches.add-images", compact("semestre", "affiche"));
+        }
+
+        return redirect()->back()->with('error', "Cette affiche n'existe pas !");
+    }
+
+    public function ajout_image_action($idSemestre, $idAffiche, Request $request)
+    {
+        $affiche = Affiche::find($idAffiche);
+        $semestre = Semestre::find($idSemestre);
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'images' => 'required|array|min:1', // Au moins un fichier doit être présent
+                'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            ],
+            [
+                'images' => 'required|array|min:1', // Au moins un fichier doit être présent
+                'images.*.image' => 'Le fichier doit être une image.',
+                'images.*.mimes' => 'Les images doivent être de type :jpeg, :png, :jpg ou :gif.',
+                'images.*.max' => 'La taille maximale de chaque image est de 2048 kilo-octets.',
+            ]
+        );
+
+        // dd("OK ce sont des images");
+
+        if ($request->hasFile('images')) {
+
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $affiche = Affiche::find($idAffiche);
+
+            // Traitement des images
+            foreach ($request->file('images') as $image) {
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $path = 'images/affiches/' . $imageName;
+
+                // Redimensionner l'image si nécessaire
+                $img = Image::make($image->getRealPath());
+                Storage::disk('public')->put($path, (string)$img->encode());
+
+                $affiche->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
+
+                return redirect()->route('delegue.affiches.detail', [$semestre->id, $affiche->id])->with('success', "Image(s) ajouté avec succès !");
+            }
+        } else {
+            return redirect()->back()->with('error', "Vous devez sélectionner des images !");
+        }
     }
 
     public function suppression_image($idAffiche, $idImage)
@@ -242,4 +322,29 @@ class GestionAfficheController extends Controller
             return redirect()->back()->with('error', "Vous n'êtes pas les droits requis.");
         }
     }
+
+    public function afficher_affiche($idAffiche)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+            $affiche = Affiche::find($idAffiche);
+            $affiche->actif = 1;
+            $affiche->update();
+
+            return redirect()->back()->with('success', "L'opération est un succès.");
+        }
+    }
+
+    public function cacher_affiche($idAffiche)
+    {
+        $user = auth()->user();
+        if ($user->hasRole('Delegue')) {
+            $affiche = Affiche::find($idAffiche);
+            $affiche->actif = 0;
+            $affiche->update();
+
+            return redirect()->back()->with('success', "L'opération est un succès.");
+        }
+    }
+
 }
