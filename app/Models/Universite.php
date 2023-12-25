@@ -6,7 +6,7 @@ use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Filiere extends Model
+class Universite extends Model
 {
     use HasFactory, Uuids;
 
@@ -14,8 +14,8 @@ class Filiere extends Model
         'nom',
     ];
 
-    public function getDay()
+    public function affiches()
     {
-        return $this->created_at->format('d/m/y');
+        return $this->hasMany(Affiche::class);
     }
 }

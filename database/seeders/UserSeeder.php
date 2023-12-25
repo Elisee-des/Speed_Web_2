@@ -15,14 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // $delegue = Delegue::where('delegues', 'Ouedraogo Alassane & Zongo Adama')->first();
-        // $delegue2 = Delegue::where('delegues', 'Ouedraogo Elisee & Kaboré Eric')->first();
-        // $user_3 = User::where('nom_prenom', 'Ouedraogo Elisee')->first();
-        // $user_4 = User::where('nom_prenom', 'Kaboré Eric')->first();
-
-        // $user_5 = User::where('nom_prenom', 'Sawadogo Kalité')->first();
-        // $user_6 = User::where('nom_prenom', 'Boni karim')->first();
-
         $userAdmin = User::create(
             array('nom_prenom' => 'SABIDANI Elisee', 'email' => 'admin@gmail.com', 'email_verified_at' => now(), 'password' => 'password', 'telephone' => '76987689', 'filiere' => 'MPCI', 'ine' => 'N00290420191', 'remember_token' => Str::random(10)),
         );
