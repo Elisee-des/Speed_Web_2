@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Affiche;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -13,6 +14,8 @@ class PublicController extends Controller
 
     public function affiches()
     {
+        $affiches = Affiche::with('')->orderBy('created_at', 'desc')->get();
+        dd($affiches);
         return view('affiches');
     }
 

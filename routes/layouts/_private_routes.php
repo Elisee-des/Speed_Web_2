@@ -13,6 +13,7 @@ use App\Http\Controllers\Private\DeliberationController;
 use App\Http\Controllers\Private\Etudiant\AfficheController;
 use App\Http\Controllers\Private\Etudiant\DelegueController;
 use App\Http\Controllers\Private\Etudiant\EtudiantTableaudebordController;
+use App\Http\Controllers\Private\Etudiant\NotificationController;
 use App\Http\Controllers\private\gestionnaire\GestionnnaireTableaudebordController;
 use App\Http\Controllers\Private\ProclamationController;
 use App\Http\Controllers\Private\ProfilController;
@@ -59,6 +60,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delegues/paramètre', [DelegueController::class, 'parametre_delegue'])->name('delegues.parametre');
         Route::post('/delegues/paramètre/ajout', [DelegueController::class, 'parametre_delegue_ajout'])->name('delegues.parametre.ajout');
         Route::post('/delegues/paramètre/detache/{idDelegue}', [DelegueController::class, 'parametre_delegue_detache'])->name('delegues.parametre.detache');
+        Route::get('/notifications', [NotificationController::class, 'notification'])->name('notifications');
     });
     
 

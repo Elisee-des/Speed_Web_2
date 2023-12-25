@@ -65,7 +65,25 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-1">
-                                <label for="recipient-name" class="col-form-label">Nom du module</label>
+                                <label for="recipient-universite" class="col-form-label">Université</label>
+                                <input type="text" name="universite" class="form-control" placeholder="Exple: UNZ"
+                                    id="recipient-universite">
+                                @if ($errors->has('universite'))
+                                <span class="text-danger">{{ $errors->first('universite') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="mb-1">
+                                <label for="recipient-filiere" class="col-form-label">Filière</label>
+                                <input type="text" name="filiere" class="form-control" placeholder="Exple: MPCI, SEG"
+                                    id="recipient-filiere">
+                                @if ($errors->has('filiere'))
+                                <span class="text-danger">{{ $errors->first('filiere') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="mb-1">
+                                <label for="recipient-name" class="col-form-label">Nom de l'affiche</label>
                                 <input type="text" name="nom" class="form-control" placeholder="Exple: Electricité"
                                     id="recipient-name">
                                 @if ($errors->has('nom'))

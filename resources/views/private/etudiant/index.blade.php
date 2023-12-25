@@ -94,13 +94,14 @@
 
     <p class="title-liste-fichier">ACCADEMIQUE</p>
     <div class="list-fichiers">
-      {{-- <a href="{{route('etudiant.semestres.index')}}" class="detail-liste-profil-dashbord" style="color: white"><span><i
-            class="fa-solid fa-list-check" style="color: #feffff"></i></span> Voir les affiches</a>
+      {{-- <a href="{{route('etudiant.semestres.index')}}" class="detail-liste-profil-dashbord"
+        style="color: white"><span><i class="fa-solid fa-list-check" style="color: #feffff"></i></span> Voir les
+        affiches</a>
       <a href="{{route('etudiant.delegues')}}" class="detail-liste-nos-delegue-dashbord" style="color: white"><span><i
             class="fa-solid fa-users-between-lines" style="color: #feffff;"></i></span>
         Mes délégués</a> --}}
-        <a href="#" class="detail-liste-profil-dashbord" style="color: white"><span><i class="fa-regular fa-file-image"
-          style="color: #feffff;"></i></span> Mon CV en ligne</a>
+      <a href="#" class="detail-liste-profil-dashbord" style="color: white"><span><i class="fa-regular fa-file-image"
+            style="color: #feffff;"></i></span> Mon CV en ligne</a>
       <a href="#" class="detail-liste-fichier-dashbord" style="color: white"><span><i class="fa-solid fa-file-lines"
             style="color: #feffff;"></i></span> Mes
         fichiers</a>
@@ -110,9 +111,15 @@
     <div class="list-fichiers">
       <a href="{{route('profil.accueil')}}" class="detail-liste-profil-dashbord" style="color: white"><span><i
             class="fa-solid fa-user" style="color: #feffff;"></i></span> Mon profil</a>
-      <a href="#" class="detail-liste-notification-dashbord" style="color: white"><span><i class="fa-solid fa-bell"
-            style="color: #feffff;"></i></span>
-        Notifications</a>
+      <a href="{{ route('etudiant.notifications') }}" class="detail-liste-notification-dashbord"
+        style="color: white; position: relative;">
+        <span><i class="fa-solid fa-bell" style="color: #feffff;"></i></span>
+        Notifications
+        @if ($nombreNouvellesNotifications > 0)
+        <span class="nouvelles-notifications-badge">{{ $nombreNouvellesNotifications }}</span>
+        @endif
+      </a>
+
       <a href="{{route('compte.aide')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
             class="fa-solid fa-handshake-angle" style="color: #feffff;"></i></span> Demander de l'aide</a>
     </div>

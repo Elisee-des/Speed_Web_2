@@ -9,6 +9,7 @@ class EtudiantTableaudebordController extends Controller
 {
     public function index()
     {
-        return view('private.etudiant.index');
+        $nombreNouvellesNotifications = 10;
+        return view('private.etudiant.index',compact('nombreNouvellesNotifications'));
     }
 }

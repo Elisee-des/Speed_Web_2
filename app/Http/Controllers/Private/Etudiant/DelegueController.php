@@ -90,4 +90,6 @@ class DelegueController extends Controller
     {
         return view('private.chef.gestionnaire-detail');
     }
+
+
 }

@@ -24,6 +24,11 @@ class Affiche extends Model
         return $this->belongsTo(Semestre::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function images()
     {
         return $this->hasMany(Image::class);

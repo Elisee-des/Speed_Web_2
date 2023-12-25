@@ -649,8 +649,9 @@ div.content {
 
 .submit-contact-accueil {
     background-color: var(--aa-primary);
+    text-align: start;
     color: var(--aa-white);
-    width: 250px;
+    width: 230px;
     padding: 12px;
     border-radius: 10px;
     border: none;
@@ -1453,7 +1454,7 @@ textarea {
     padding: 5px 40px;
     width: 100%;
     color: var(--aa-white);
-    border-radius: 12px;
+    border-radius: 7px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
     gap: 5px;
@@ -1479,7 +1480,7 @@ textarea {
     padding: 5px 40px;
     width: 100%;
     color: var(--aa-white);
-    border-radius: 12px;
+    border-radius: 7px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
     gap: 5px;
@@ -1492,7 +1493,7 @@ textarea {
     padding: 5px 40px;
     width: 100%;
     color: var(--aa-white);
-    border-radius: 12px;
+    border-radius: 7px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
     gap: 5px;
@@ -1571,7 +1572,7 @@ textarea {
     padding: 5px 40px;
     width: 100%;
     color: var(--aa-white);
-    border-radius: 12px;
+    border-radius: 7px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     transition: 0.5s;
     gap: 5px;
@@ -1738,6 +1739,18 @@ textarea {
     font-weight: 800;
     list-style: none;
 }
+
+.nouvelles-notifications-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
 /*Fin autre*/
 
 /*Detail etudiant dans realisation*/

@@ -69,6 +69,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Delegue::class);
     }
 
+    public function affiches()
+    {
+        return $this->belongsToMany(Affiche::class);
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);

@@ -131,7 +131,7 @@
     </div>
 
     <p>Les délégues qui forment ce compte sont : </p>
-    <div class="delegue-detail">
+    <div class="mb-3 delegue-detail">
         <div class="delegues-details">
             <p style="font-size: 20px">Délégué : <a href="" title="Cliquz pour voir plus d'information">Ouedraogo
                     Junoir</a></p>
@@ -144,30 +144,37 @@
 
     <div class="list-fichiers">
 
-        <div class="detail-liste-aide-dashbord">
-            <a href="{{route('delegue.semestres.index')}}" class="" style="color: white"><i class="fa-regular fa-file-image" style="color: #feffff;"></i>
-                Gestions</a>
+        <a href="{{route('delegue.semestres.index')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
+                    class="fa-regular fa-file-image" style="color: #feffff;"></i></span>
+            Gestions</a>
+        <div>
+            <a href="{{route('profil.accueil')}}" class="detail-liste-profil-dashbord" style="color: white"><span><i
+                        class="fa-solid fa-user" style="color: #feffff;"></i></span> Notre profil</a>
         </div>
-
-        <div class="detail-liste-profil-dashbord">
-            <a href="{{route('profil.accueil')}}" class="" style="color: white"><i class="fa-solid fa-user"
-                    style="color: #feffff;"></i> Notre profil</a>
-        </div>
-        <div class="detail-liste-notification-dashbord">
-            <a href="{{route('compte.aide')}}" class="" style="color: white"><i class="fa-solid fa-bell"
-                    style="color: #feffff;"></i>
+        <div>
+            <a href="{{route('compte.aide')}}" class="detail-liste-notification-dashbord" style="color: white"><span><i
+                        class="fa-solid fa-bell" style="color: #feffff;"></i></span>
                 Aide</a>
         </div>
 
-        <div class="detail-liste-autre-dashbord"><a href="{{route('accueil')}}" class="a-liste-fichier"
-                style="color: white"><i class="fa-solid fa-house" style="color: #feffff;"></i> Site</a>
-            <a href="{{route('logout')}}" class="a-liste-fichier" onclick="event.preventDefault(); 
-        document.getElementById('logout-form').submit();" style="color: white"><i
-                    class="fa-solid fa-right-from-bracket" style="color: #feffff;"></i> Déconnexion</a>
-        </div>
+    </div>
+    <p class="title-liste-fichier">AUTRES</p>
+    <div class="list-fichiers">
+        <a href="{{route('accueil')}}" class="detail-liste-profil-dashbord" style="color: white"><small
+                class="a-liste-fichier-icon"><i class="fa-solid fa-house" style="color: #feffff;"></i></small>
+            Page d'accueil</a>
+        <a href="{{route('affiches')}}" class="detail-liste-nos-delegue-dashbord" style="color: white"><span><i
+                    class="fa-solid fa-list-check" style="color: #feffff"></i></span>
+            Les Affiches</a>
+        <a href="{{route('realisations.index')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
+                    class="fa-solid fa-book-journal-whills" style="color: #feffff;"></i></span>
+            Les Réalisations</a>
+        <a href="{{route('logout')}}" class="detail-liste-profil-dashbord" onclick="event.preventDefault(); 
+    document.getElementById('logout-form').submit();" style="color: white"><span class="a-liste-fichier-icon"><i
+                    class="fa-solid fa-right-from-bracket" style="color: #feffff;"></i></span> Déconnexion</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-            @method('post')
+            @method('POST')
         </form>
     </div>
 </div>
