@@ -1,4 +1,4 @@
-@extends('layouts.private.app')
+@extends('private.layouts.app')
 
 @section('titre', "Ajoute de nouvelles images")
 
@@ -63,10 +63,4 @@
         </form>
     </div>
 </div>
-
-@include('layouts.private.modal-update-gestion')
-@include('layouts.private.modal-delete')
-@include('layouts.private.modal-update-image-gestion')
-@include('layouts.private.modal-update-all-images-gestion')
-
 @endsection

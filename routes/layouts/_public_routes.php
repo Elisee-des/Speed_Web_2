@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AutresController;
-use App\Http\Controllers\PublicController;
-use App\Http\Controllers\RealisationController;
+use App\Http\Controllers\Public\AutresController;
+use App\Http\Controllers\Public\PublicController;
+use App\Http\Controllers\Public\RealisationController;
 use Illuminate\Support\Facades\Route;
 
 /**************** Public routes *****************/

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('public.layouts.app')
 
 @section('titre', "Liste des etudiants ayant enregistré un projet")
 

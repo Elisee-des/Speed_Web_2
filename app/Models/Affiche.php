@@ -13,10 +13,13 @@ class Affiche extends Model
     protected $fillable = [
         'nom',
         'niveau_etude',
+        'universite',
+        'filiere',
         'session',
         'actif',
         'categorie_id',
-        'semestre_id'
+        'semestre_id',
+        'user_id'
     ];
 
     public function semestre()

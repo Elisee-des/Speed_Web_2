@@ -1,4 +1,4 @@
-@extends('layouts.private.app')
+@extends('private.layouts.app')
 
 @section('titre', "Gestion des résultats")
 
@@ -262,7 +262,7 @@
 </div> --}}
 {{-- Modal pour la suppression du semestre --}}
 
-@include('layouts.private.modal-update-image-gestion')
-@include('layouts.private.modal-update-all-images-gestion')
+@include('private.layouts.modal-update-image-gestion')
+@include('private.layouts.modal-update-all-images-gestion')
 
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.private.app')
+@extends('private.layouts.app')
 
 @section('titre', "Ajoute d'un nouveau gestionnaire")
 
@@ -100,9 +100,9 @@
 </div> --}}
 </div>
 
-@include('layouts.private.modal-update-gestion')
-@include('layouts.private.modal-delete')
-@include('layouts.private.modal-update-image-gestion')
-@include('layouts.private.modal-update-all-images-gestion')
+@include('private.layouts.modal-update-gestion')
+@include('private.layouts.modal-delete')
+@include('private.layouts.modal-update-image-gestion')
+@include('private.layouts.modal-update-all-images-gestion')
 
 @endsection

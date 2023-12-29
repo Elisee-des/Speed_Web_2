@@ -1,4 +1,4 @@
-@extends('layouts.private.app')
+@extends('private.layouts.app')
 
 @section('titre', "Gestion des semestres")
 
@@ -51,6 +51,6 @@
         </div>
 </div>
 
-@include('layouts.private.modal-create-gestion')
+@include('private.layouts.modal-create-gestion')
 
 @endsection

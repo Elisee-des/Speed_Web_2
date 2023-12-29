@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    use HasFactory;
+    use HasFactory, Uuids;
 
     protected $fillable = [
+        'id',
         'nom',
         'path',
-        'deleiberation_id'
+        'user_id',
+        'affiche_id',
     ];
 
     public function user()
@@ -20,19 +23,9 @@ class Image extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function resultat()
+    public function affiche()
     {
-        return $this->belongsTo(Resultat::class);
-    }
-
-    public function proclamation()
-    {
-        return $this->belongsTo(Proclamation::class);
-    }
-
-    public function deleiberation()
-    {
-        return $this->belongsTo(Deleiberation::class);
+        return $this->belongsTo(Affiche::class);
     }
 
     public function getDay()

@@ -1,4 +1,4 @@
-@extends('layouts.private.app')
+@extends('private.layouts.app')
 
 @section('titre', "Image edition")
 

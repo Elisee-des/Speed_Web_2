@@ -47,6 +47,9 @@ class GestionAfficheController extends Controller
             $request->all(),
             [
                 'nom' => 'required',
+                'universite' => 'required',
+                'filiere' => 'required',
+                'universite' => 'required',
                 'niveau_etude' => 'required',
                 'session' => 'required',
                 'images' => 'required|array|min:1', // Au moins un fichier doit être présent
@@ -75,10 +78,13 @@ class GestionAfficheController extends Controller
 
             $affiche = Affiche::create([
                 'nom' => $request->nom,
+                'universite' => $request->universite,
+                'filiere' => $request->filiere,
                 'niveau_etude' => $request->niveau_etude,
                 'session' => $request->session,
                 'categorie_id' => $request->categorie_id,
-                'semestre_id' => $semestre->id,
+                'semestre_id' => $idSemestre,
+                'user_id' => $user->id,
             ]);
 
             // Traitement des images
@@ -90,7 +96,18 @@ class GestionAfficheController extends Controller
                 $img = Image::make($image->getRealPath());
                 Storage::disk('public')->put($path, (string)$img->encode());
 
-                $affiche->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
+                $affiche->images()->create(
+                    [
+                        'nom' => $image->getClientOriginalName(),
+                        'path' => $imageName
+                    ]
+                );
+
+                // $imag = new ImageModel();
+                // $imag->nom = $image->getClientOriginalName();
+                // $imag->path = $imageName;
+                // $imag->affiche_id = $affiche->id;
+                // $imag->save();
             }
         } else {
             return redirect()->back()->with('error', "Vous devez sélectionner des images !");
@@ -232,7 +249,6 @@ class GestionAfficheController extends Controller
                     Storage::disk('public')->delete($oldImagePath);
                     $imageOld->delete();
                 }
-                
             }
 
             $affiche->delete();
@@ -295,9 +311,8 @@ class GestionAfficheController extends Controller
                 Storage::disk('public')->put($path, (string)$img->encode());
 
                 $affiche->images()->create(['nom' => $image->getClientOriginalName(), 'path' => $imageName]);
-
-                return redirect()->route('delegue.affiches.detail', [$semestre->id, $affiche->id])->with('success', "Image(s) ajouté avec succès !");
             }
+            return redirect()->route('delegue.affiches.detail', [$semestre->id, $affiche->id])->with('success', "Image(s) ajouté avec succès !");
         } else {
             return redirect()->back()->with('error', "Vous devez sélectionner des images !");
         }
@@ -346,5 +361,4 @@ class GestionAfficheController extends Controller
             return redirect()->back()->with('success', "L'opération est un succès.");
         }
     }
-
 }

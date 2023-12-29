@@ -1,4 +1,4 @@
-@extends('layouts.private.app')
+@extends('private.layouts.app')
 
 @section('titre', "Detail de {$affiche->nom}")
 
@@ -368,8 +368,5 @@
     </div>
 </div>
 {{-- Modal pour la suppression du resultat --}}
-
-@include('layouts.private.modal-update-image-gestion')
-@include('layouts.private.modal-update-all-images-gestion')
 
 @endsection

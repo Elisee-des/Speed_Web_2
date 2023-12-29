@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->uuid("id")->primary();
             $table->string('nom');
-            $table->mediumText('url');
+            $table->mediumText('path');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
             $table->foreignUuid('affiche_id')->nullable()->references('id')->on('affiches')->cascadeOnDelete();
             $table->timestamps();

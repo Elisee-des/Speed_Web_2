@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('actif')->default(false);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignUuid('categorie_id')->references('id')->on('categories');
+            $table->foreignUuid('semestre_id')->references('id')->on('semestres');
             $table->timestamps();
         });
     }
