@@ -25,11 +25,21 @@ class GestionAfficheController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function ajout_affiche($idSemestre)
+    public function ajout_affiche_resultat($idSemestre)
     {
         $semestre = Semestre::find($idSemestre);
         $categories =  Categorie::all();
-        return view('private.chef.gestion-affiches.create', [
+        return view('private.chef.gestion-affiches.create-resultat', [
+            'semestre'  => $semestre,
+            'categories' => $categories
+        ]);
+    }
+
+    public function ajout_affiche_proclamation_deliberation($idSemestre)
+    {
+        $semestre = Semestre::find($idSemestre);
+        $categories =  Categorie::all();
+        return view('private.chef.gestion-affiches.create-proclamation-deleiberation', [
             'semestre'  => $semestre,
             'categories' => $categories
         ]);
@@ -46,19 +56,14 @@ class GestionAfficheController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'nom' => 'required',
-                'universite' => 'required',
-                'filiere' => 'required',
-                'universite' => 'required',
-                'niveau_etude' => 'required',
+                // 'nom' => 'required',
                 'session' => 'required',
                 'images' => 'required|array|min:1', // Au moins un fichier doit être présent
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             ],
             [
-                'nom.required' => 'Le champ nom est requis.',
+                // 'nom.required' => 'Le champ nom est requis.',
                 'session.required' => 'Le champ session est requis.',
-                'niveau_etude.required' => "Le champ niveau d'etude est requis.",
                 'images' => 'required|array|min:1', // Au moins un fichier doit être présent
                 'images.*.image' => 'Le fichier doit être une image.',
                 'images.*.mimes' => 'Les images doivent être de type :jpeg, :png, :jpg ou :gif.',
@@ -76,13 +81,12 @@ class GestionAfficheController extends Controller
                     ->withInput();
             }
 
+            $categorie = Categorie::where('nom', $request->categorie)->get()->first();
+
             $affiche = Affiche::create([
                 'nom' => $request->nom,
-                'universite' => $request->universite,
-                'filiere' => $request->filiere,
-                'niveau_etude' => $request->niveau_etude,
                 'session' => $request->session,
-                'categorie_id' => $request->categorie_id,
+                'categorie_id' => $categorie->id,
                 'semestre_id' => $idSemestre,
                 'user_id' => $user->id,
             ]);

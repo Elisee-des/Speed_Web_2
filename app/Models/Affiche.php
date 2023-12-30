@@ -12,9 +12,6 @@ class Affiche extends Model
 
     protected $fillable = [
         'nom',
-        'niveau_etude',
-        'universite',
-        'filiere',
         'session',
         'actif',
         'categorie_id',
@@ -25,6 +22,11 @@ class Affiche extends Model
     public function semestre()
     {
         return $this->belongsTo(Semestre::class);
+    }
+
+    public function categorie()
+    {
+        return $this->belongsTo(Categorie::class);
     }
 
     public function universite()

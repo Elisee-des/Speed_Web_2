@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Private\Chef;
 use App\Http\Controllers\Controller;
 use App\Models\Affiche;
 use App\Models\Semestre;
+use App\Models\Universite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,7 @@ class GestionSemestreController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $semestres = Semestre::where('user_id', $user->id)->get();
+        $semestres = Semestre::where('user_id', $user->id)->with('universite')->orderBy('created_at', 'desc')->get();
         return view('private.chef.gestion-semestres.index', compact('semestres'));
     }
 
@@ -25,7 +26,8 @@ class GestionSemestreController extends Controller
      */
     public function create()
     {
-        return view('private.chef.gestion-semestres.create');
+        $universites = Universite::all();
+        return view('private.chef.gestion-semestres.create', compact('universites'));
     }
 
     /**
@@ -38,10 +40,12 @@ class GestionSemestreController extends Controller
             $request->all(),
             [
                 'nom' => 'required|min:20|unique:semestres',
+                'universite_id' => 'required',
             ],
             [
-                'nom.required' => 'Ce champ est requis.',
-                'nom.unique' => 'Ce nom est déja utilisé.',
+                'universite_id.required' => 'Le champ université est requis.',
+                'nom.required' => 'Le champ nom est requis.',
+                'nom.unique' => 'Le nom est déja utilisé.',
                 'nom.min' => 'Votre test doit faire au minimun :min caratères.',
             ]
         );
@@ -55,6 +59,7 @@ class GestionSemestreController extends Controller
         $semestre = Semestre::create([
             'nom' => $request->nom,
             'user_id' => $user->id,
+            'universite_id' => $request->universite_id,
         ]);
 
         $semestre->save();

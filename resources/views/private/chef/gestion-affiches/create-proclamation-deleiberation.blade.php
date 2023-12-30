@@ -17,7 +17,7 @@
 <div class="container-content">
     <div class="container-content">
         <h2 class="mb-4 title-header" style="text-align: center;, margin-bottom:10px;">
-            Enregistré une nouvelle affiche
+            Enregistré une nouvelle proclamtion ou une délibération
         </h2>
 
         <form action="{{route('delegue.affiches.action', $semestre->id)}}" method="POST" enctype="multipart/form-data">
@@ -32,11 +32,12 @@
                         </div>
                         <!-- end card body -->
                         <div class="card-body">
-                            <select name="categorie_id" class="form-select" id="choices-publish-visibility-input"
-                                data-choices data-choices-search-false>
-                                @foreach ($categories as $categorie)
-                                <option value="{{$categorie->id}}" selected>{{$categorie->nom}}</option>
-                                @endforeach
+                            <select name="categorie" class="form-select" id="categorie-select" data-choices
+                                data-choices-search-false>
+                                {{-- @foreach ($categories as $categorie) --}}
+                                <option value="Proclamation" selected>Proclamation</option>
+                                <option value="Délibération" selected>Délibération</option>
+                                {{-- @endforeach --}}
                             </select>
                         </div>
                         @if ($errors->has('categorie_id'))
@@ -55,8 +56,6 @@
                     </div>
                     <!-- end card -->
 
-
-                    <!-- end card -->
                 </div>
                 <div class="col-lg-8 mb-2">
                     <div class="card">
@@ -64,47 +63,22 @@
                             <h5 class="card-title mb-0">Informations</h5>
                         </div>
                         <div class="card-body">
-                            <div class="mb-1">
-                                <label for="recipient-universite" class="col-form-label">Université</label>
-                                <input type="text" name="universite" class="form-control" placeholder="Exple: UNZ"
-                                    id="recipient-universite">
-                                @if ($errors->has('universite'))
-                                <span class="text-danger">{{ $errors->first('universite') }}</span>
-                                @endif
-                            </div>
-
-                            <div class="mb-1">
-                                <label for="recipient-filiere" class="col-form-label">Filière</label>
-                                <input type="text" name="filiere" class="form-control" placeholder="Exple: MPCI, SEG"
-                                    id="recipient-filiere">
-                                @if ($errors->has('filiere'))
-                                <span class="text-danger">{{ $errors->first('filiere') }}</span>
-                                @endif
-                            </div>
-
-                            <div class="mb-1">
+                            {{-- <div class="mb-0 nom-affiche">
                                 <label for="recipient-name" class="col-form-label">Nom de l'affiche</label>
                                 <input type="text" name="nom" class="form-control" placeholder="Exple: Electricité"
                                     id="recipient-name">
                                 @if ($errors->has('nom'))
                                 <span class="text-danger">{{ $errors->first('nom') }}</span>
                                 @endif
-                            </div>
+                            </div> --}}
 
-                            <div class="mb-1">
-                                <label for="recipient-etude" class="col-form-label">Niveau d'etude</label>
-                                <input type="text" name="niveau_etude" class="form-control" placeholder="Exple : L1 S1"
-                                    id="recipient-etude">
-                                @if ($errors->has('niveau_etude'))
-                                <span class="text-danger">{{ $errors->first('niveau_etude') }}</span>
-                                @endif
-
-                            </div>
-
-                            <div class="mb-1">
+                            <div class="mb-4">
                                 <label for="recipient-session" class="col-form-label">Session</label>
-                                <input type="text" name="session" class="form-control"
-                                    placeholder="Exple : Session normal" id="recipient-session">
+                                <select name="session" class="form-select" id="recipient-session" data-choices
+                                    data-choices-search-false>
+                                    <option value="Session normal" selected>Session normal</option>
+                                    <option value="Session de rattrapage">Session de rattrapage</option>
+                                </select>
                                 @if ($errors->has('session'))
                                 <span class="text-danger">{{ $errors->first('session') }}</span>
                                 @endif
@@ -148,5 +122,24 @@
     </div>
 </div>
 
+@endsection
 
+@section('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Détectez le changement de valeur dans le sélecteur de catégorie
+        $('#categorie-select').change(function () {
+            // Récupérez la valeur sélectionnée
+            var selectedValue = $(this).val();
+
+            // Ajoutez ou supprimez la classe en fonction de la valeur sélectionnée
+            if (selectedValue === 'Proclamation' || selectedValue === 'Délibération') {
+                $('.nom-affiche').addClass('hidden'); // Ajoutez une classe pour masquer
+            } else {
+                $('.nom-affiche').removeClass('hidden'); // Supprimez la classe pour afficher
+            }
+        });
+    });
+</script>
 @endsection

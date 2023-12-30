@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::create('affiches', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nom');
-            $table->string('universite');
-            $table->string('niveau_etude');
-            $table->string('filiere');
+            $table->string('nom')->nullable();
             $table->string('session');
             $table->boolean('actif')->default(false);
             $table->foreignId('user_id')->references('id')->on('users');

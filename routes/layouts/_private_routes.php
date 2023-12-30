@@ -79,39 +79,11 @@ Route::middleware('auth')->group(function () {
             Route::resource('deliberations', GestionDeliberationController::class);
             Route::resource('semestres', GestionSemestreController::class);
 
-            // Route::prefix('resultats')->group(function () {
-            //     Route::post('edtion-nom-du-module/action{idResultat}/', [GestionResultatsController::class, 'edition_nom_module'])->name('edition-nom-module.action');
-            //     Route::post('suppresion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'suppression_image'])->name('suppression-image.action');
-            //     Route::post('edtion-image-du-module/action/{idResultat}/{idImage}/', [GestionResultatsController::class, 'edition_image'])->name('edition-image.action');
-            //     Route::post('ajout-image-du-module/action/{idResultat}/', [GestionResultatsController::class, 'ajout_image'])->name('ajout-image.action');
-            //     Route::delete('suppresion-module/action/{idResultat}/', [GestionResultatsController::class, 'destroy'])->name('suppresion-module.action');
-            //     Route::post('affiche/{idResultat}/', [GestionResultatsController::class, 'affiche_resultat'])->name('resultats.affiche');
-            //     Route::post('cache/{idResultat}/', [GestionResultatsController::class, 'cache_resultat'])->name('resultats.cacher');
-            // });
-
-            // Route::prefix('proclamations')->name('proclamations.')->group(function () {
-            //     Route::post('edtion-nom-du-module/action{idProclamation}/', [GestionProclamationsController::class, 'edition_nom_module'])->name('edition-nom-module.action');
-            //     Route::post('suppresion-image-du-module/action/{idProclamation}/{idImage}/', [GestionProclamationsController::class, 'suppression_image'])->name('suppression-image.action');
-            //     Route::post('edtion-image-du-module/action/{idProclamation}/{idImage}/', [GestionProclamationsController::class, 'edition_image'])->name('edition-image.action');
-            //     Route::post('ajout-image-du-module/action/{idProclamation}/', [GestionProclamationsController::class, 'ajout_image'])->name('ajout-image.action');
-            //     Route::delete('suppresion-module/action/{idProclamation}/', [GestionProclamationsController::class, 'destroy'])->name('suppresion-module.action');
-            //     Route::post('affiche/{idProclamation}/', [GestionProclamationsController::class, 'affiche_resultat'])->name('affiche');
-            //     Route::post('cache/{idProclamation}/', [GestionProclamationsController::class, 'cache_resultat'])->name('cacher');
-            // });
-
-            // Route::prefix('deliberations')->name('deliberations.')->group(function () {
-            //     Route::post('edtion-nom-du-module/action{idDeliberation}/', [GestionDeliberationController::class, 'edition_nom_module'])->name('edition-nom-module.action');
-            //     Route::post('suppresion-image-du-module/action/{idDeliberation}/{idImage}/', [GestionDeliberationController::class, 'suppression_image'])->name('suppression-image.action');
-            //     Route::post('edtion-image-du-module/action/{idDeliberation}/{idImage}/', [GestionDeliberationController::class, 'edition_image'])->name('edition-image.action');
-            //     Route::post('ajout-image-du-module/action/{idDeliberation}/', [GestionDeliberationController::class, 'ajout_image'])->name('ajout-image.action');
-            //     Route::delete('suppresion-module/action/{idDeliberation}/', [GestionDeliberationController::class, 'destroy'])->name('suppresion-module.action');
-            //     Route::post('affiche/{idDeliberation}/', [GestionDeliberationController::class, 'affiche_resultat'])->name('affiche');
-            //     Route::post('cache/{idDeliberation}/', [GestionDeliberationController::class, 'cache_resultat'])->name('cacher');
-            // });
-
             Route::prefix('affiches')->name('affiches.')->group(function () {
-                Route::get('ajout/{idSemestre}/', [GestionAfficheController::class, 'ajout_affiche'])->name('ajout');
+                Route::get('résultat/ajout/{idSemestre}/', [GestionAfficheController::class, 'ajout_affiche_resultat'])->name('ajout-resultat');
+                Route::get('proclamation-deliberation/ajout/{idSemestre}/', [GestionAfficheController::class, 'ajout_affiche_proclamation_deliberation'])->name('ajout-proclamation-deliberation');
                 Route::post('ajout/action/{idSemestre}/', [GestionAfficheController::class, 'ajout_affiche_action'])->name('action');
+                Route::post('proclamation-deliberation/ajout/action/{idSemestre}/', [GestionAfficheController::class, 'ajout_affiche_action'])->name('action');
                 Route::get('detail/{idSemestre}/{idAffiche}/', [GestionAfficheController::class, 'detail_affiche'])->name('detail');
 
                 Route::post('edition-nom-affiche/action/{idAffiche}/', [GestionAfficheController::class, 'edition_nom_affiche'])->name('edition-nom-affiche.action');

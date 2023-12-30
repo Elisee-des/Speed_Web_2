@@ -15,20 +15,19 @@ class PublicController extends Controller
 
     public function affiches()
     {
-        $affiches = Affiche::with('')->orderBy('created_at', 'desc')->get();
-        dd($affiches);
-        return view('public.affiches');
+        $affiches = Affiche::with('user', 'semestre', 'universite', 'categorie')->orderBy('created_at', 'desc')->get();
+        return view('public.affiches', compact('affiches'));
     }
 
-    public function affiches_detail($id)
+    public function affiches_detail($idAffiche)
     {
-        $id = 1;
-        return view('affiches-detail', compact('id'));
+        $affiche = Affiche::where('id', $idAffiche)->with('semestre', 'categorie', 'universite', 'user', 'images')->get()->first();
+
+        return view('public.affiches-detail', compact('affiche'));
     }
 
     public function contact()
     {
         return view('public.contact');
     }
-
 }

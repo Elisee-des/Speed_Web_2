@@ -13,11 +13,17 @@ class Semestre extends Model
     protected $fillable = [
         'nom',
         'user_id',
+        'universite_id',
     ];
 
     public function affiches()
     {
         return $this->hasMany(Affiche::class);
+    }
+
+    public function universite()
+    {
+        return $this->belongsTo(Universite::class);
     }
 
     public function getDay()

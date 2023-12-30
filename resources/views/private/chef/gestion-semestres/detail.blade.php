@@ -20,15 +20,29 @@
   </h2>
 
   <div class="">
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between mb-2">
       <div>
-        <a href="{{route('delegue.affiches.ajout', ['idSemestre' => $semestre->id])}}" class="btn btn-primary btn-cool"
-          data-bs-toggle="modal" data-bs-target="#exampleModalGere" title="Clique  ici pour géré le compte."><i
-            class="fa-solid fa-gear" style="color: #feffff;"></i> Géré</a>
+        <a href="{{route('delegue.affiches.ajout-resultat', ['idSemestre' => $semestre->id])}}"
+          class="btn btn-primary btn-cool" data-bs-toggle="modal" data-bs-target="#exampleModalGere"
+          title="Clique  ici pour géré le compte."><i class="fa-solid fa-gear" style="color: #feffff;"></i> Géré</a>
       </div>
       <div>
-        <a href="{{route('delegue.affiches.ajout', ['idSemestre' => $semestre->id])}}" class="btn btn-primary btn-cool"
-          title="Clique  ici pour ajouter un nouveau semestre."><i class="fa-solid fa-plus"></i> Nouvelle affiche</a>
+        <a href="{{route('delegue.affiches.ajout-resultat', ['idSemestre' => $semestre->id])}}"
+          class="btn btn-primary btn-cool" title="Clique  ici pour ajouter un nouveau résultat."><i
+            class="fa-solid fa-plus"></i> Nouveau résultat</a>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <a href="" class="" data-bs-toggle="modal" data-bs-target="#exampleModalGere"
+          title="Clique  ici pour géré le compte."> </a>
+      </div>
+      <div>
+        <a href="{{route('delegue.affiches.ajout-proclamation-deliberation', ['idSemestre' => $semestre->id])}}"
+          class="btn btn-primary btn-cool"
+          title="Clique  ici pour ajouter une nouvelle proclamation ou une délibération."><i
+            class="fa-solid fa-plus"></i> Nouvelle proclamation/délibération</a>
       </div>
     </div>
 
@@ -44,8 +58,14 @@
       <tbody>
         @foreach ($affiches as $affiche)
         <tr>
+          @if ($affiche->nom == '')
+          <td><a href="{{route('delegue.affiches.detail', [$semestre->id, $affiche->id])}}"
+              title="Cliquez pour voir les details">{{$affiche->categorie->nom}}</a></td>
+          @else
           <td><a href="{{route('delegue.affiches.detail', [$semestre->id, $affiche->id])}}"
               title="Cliquez pour voir les details">{{$affiche->nom}}</a></td>
+          @endif
+
           <td><a href="{{route('delegue.affiches.detail', [$semestre->id, $affiche->id])}}"
               title="Cliquez pour voir les details">{{count($affiche->images)}}</a>
           </td>
@@ -149,7 +169,8 @@
               style="color: #feffff;"></i> Fermer</button>
           <button class="btn btn-primary btn-cool-delete">
             <a href="#" style="text-decoration: none; color:white;" onclick="event.preventDefault();
-          document.getElementById('delete-form').submit();"><i class="fa-solid fa-trash" style="color: #feffff;"></i> Supprimer</a></button>
+          document.getElementById('delete-form').submit();"><i class="fa-solid fa-trash" style="color: #feffff;"></i>
+              Supprimer</a></button>
 
           <form id="delete-form" action="{{ route('delegue.semestres.destroy', $semestre->id) }}" method="POST">
             @csrf

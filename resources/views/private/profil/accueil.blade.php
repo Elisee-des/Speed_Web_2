@@ -30,16 +30,16 @@
       @if (Auth()->user()->image)
       <img src="{{asset(Auth()->user()->image->nom)}}" alt="" class="image-profil" />
       @else
-      <p>Aucune image disponible</p>
+      <img src="{{asset('assets/images/img-4.jpeg')}}" alt="" class="image-profil" />
       @endif
       <div class="options-content">
         <a href="{{route('profil.edition.profil')}}" class="edit-account-buttom"
-          title="Cliquez ici pour editer les information de votre compte"><i class="fa-regular fa-pen-to-square"
+          title="Cliquez ici pour editer les informations de votre compte"><i class="fa-regular fa-pen-to-square"
             style="color: #feffff"></i>
           Mettre mon profil à jour
         </a>
         <a href="{{route('profil.edition.motdepasse')}}" class="edit-password-buttom"
-          title="Cliquez ici pour editer les le  mot de passe de votre compte"><i class="fa-solid fa-pen-fancy"
+          title="Cliquez ici pour editer le  mot de passe de votre compte"><i class="fa-solid fa-pen-fancy"
             style="color: #feffff"></i>
           Modifier mon mot de passe
         </a>

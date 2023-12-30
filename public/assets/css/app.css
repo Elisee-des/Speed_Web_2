@@ -808,6 +808,7 @@ textarea {
     padding: 10px;
     border-radius: 12px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
 }
 
 .edit-account-buttom:hover,
@@ -816,6 +817,7 @@ textarea {
 .delete-account-buttom :hover,
 .edit-email-buttom:hover {
     background-color: var(--aa-orange) !important;
+    letter-spacing: normal !important;
 }
 
 .first-profil {
@@ -1155,15 +1157,20 @@ textarea {
     background: #e3423d !important;
     border-radius: 12px;
     padding: 7px;
+    transition: 0.5s;
 }
+
 .text-images-plus-text {
     color: var(--aa-white);
     transition: 0.5s !important;
+    background: #e3423d !important;
+    padding: 5px;
+    border-radius: 7px;
+
 }
 
 .text-images-plus-text:hover {
-    color: var(--aa-white);
-    letter-spacing: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
 
 .contenair-images-detail {
@@ -1338,6 +1345,15 @@ textarea {
     text-align: center;
 }
 /*Fin page d'erreur*/
+
+/* Ajoutez la classe "hidden" pour masquer l'élément */
+.hidden {
+    display: none !important;
+}
+
+.nom-affiche{
+    display:block;
+}
 
 /*Debut header responsive*/
 /* The side navigation menu */

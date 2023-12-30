@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('semestres', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nom');
+            $table->foreignUuid('universite_id')->references('id')->on('universites');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
             $table->timestamps();
         });

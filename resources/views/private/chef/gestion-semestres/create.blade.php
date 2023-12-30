@@ -24,15 +24,35 @@
             <form action="{{route('delegue.semestres.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="">
-                    <label for="recipient-name" class="col-form-label">De quel Filière,  Licence et Semestre il s'agit ?</label>
-                    <input type="text" name="nom" value="{{ old('nom') }}" class="form-control" placeholder="Inspirez-vous de l'exemple"
-                        id="recipient-name">
+                    <div class="card-body">
+                        <label for="recipient-name" class="col-form-label">Veuillez choisir votre université
+                            ?</label>
+                        <select name="universite_id" class="form-select" id="choices-publish-visibility-input"
+                            data-choices data-choices-search-false>
+                            @foreach ($universites as $universite)
+                            <option value="{{$universite->id}}" selected>{{$universite->nom}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    @if ($errors->has('categorie_id'))
+                    <span class="text-danger">{{ $errors->first('categorie_id') }}</span>
+                    @endif
+                    <br>
+
+                    <label for="recipient-name" class="col-form-label">De quel Filière, Licence et Semestre et promotion
+                        il s'agit
+                        ?</label>
+                    <input type="text" name="nom" value="{{ old('nom') }}" class="form-control"
+                        placeholder="Inspirez-vous de l'exemple" id="recipient-name">
                     @if ($errors->has('nom'))
                     <span class="text-danger">{{ $errors->first('nom') }}</span>
                     @endif
                 </div>
-                <span class="text-success"><p style="text-decoration: underline">Exemple:</p> <i><strong>MPCI Licence 1 Semestre 1 Promotion 2023</strong></i></span>
-                
+                <span class="text-success">
+                    <p style="text-decoration: underline">Exemple:</p> <i><strong>MPCI Licence 1 Semestre 1 Promotion
+                            2023</strong></i>
+                </span>
+
                 <div class="mt-4 cnt-file" style="gap: 3px">
                     <button type="submit" style="gap: 3" class="submit-file">
                         <i class="fa-solid fa-plus" style="color: #feffff;"></i>

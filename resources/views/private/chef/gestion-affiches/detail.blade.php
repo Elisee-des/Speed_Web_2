@@ -16,7 +16,11 @@
 
 <div class="container-content">
     <h2 class="title-header" style="text-align: center;, margin-bottom:10px;">
-        {{$affiche->nom}}
+        @if ($affiche->nom != '')
+            {{$affiche->nom}}
+        @else
+        {{$affiche->categorie->nom}}
+        @endif
     </h2>
 
     <div class="">

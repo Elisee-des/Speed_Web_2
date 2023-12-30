@@ -14,6 +14,11 @@ class Categorie extends Model
         'nom',
     ];
 
+    public function affiches()
+    {
+        return $this->hasMany(Affiche::class);
+    }
+
     public function getDay()
     {
         return $this->created_at->format('d/m/y');
