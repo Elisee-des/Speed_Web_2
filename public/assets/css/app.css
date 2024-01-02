@@ -253,9 +253,9 @@ html {
     /* margin-top: 20px; */
 }
 
-/* .container-regsiter { */
-/* text-align: center; */
-/* } */
+.container-regsiter {
+padding: 5px;
+}
 
 .title-register {
     text-align: center;

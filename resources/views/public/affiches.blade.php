@@ -19,11 +19,11 @@
             </h6>
             <h6 class="description-propos-h6"><span style="text-decoration: underline">université</span> : {{$affiche->semestre->universite->nom}}</h6>
             <h6 class="description-propos-h6"><span style="text-decoration: underline">Images</span> : {{count($affiche->images)}}</h6>
-            <p class="description-propos">
-              <span style="text-decoration: underline">Publié le</span> : {{$affiche->created_at->format('d/m/y')}}
-            </p>
             <p class="">
               <span style="text-decoration: underline">Publié par les chefs</span> : {{$affiche->user->nom_prenom}}
+            </p>
+            <p class="description-propos">
+              <span style="text-decoration: underline">Publié le</span> : {{$affiche->created_at->format('d/m/y')}}
             </p>
           </div>
           @endforeach
