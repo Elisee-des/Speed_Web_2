@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Public\AfficheController;
 use App\Http\Controllers\Public\AutresController;
 use App\Http\Controllers\Public\PublicController;
 use App\Http\Controllers\Public\RealisationController;
@@ -8,8 +9,8 @@ use Illuminate\Support\Facades\Route;
 /**************** Public routes *****************/
 
 Route::get('/', [PublicController::class, 'accueil'])->name('accueil');
-Route::get('/affiches', [PublicController::class, 'affiches'])->name('affiches');
-Route::get('/affiches/detail/{id}', [PublicController::class, 'affiches_detail'])->name('affiches.detail');
+Route::get('/affiches', [AfficheController::class, 'affiches'])->name('affiches');
+Route::get('/affiches/detail/{id}', [AfficheController::class, 'affiches_detail'])->name('affiches.detail');
 Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
 
 Route::prefix('realisations')->name('realisations.')->group(function () {

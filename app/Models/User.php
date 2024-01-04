@@ -68,7 +68,7 @@ class User extends Authenticatable
 
     public function affiches()
     {
-        return $this->belongsToMany(Affiche::class);
+        return $this->hasMany(Affiche::class);
     }
 
     public function roles()

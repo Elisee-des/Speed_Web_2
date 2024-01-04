@@ -993,7 +993,7 @@ textarea {
 /*Page a propos*/
 
 .propos {
-    padding: 20px;
+    padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1106,7 +1106,7 @@ textarea {
 
 .btn-cool {
     background-color: var(--aa-primary) !important;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
     transition: 0.5s !important;
     border: none !important;
 }
@@ -1876,5 +1876,22 @@ textarea {
 .bouton-voir-plus:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6) !important;
     background-color: var(--aa-orange) !important;
+}
+
+.border-bottom-search {
+    padding: 10px !important;
+    background-color: var(--aa-light-gray);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6) !important;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.p-container {
+    margin-top: 10px;
+}
+
+.spiner {
+    display: flex;
+    justify-content: center;
 }
 /*Fin detail etudiant dans realisation*/

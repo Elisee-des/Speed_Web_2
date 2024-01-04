@@ -24,9 +24,7 @@ class AuthController extends Controller
 
     public function register()
     {
-        $delegues = Delegue::all();
-
-        return view('public.auth.inscription', compact('delegues'));
+        return view('public.auth.inscription');
     }
 
     public function registerSave(Request $request)

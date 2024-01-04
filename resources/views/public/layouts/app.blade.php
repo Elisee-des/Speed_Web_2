@@ -15,6 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <title>@yield('titre')</title>
+    @livewireStyles
 </head>
 
 <body>
@@ -28,6 +29,8 @@
         Monter
     </button>
 
+    @livewireScripts
+    
     <script src="{{asset('assets/js/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/app.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
