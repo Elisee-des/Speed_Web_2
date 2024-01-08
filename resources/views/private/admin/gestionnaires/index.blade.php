@@ -55,6 +55,5 @@
         </div>
 </div>
 
-@include('layouts.private.modal-create-gestion')
 
 @endsection

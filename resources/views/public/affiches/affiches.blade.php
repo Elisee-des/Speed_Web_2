@@ -16,12 +16,6 @@
 
         <livewire:public.show-affiche />
 
-        {{-- {{ $affiches->links() }}
-
-        <div class="d-gird text-center">
-          {{ $products->links('layouts.paginationlinks') }}
-        </div> --}}
-
       </div>
 
     </div>

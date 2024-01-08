@@ -14,7 +14,8 @@ class UniversiteSeeder extends Seeder
     public function run(): void
     {
         Universite::create([
-            'nom' => 'UNZ',
+            'nom' => 'Unversité Norbert Zongo',
+            'sigle' => 'UNZ',
         ]);
     }
 }

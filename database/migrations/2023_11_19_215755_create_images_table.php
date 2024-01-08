@@ -17,6 +17,8 @@ return new class extends Migration
             $table->mediumText('path');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
             $table->foreignUuid('affiche_id')->nullable()->references('id')->on('affiches')->cascadeOnDelete();
+            $table->foreignUuid('universite_id')->nullable()->references('id')->on('universites')->cascadeOnDelete();
+            $table->foreignUuid('filiere_id')->nullable()->references('id')->on('filieres')->cascadeOnDelete();
             $table->timestamps();
         });
     }

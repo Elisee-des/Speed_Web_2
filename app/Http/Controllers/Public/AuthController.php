@@ -58,6 +58,7 @@ class AuthController extends Controller
 
         if ($request->delegue_id) {
         }
+        
         $user = User::create([
             'nom_prenom' => $request->nom_prenom,
             'email' => $request->email,

@@ -12,10 +12,16 @@ class Universite extends Model
 
     protected $fillable = [
         'nom',
+        'sigle',
     ];
 
     public function affiches()
     {
         return $this->hasMany(Affiche::class);
+    }
+
+    public function filieres()
+    {
+        return $this->hasMany(Filiere::class);
     }
 }

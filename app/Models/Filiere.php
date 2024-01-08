@@ -18,4 +18,9 @@ class Filiere extends Model
     {
         return $this->created_at->format('d/m/y');
     }
+
+    public function universite()
+    {
+        return $this->belongsTo(Universite::class);
+    }
 }

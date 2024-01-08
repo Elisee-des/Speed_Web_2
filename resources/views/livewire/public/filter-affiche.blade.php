@@ -1,8 +1,10 @@
+<!-- resources/views/livewire/filter-affiche.blade.php -->
+
 <div>
     <div class="border-bottom-search" wire:loading:remove>
         <form>
             <div class="row g-3 justifiy-content-space-between">
-                <div class="col-xl-6">
+                <div class="col-xl-12">
                     <div class="search-box">
                         <input wire:model="query" wire:keyup.debounce='filter' type="text" class="form-control search mt-4"
                             placeholder="Rechercher par filière, semestre, delèguè, session, nom du module">
@@ -10,16 +12,16 @@
                     </div>
                 </div>
 
-                <div class="col-xl-6 d-flex align-items-center justify-content-center">
+                {{-- <div class="col-xl-6 d-flex align-items-center justify-content-center">
                     <div class="row g-3">
                         <div>
                             <button type="button" class="btn btn-primary w-100 btn-cool"
-                                style="padding: 7px 115px;, background-color: #008069!important"
+                                style="padding: auto;, background-color: #008069!important"
                                 onclick="SearchData();"> <i
                                     class="ri-equalizer-fill me-2 align-bottom"></i>Rechercher</button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </form>
     </div>
@@ -29,11 +31,11 @@
             <div class="row g-3">
                 <div class="col-xl-12">
                     <div class="row g-3">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div>
                                 <select wire:model='categorie_id' wire:change='filter' class="form-control" data-plugin="choices" data-choices
                                     data-choices-search-false name="choices-single-default" id="idStatus">
-                                    <option value="" selected>Cliquez pour sectionner</option>
+                                    <option value="" selected>Cliquez pour sectionner(Tous)</option>
                                     @foreach ($categories as $categorie)
                                     <option value='{{$categorie->id}}'>{{$categorie->nom}}</option>
                                     @endforeach
@@ -42,12 +44,12 @@
                         </div>
                         <!--end col-->
 
-                        <div class="col-sm-6">
+                        {{-- <div class="col-sm-6">
                             <div>
                                 <button type="button" class="btn btn-primary w-100 btn-cool" onclick="SearchData();"> <i
-                                        class="ri-equalizer-fill me-2 align-bottom"></i>Cliquez pour filtrer</button>
+                                        class="ri-equalizer-fill me-2 align-bottom"></i>Filitrage automatique</button>
                             </div>
-                        </div>
+                        </div> --}}
                         <!--end col-->
                     </div>
                 </div>

@@ -26,4 +26,9 @@
             </p>
         </div>
     @endforeach
+
+    {{-- {{ $affiches->links() }} --}}
+
+    
+
 </div>

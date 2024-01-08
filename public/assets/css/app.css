@@ -768,10 +768,11 @@ textarea {
     text-decoration: none;
     color: var(--aa-white);
     transition: 0.5s;
+    margin-bottom: 10px;
 }
 
 .options-content a:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
 }
 

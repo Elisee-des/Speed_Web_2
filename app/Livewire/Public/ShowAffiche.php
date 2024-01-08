@@ -4,10 +4,12 @@ namespace App\Livewire\Public;
 
 use App\Models\Affiche;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Illuminate\Pagination\Paginator;
 
 class ShowAffiche extends Component
 {
+    use WithPagination;
     public $affiches;
     protected $listeners = ['reloadAffiches' => 'reloadAffiches'];
 
@@ -46,7 +48,7 @@ class ShowAffiche extends Component
                 });
             })
             ->orderBy('created_at', 'desc')
+            // ->paginate(5);
             ->get();
-            // ->paginate(3);
     }
 }

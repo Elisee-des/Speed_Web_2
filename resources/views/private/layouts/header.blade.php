@@ -37,6 +37,8 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
       Délégués</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
       Etudiants</a>
+      <a href="{{route('admin.universites.index')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
+        Universités</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-bell" style="color: #feffff;"></i>
       Notifications</a>
     <a href="{{route('profil.accueil')}}"><i class="fa-sharp fa-solid fa-address-card" style="color: #feffff"></i>
