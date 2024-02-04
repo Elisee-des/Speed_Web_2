@@ -23,13 +23,12 @@ return new class extends Migration
             $table->string('ufr')->nullable();
             $table->string('compte_delegue')->nullable();
             $table->string('niveau_licence')->nullable();
-            $table->string('filiere')->nullable();
             $table->foreignUuid('filiere_id')->nullable()->references('id')->on('filieres');
             $table->foreignId('gestionnaire_id')->nullable()->references('id')->on('users')->onDelete('set null');
             $table->foreignId('delegue_id')->nullable()->references('id')->on('users')->onDelete('set null');
             $table->rememberToken();
-            $table->timestamps();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

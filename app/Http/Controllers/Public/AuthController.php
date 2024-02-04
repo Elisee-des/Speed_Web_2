@@ -35,7 +35,6 @@ class AuthController extends Controller
                 'nom_prenom' => 'required',
                 'email' => 'required|email|max:250|unique:users',
                 'password' => 'required|min:4|confirmed',
-                'delegue_id' => 'required',
             ],
             [
                 'nom_prenom.required' => 'Le champ nom et prénom est requis.',
@@ -58,7 +57,7 @@ class AuthController extends Controller
 
         if ($request->delegue_id) {
         }
-        
+
         $user = User::create([
             'nom_prenom' => $request->nom_prenom,
             'email' => $request->email,
@@ -123,9 +122,7 @@ class AuthController extends Controller
 
         if ($user->role == "Admin") {
             $redirectRoute = 'admin.tableaudebord';
-        }
-        
-        elseif ($user->hasRole('Gestionnaire')) {
+        } elseif ($user->hasRole('Gestionnaire')) {
             $redirectRoute = 'gestionnaire.tableaudebord';
         } elseif ($user->hasRole('Etudiant')) {
             $redirectRoute = 'etudiant.tableaudebord';

@@ -4,7 +4,7 @@
         <div>
             <a href="{{route('accueil')}}"> Accueil</a>
             <a href="{{route('affiches')}}">Affiches</a>
-            <a href="{{route('realisations.index')}}">Réalisations</a>
+            {{-- <a href="{{route('realisations.index')}}">Réalisations</a> --}}
             @auth
             @role('Admin')
             <a href="{{route('admin.tableaudebord')}}">Mon compte</a>
@@ -24,7 +24,7 @@
                 @csrf
             </form>
             @else
-            <a href="{{route('register')}}" class=""> Inscription</a>
+            {{-- <a href="{{route('register')}}" class=""> Inscription</a> --}}
             <a class='active' href="{{route('login')}}"> Connexion</a>
             @endauth
             {{-- <a href="private/profil.html"><i class="fa-solid fa-user" style="color: #feffff"></i></a> --}}
@@ -47,7 +47,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     <a href="{{route('accueil')}}"><i class="fa-solid fa-house" style="color: #feffff;"></i> Accueil</a>
-    <a href="{{route('realisations.index')}}"><i class="fa-solid fa-list" style="color: #feffff;"></i> Rèalisations</a>
+    {{-- <a href="{{route('realisations.index')}}"><i class="fa-solid fa-list" style="color: #feffff;"></i> Rèalisations</a> --}}
     <a href="{{route('affiches')}}"><i class="fa-solid fa-list" style="color: #feffff;"></i> Affiches</a>
     {{-- <a href="{{route('contact')}}">Contact</a> --}}
     @auth
@@ -76,7 +76,7 @@
         @csrf
     </form>
     @else
-    <a href="{{route('register')}}"><i class="fa-solid fa-user-plus" style="color: #feffff;"></i> Inscription</a>
+    {{-- <a href="{{route('register')}}"><i class="fa-solid fa-user-plus" style="color: #feffff;"></i> Inscription</a> --}}
     <a href="{{route('login')}}"><i class="fa-solid fa-arrow-right-to-bracket" style="color: #feffff;"></i>
         Connexion</a>
     @endauth

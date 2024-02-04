@@ -25,7 +25,7 @@
                         <div>
                             <p class="fw-medium text-white mb-0">Résultats</p>
                             <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" style="color: white"
-                                    data-target="28.05">102</span>
+                                    data-target="28.05">0</span>
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-success mb-0"><i
                                         class="ri-arrow-up-line align-middle"></i>Le totale </span> résultats</p>
@@ -49,7 +49,7 @@
                         <div>
                             <p class="fw-medium text-white mb-0" style="color: white">Proclamations</p>
                             <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="97.66"
-                                    style="color: white">212</span>
+                                    style="color: white">0</span>
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-danger mb-0"><i
                                         class="ri-arrow-down-line align-middle" style="color: white"></i> Le total
@@ -75,7 +75,7 @@
                         <div>
                             <p class="fw-medium text-white-50 mb-0">Déliberation</p>
                             <h2 class="mt-4 ff-secondary fw-semibold text-white"><span class="counter-value"
-                                    data-target="3">309</span>
+                                    data-target="3">0</span>
                             </h2>
                             <p class="mb-0 text-white-50"><span class="badge badge-soft-light mb-0"><i
                                         class="ri-arrow-down-line align-middle"></i> le total </span> Déliberation</p>
@@ -99,7 +99,7 @@
                         <div>
                             <p class="fw-medium text-white mb-0">L'ensemble</p>
                             <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" style="color: white"
-                                    data-target="33.48">502</span>
+                                    data-target="33.48">0</span>
                             </h2>
                             <p class="mb-0 text-white"><span class="badge bg-light text-success mb-0"><i
                                         class="ri-arrow-up-line align-middle"></i> Total </span> des fichiers</p>
@@ -117,7 +117,7 @@
         </div> <!-- end col-->
     </div> <!-- end row-->
 
-    <div class="row mt-4 g-1">
+    {{-- <div class="row mt-4 g-1">
         <div class="col-xl-6 col-md-6 card-dashbord">
             <div class="p-1">
                 <p style="font-size: 20px;">Total des délégués que vous manager : <a href="" title="Cliquez pour voir la liste des délégués"><span style="font-size: 20px;, font-weight: 900;">30 </span>délégués</a></p>
@@ -128,7 +128,7 @@
                 <p style="font-size: 20px;">Total des etudiants qui suivent vos délégués : <span style="font-size: 20px;, font-weight: 900;">5000</span></p>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 @endsection

@@ -16,7 +16,7 @@
 
 <div class="container-content">
   <h2 class="title-header" style="text-align: center;, margin-bottom:10px;">
-    Contact l'administrateur en cas de besion
+    Contact l'administrateur ou un gestionnaire en cas de besion
   </h2>
 
   <div class="contact-admin-aid">
@@ -30,31 +30,31 @@
         </div>
 
         <div class="col-xxl-3 col-sm-3">
-          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56885237</li>
+          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 52815237</li>
         </div>
 
         <div class="col-xxl-3 col-sm-3">
-          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56885237</li>
+          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 7687765</li>
         </div>
 
         <div class="col-xxl-3 col-sm-3">
-          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56885237</li>
+          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 67454534</li>
         </div>
 
         <div class="col-xxl-3 col-sm-3">
-          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56885237</li>
+          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 7656787</li>
         </div>
 
         <div class="col-xxl-3 col-sm-3">
-          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56885237</li>
+          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56785698</li>
         </div>
 
         <div class="col-xxl-3 col-sm-3">
-          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56885237</li>
+          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 71876567</li>
         </div>
 
         <div class="col-xxl-3 col-sm-3 mb-3">
-          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 56885237</li>
+          <li><span style="color: #008089"><i class="fa-solid fa-phone"></i></span> 73987667</li>
         </div>
 
         <p class="message-contact">Vous pouvez aussi nous contacté en vous ecrivant par ce formulaire : </p>
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div class="container-formulaire-contact">
+  {{-- <div class="container-formulaire-contact">
     <form action="#">
       <label for="sujet">Sujet</label>
       <input type="text" id="sujet" name="sujet" class="input-contact"
@@ -76,10 +76,10 @@
         <input type="submit" value="Envoyez" class="submit-contact" />
       </div>
     </form>
-  </div>
+  </div> --}}
 
   <div class="mt-1 mb-3 cnt-profil">
-    <a href="{{route('etudiant.tableaudebord')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
+    <a href="{{route('delegue.tableaudebord')}}" type="submit" style="text-decoration:none;, gap: 3; background:#ff6333;"
       class="submit-profil">
       <i class="fa-solid fa-arrow-left" style="color: #feffff;"></i> Accueil
     </a>

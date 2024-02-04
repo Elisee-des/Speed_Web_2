@@ -132,9 +132,9 @@
       <a href="{{route('affiches')}}" class="detail-liste-nos-delegue-dashbord" style="color: white"><span><i
             class="fa-solid fa-list-check" style="color: #feffff"></i></span>
         Les Affiches</a>
-      <a href="{{route('realisations.index')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
+      {{-- <a href="{{route('realisations.index')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
             class="fa-solid fa-book-journal-whills" style="color: #feffff;"></i></span>
-        Les Réalisations</a>
+        Les Réalisations</a> --}}
       <a href="{{route('logout')}}" class="detail-liste-profil-dashbord" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();" style="color: white"><span class="a-liste-fichier-icon"><i
             class="fa-solid fa-right-from-bracket" style="color: #feffff;"></i></span> Déconnexion</a>

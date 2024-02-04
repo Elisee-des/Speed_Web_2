@@ -18,7 +18,7 @@
     <h2 class="title-header">Bienvenu(e) Délégue {{ auth()->user()->nom_prenom }}</h2>
 
     <div class="row mt-4 g-2">
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
             <div class="card card-animate card-details-elements" style="background-color: #ff6333">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -43,7 +43,7 @@
             </div> <!-- end card-->
         </div> <!-- end col-->
 
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
             <div class="card card-animate bg-secondary card-details-elements">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -69,12 +69,12 @@
             </div> <!-- end card-->
         </div> <!-- end col-->
 
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
             <div class="card card-animate bg-danger card-details-elements">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <p class="fw-medium text-white-50 mb-0">Déliberation</p>
+                            <p class="fw-medium text-white-50 mb-0">Délibération</p>
                             <h2 class="mt-4 ff-secondary fw-semibold text-white"><span class="counter-value"
                                     data-target="3">{{$totalDeliberation}}</span>
                             </h2>
@@ -94,30 +94,6 @@
             </div> <!-- end card-->
         </div> <!-- end col-->
 
-        <div class="col-xl-3 col-md-6">
-            <div class="card card-animate card-details-elements" style="background-color: #008069">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <p class="fw-medium text-white mb-0">Etudiants</p>
-                            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" style="color: white"
-                                    data-target="33.48">502</span>
-                            </h2>
-                            <p class="mb-0 text-white"><span class="badge bg-light text-success mb-0"><i
-                                        class="ri-arrow-up-line align-middle"></i> Total </span> des etudiant qui vous
-                                suivent.</p>
-                        </div>
-                        <div>
-                            <div class="avatar-sm flex-shrink-0">
-                                <span class="avatar-title bg-soft-info rounded-circle fs-2">
-                                    <i data-feather="external-link" class="text-info"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end card body -->
-            </div> <!-- end card-->
-        </div> <!-- end col-->
     </div> <!-- end row-->
 
     <div class="row mt-4 g-2">
@@ -166,9 +142,9 @@
         <a href="{{route('affiches')}}" class="detail-liste-nos-delegue-dashbord" style="color: white"><span><i
                     class="fa-solid fa-list-check" style="color: #feffff"></i></span>
             Les Affiches</a>
-        <a href="{{route('realisations.index')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
+        {{-- <a href="{{route('realisations.index')}}" class="detail-liste-aide-dashbord" style="color: white"><span><i
                     class="fa-solid fa-book-journal-whills" style="color: #feffff;"></i></span>
-            Les Réalisations</a>
+            Les Réalisations</a> --}}
         <a href="{{route('logout')}}" class="detail-liste-profil-dashbord" onclick="event.preventDefault(); 
     document.getElementById('logout-form').submit();" style="color: white"><span class="a-liste-fichier-icon"><i
                     class="fa-solid fa-right-from-bracket" style="color: #feffff;"></i></span> Déconnexion</a>

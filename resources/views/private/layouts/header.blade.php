@@ -28,23 +28,23 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-gauge" style="color: #feffff"></i>
       Tableau de
       bord</a>
-    <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-file-image" style="color: #feffff;"></i>
-      Fichiers</a>
+    {{-- <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-file-image" style="color: #feffff;"></i>
+      Fichiers</a> --}}
     <a href="{{route('admin.gestionnaires.index')}}" class=""><i class="fa-solid fa-user-secret"
         style="color: #feffff;"></i>
       Gestionnaires</a>
-    <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-user-group" style="color: #feffff;"></i>
+    {{-- <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-user-group" style="color: #feffff;"></i>
       Délégués</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
-      Etudiants</a>
+      Etudiants</a> --}}
       <a href="{{route('admin.universites.index')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
         Universités</a>
-    <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-bell" style="color: #feffff;"></i>
-      Notifications</a>
+    {{-- <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-bell" style="color: #feffff;"></i>
+      Notifications</a> --}}
     <a href="{{route('profil.accueil')}}"><i class="fa-sharp fa-solid fa-address-card" style="color: #feffff"></i>
       Profil</a>
-    <a href="{{route('profil.accueil')}}"><i class="fa-solid fa-gear" style="color: #feffff;"></i>
-      Paramètre du site</a>
+    {{-- <a href="{{route('profil.accueil')}}"><i class="fa-solid fa-gear" style="color: #feffff;"></i>
+      Paramètre du site</a> --}}
     <a href="" class=""><i class="fa-solid fa-user" style="color: #feffff"></i>
       {{Auth()->user()->nom_prenom}}</a>
     <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -64,8 +64,8 @@ $roles = \App\Helpers\RoleHelper::getUserRoles();
       Tableau de bord</a>
     <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-user-group" style="color: #feffff;"></i>
       Délégués</a>
-    <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
-      Etudiants</a>
+    {{-- <a href="{{route('admin.tableaudebord')}}" class=""><i class="fa-solid fa-users-gear" style="color: #feffff;"></i>
+      Etudiants</a> --}}
     <a href="{{route('profil.accueil')}}"><i class="fa-sharp fa-solid fa-address-card" style="color: #feffff"></i>
       Profil</a>
     <hr class="hr">

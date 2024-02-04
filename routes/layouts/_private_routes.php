@@ -15,6 +15,7 @@ use App\Http\Controllers\Private\Etudiant\AfficheController;
 use App\Http\Controllers\Private\Etudiant\DelegueController;
 use App\Http\Controllers\Private\Etudiant\EtudiantTableaudebordController;
 use App\Http\Controllers\Private\Etudiant\NotificationController;
+use App\Http\Controllers\Private\gestionnaire\DelegueController as GestionnaireDelegueController;
 use App\Http\Controllers\private\gestionnaire\GestionnnaireTableaudebordController;
 use App\Http\Controllers\Private\ProclamationController;
 use App\Http\Controllers\Private\ProfilController;
@@ -53,7 +54,7 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    
+
     Route::prefix('etudiant')->name('etudiant.')->group(function () {
         Route::get('/delegues/liste', [DelegueController::class, 'index'])->name('delegues');
         Route::get('/delegues/detail/{idDelegue}', [DelegueController::class, 'detail'])->name('delegues.detail');
@@ -63,7 +64,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/delegues/paramètre/detache/{idDelegue}', [DelegueController::class, 'parametre_delegue_detache'])->name('delegues.parametre.detache');
         Route::get('/notifications', [NotificationController::class, 'notification'])->name('notifications');
     });
-    
+
 
     /******** Fin  Etudiant  ********/
 
@@ -114,6 +115,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:Gestionnaire')->name('gestionnaire.')->prefix('gestionnaire')->group(
         function () {
             Route::get('tableau-de-bord', [GestionnnaireTableaudebordController::class, 'index'])->name('tableaudebord');
+            Route::resource('delegues', GestionnaireDelegueController::class);
+            Route::patch('edition/delegue/{id}/', [GestionnaireDelegueController::class, 'edtionDelegue'])->name('edtionDelegue');
+            Route::delete('suppresion-delegue/action/{id}/', [GestionnaireDelegueController::class, 'destroy'])->name('suppression-delegue.action');
         }
     );
 
@@ -129,7 +133,6 @@ Route::middleware('auth')->group(function () {
             Route::get('tableau-de-bord', [AdminTableaudebordController::class, 'index'])->name('tableaudebord');
             Route::resource('gestionnaires', GestionnaireController::class);
             Route::resource('universites', UniversiteController::class);
-            
         }
     );
 

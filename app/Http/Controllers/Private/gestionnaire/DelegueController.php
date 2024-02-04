@@ -1,26 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\private\Admin;
+namespace App\Http\Controllers\Private\gestionnaire;
 
 use App\Http\Controllers\Controller;
-use App\Models\Filiere;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class GestionnaireController extends Controller
+class DelegueController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $gestionnaires = User::whereHas('roles', function ($query) {
-            $query->where('name', 'Gestionnaire');
-        })->get();
-
-        return view('private.admin.gestionnaires.index', compact('gestionnaires'));
+        $delegues = Auth::user()->delegues()->get();
+        return view('private.gestionnaire.delegue.index', compact("delegues"));
     }
 
     /**
@@ -28,8 +24,7 @@ class GestionnaireController extends Controller
      */
     public function create()
     {
-        $filieres = Filiere::get();
-        return view('private.admin.gestionnaires.ajout', compact('filieres'));
+        return view('private.gestionnaire.delegue.ajout');
     }
 
     /**
@@ -64,15 +59,18 @@ class GestionnaireController extends Controller
                 ->withInput();
         }
 
+        if ($request->gestionnaire_id) {
+        }
+
         $user = User::create([
             'nom_prenom' => $request->nom_prenom,
             'email' => $request->email,
             'password' => $request->password,
-            'filiere_id' => $request->filiere_id,
+            'gestionnaire_id' => Auth::user()->id
         ]);
-        $user->assignRole('Gestionnaire');
+        $user->assignRole('Delegue');
 
-        return redirect()->route('admin.gestionnaires.index')->withMessage('Compte crée avec succès ! Votre délégué peut désormais se connecté a CAMPUS-AFFICHES.');
+        return redirect()->route('gestionnaire.delegues.index')->withMessage('Compte crée avec succès ! Votre délégué peut désormais se connecté a CAMPUS-AFFICHES.');
     }
 
     /**

@@ -29,9 +29,8 @@ class User extends Authenticatable
         'ine',
         'promotion',
         'ufr',
-        'filiere',
         'filiere_id',
-        'compte_delegue',
+        'gestionnaire_id',
         'niveau_licence',
     ];
 
@@ -89,5 +88,20 @@ class User extends Authenticatable
     public function getDay()
     {
         return $this->created_at->format('d/m/y');
+    }
+
+    public function gestionnaire()
+    {
+        return $this->belongsTo(User::class, 'gestionnaire_id');
+    }
+
+    public function filiere()
+    {
+        return $this->belongsTo(Filiere::class);
+    }
+
+    public function delegues()
+    {
+        return $this->hasMany(User::class, 'gestionnaire_id');
     }
 }

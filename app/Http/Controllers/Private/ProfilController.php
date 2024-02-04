@@ -93,56 +93,55 @@ class ProfilController extends Controller
 
     public function profil_edition_image_action(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'new_image' => 'required|file|mimes:jpeg,png,jpg|max:5120',
-            ],
-            [
-                'new_image.required' => 'Le champ image est requis.',
-                'new_image.file' => 'Le champ doit être un fichier.',
-                'new_image.mimes' => 'Le fichier doit être de type :values.',
-                'new_image.max' => 'La taille du fichier ne doit pas dépasser :max kilo-octets.',
-            ]
-        );
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        // dd($request->new_image);
-
-        $user = auth()->user(); // ou récupère l'utilisateur d'une autre manière
-
-        // Supprime l'image précédente s'il y en a une
-        if ($user->image) {
-            Storage::delete($user->image->url); // Supprime le fichier physique
-            $user->image->delete(); // Supprime l'entrée de la base de données
-        }
-
-        $photo_64 = $request->new_image; //your base64 encoded data
-        // $extension = explode('/', explode(':', substr($pdf_64, 0, strpos($pdf_64, ';')))[1])[1];   // .jpg .png .pdf
-        $replace = substr($photo_64, 0, strpos($photo_64, ',') + 1);
-        $file = str_replace($replace, '', $photo_64);
-        $myImage = str_replace(' ', '+', $file);
-        $filename = $request->file('new_image')->getClientOriginalName();
-
-        Storage::disk('public')->put('uploads/images/profil/' . $filename, base64_decode($myImage));
-        $path = 'uploads/images/profil/' . $filename;
-
-        $nouvelleImage = Image::updateOrCreate(
-            ['user_id' => $user->id],
-            [
-                'nom' => $request->file('new_image')->getClientOriginalName(),
-                'url' => $path,
-            ]
-        );
-
-        $user->image()->save($nouvelleImage);
-
-        return redirect()->back()->with('message', 'Image edité avec succès.');
+        // $validator = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'new_image' => 'required|file|mimes:jpeg,png,jpg|max:5120',
+        //     ],
+        //     [
+        //         'new_image.required' => 'Le champ image est requis.',
+        //         'new_image.file' => 'Le champ doit être un fichier.',
+        //         'new_image.mimes' => 'Le fichier doit être de type :values.',
+        //         'new_image.max' => 'La taille du fichier ne doit pas dépasser :max kilo-octets.',
+        //     ]
+        // );
+    
+        // if ($validator->fails()) {
+        //     return redirect()->back()
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
+    
+        // $user = auth()->user();
+    
+        // // Supprime l'image précédente s'il y en a une
+        // if ($user->image) {
+        //     Storage::delete($user->image->url); // Supprime le fichier physique
+        //     $user->image->delete(); // Supprime l'entrée de la base de données
+        // }
+    
+        // // Enregistre la nouvelle image
+        // $newImage = $request->file('new_image');
+        // $imageName = time() . '_' . $newImage->getClientOriginalName();
+        // $imagePath = 'uploads/images/profil/' . $imageName;
+    
+        // // Redimensionner l'image si nécessaire
+        // $img = InterventionImage::make($newImage->getRealPath());
+        // $img->resize(300, 300, function ($constraint) {
+        //     $constraint->aspectRatio();
+        // });
+    
+        // Storage::disk('public')->put($imagePath, $img->stream());
+    
+        // $nouvelleImage = Image::create([
+        //     'user_id' => $user->id,
+        //     'nom' => $newImage->getClientOriginalName(),
+        //     'url' => $imagePath,
+        // ]);
+    
+        // $user->image()->save($nouvelleImage);
+    
+        return redirect()->back()->with('message', 'Image éditée avec succès.');
     }
 
     public function profil_edition_email()
